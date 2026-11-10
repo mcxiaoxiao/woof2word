@@ -51,6 +51,54 @@ Rung-3 work that may eventually look like dialogue, without pretending that
 spontaneous barks contain sentences. It is also the ethically preferable
 path (Section~\ref{sec:ethics}).
 
+\subsection{Could there be an ``Attention Is All You Need'' moment for the dog?}
+The Transformer arrived as a machine-translation paper and became a
+general-purpose engine of the field~\cite{vaswani2017attention}. It is
+natural to ask whether one architectural insight could produce the same
+leap for canine decoding. The question deserves a careful answer, because
+the history of 2017 is usually told as a story about architecture, and it
+is equally a story about preconditions.
+
+Attention caught fire because three conditions were already in place.
+Human languages supply a productive, recursive target, so a generic
+sequence learner had genuine structure to acquire. Web-scale parallel
+corpora---Europarl, OPUS---supplied the supervision at
+scale~\cite{koehn2004europarl,tiedemann2012opus}. And reference translations
+gave the field a cheap, shared error signal, BLEU, against which thousands
+of groups could iterate~\cite{papineni2002bleu}. The architecture was the
+spark; target structure, parallel data, and a trustworthy error signal
+were the dry tinder.
+
+Auditing the canine case against those three conditions is sobering.
+The biological record shows graded, context-bound displays and no
+evidenced generative grammar, so the first condition is precisely what
+fails~\cite{pongracz2005barks,farago2017growls}. A bark--sentence bitext
+cannot be harvested from the web; it can only be constructed, and the
+soundboard is the first small constructed one~\cite{bastos2024plos}.
+The error signal is absent altogether, which is why the field cannot
+compound its progress (Section~\ref{sec:eval}). A new architecture,
+however elegant, lands on wet tinder.
+
+Yet the same history says that leaps begin when a representation makes
+hidden structure visible. The CETI alphabet multiplied the inventory of
+distinguishable coda forms nearly tenfold~\cite{sharma2024whale}; a
+comparable discovery of discrete, context-grounded units in canine
+displays would rewrite our ladder, and we state that falsifier plainly
+below. The more probable attention-moment is infrastructural: a grounded
+public corpus plus blind, closed-loop validation would supply the error
+signal that BLEU supplied to MT, with the dog's own behavior as the
+reference translation~\cite{bastos2024scirep,google2025dolphingemma}.
+When a field acquires a trustworthy error signal, progress begins to
+compound. That is the leap worth building toward.
+
+So yes: a leap is possible, and the door should stay open to empirical
+surprise. It will arrive as a discovery about the dog, or as a protocol
+that lets the dog correct us, and it will be recognizable by the same
+signature as 2017---suddenly, everyone can measure progress. Until then,
+the honest posture is the one any good listener adopts toward a companion
+whose language is not our own: attention, patience, and the willingness
+to be corrected.
+
 \subsection{What would falsify our thesis}
 A good survey states what would change its mind. Our central claim---that
 Rungs 4--5 are ill-posed for natural canine communication---would be
