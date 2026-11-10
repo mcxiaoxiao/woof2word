@@ -1,0 +1,76 @@
+\section{Ethics and Governance: Responsible Interspecies AI}
+\label{sec:ethics}
+
+A technology that claims to read an animal's mind carries obligations that
+a ordinary classifier does not. This section outlines an ethics framework
+for canine communication AI, organized around welfare, honesty, privacy,
+and the moral status of the animal as a communication partner.
+
+\subsection{Welfare first: do no harm}
+The most immediate risk is that a flattering ``translation'' displaces
+attention to the dog's real signals. An owner told ``she says she loves
+you'' may overlook the flattened ears, the whale eye, the lip lick that
+signal stress; an owner told ``my tummy hurts'' may either over-react or,
+worse, dismiss genuine pain when the app stays silent. The critical-review
+literature on canine emotion perception is explicit that human observers
+already project their categories onto dogs~\cite{sci2022explainable}; a
+resonant language model amplifies the projection. A welfare-first design
+therefore (i) surfaces calibrated state estimates with uncertainty, not
+sentences; (ii) never suppresses or contradicts observable body signals;
+and (iii) routes high-stakes inferences (pain, aggression, distress) to
+human or veterinary review. Data collection itself must be non-invasive:
+passive audio and video, no induced stress to elicit ``training'' barks.
+
+\subsection{Honesty: labeling interpretation as interpretation}
+The honesty obligation follows directly from the evaluation crisis
+(Section~\ref{sec:eval}). A system must not present a generative rendering
+as a measurement. Concretely: separate the calibrated classifier output
+from the narrative interface; label the latter as interpretation; disclose
+that accuracy figures refer to emotion classification, not translation;
+and refrain from reverse-direction claims (human-to-dog ``speech'') that
+have no validation. The Ig Nobel history of Bow-Lingual is a reminder that
+the market rewards the appearance of understanding; governance should
+reward the substance.
+
+\subsection{Privacy: the home as sensor}
+Canine monitors live in the home, always-on, capturing audio and video that
+inevitably include humans. The data flywheel that improves the classifier
+also accumulates intimate domestic recordings. Privacy-by-design---on-device
+inference where possible (the DolphinGemma-on-Pixel precedent is
+instructive~\cite{google2025dolphingemma}), minimal retention, explicit
+consent for cloud training, and clear deletion---is not optional. The
+animal cannot consent; the human household must, and the design should
+make that consent meaningful.
+
+\subsection{The animal as partner, not oracle}
+Finally, there is a conceptual obligation. Treating the dog as an oracle
+whose ``words'' we extract instrumentalizes it and flattens its
+communicative life into a human format. The soundboard paradigm is
+ethically attractive precisely because it treats the dog as a
+\emph{partner} in a shared, negotiated symbol system, with the dog's
+behavior as the check~\cite{bastos2024plos,bastos2024scirep}. The
+cross-species community is beginning to formalize this: CETI's leadership
+has stressed that any breakthrough in whale communication should be a
+collective human decision, with responsible-interaction guidelines developed
+before signals are sent to wild animals. The canine analogue is to validate
+through the dog's response, to avoid anthropomorphic over-claiming, and to
+keep the animal's welfare as the terminal criterion.
+
+\subsection{A governance checklist}
+We summarize the framework as a checklist for builders and reviewers:
+\begin{enumerate}[label=(\arabic*)]
+  \item Report Rung-2 metrics on public, held-out data with calibration;
+  never label them ``translation accuracy.''
+  \item Separate interpretation (narrative) from measurement (classifier);
+  label both clearly.
+  \item Validate intent claims closed-loop and blind; otherwise call them
+  hypotheses.
+  \item Collect passively; infer on-device where feasible; minimize
+  retention; obtain meaningful household consent.
+  \item Route high-stakes outputs to human/veterinary review; never
+  override observable body signals.
+  \item Treat the animal as a partner; keep welfare as the terminal
+  criterion.
+\end{enumerate}
+None of this slows the useful science; all of it protects the animals and
+the credibility of the field.

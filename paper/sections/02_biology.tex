@@ -1,0 +1,166 @@
+\section{What Dogs Actually Signal: The Biological Substrate}
+\label{sec:biology}
+
+Before asking whether a machine can translate a dog, we must ask what there
+is to translate. Canine communication is multimodal, graded, and heavily
+context-dependent. It is also, crucially, \emph{asymmetric}: much of what a
+dog ``says'' is addressed to humans, and the dog's receptive understanding of
+human signals far exceeds its productive repertoire. This section reviews
+the channels and the evidence that each carries decodable information.
+Table~\ref{tab:channels} summarizes the landscape.
+
+\subsection{Vocalizations: barks, growls, whines}
+The domestic dog is unusually vocal for a canid, a trait widely interpreted
+as a product of domestication and paedomorphosis. The ELTE Budapest
+ethology group has built the most systematic body of evidence on what barks
+encode. Pongr\'acz and colleagues showed that human listeners can classify
+barks recorded in different behavioral situations above
+chance~\cite{pongracz2005barks}, and that acoustic parameters---fundamental
+frequency, tonality, and inter-bark interval---carry emotional information
+that listeners reliably extract~\cite{pongracz2006acoustic}. Later work
+established that barks also carry \emph{individual identity}: listeners can
+discriminate dogs from bark acoustics alone~\cite{molnar2006discriminate},
+and machine classifiers applied to thousands of barks from a kennel of
+Hungarian sheepdogs recovered both context and individual at rates well
+above chance, with ``stranger at the fence'' and ``fight'' contexts most
+separable and ``play'' least. Growls are even more informative: Farag\'o et
+al.\ demonstrated that human listeners judge a dog's size and aggressive
+intent from growl formants, and that growls produced in food-guarding versus
+play contexts are acoustically and perceptually
+distinct~\cite{farago2017growls}. Whines and whimpers, associated with
+separation and submission, complete a repertoire that is graded rather than
+discrete.
+
+The engineering literature has begun to automate exactly these judgments.
+The ICASSP 2018 study ``What is my dog trying to tell me?'' framed bark
+analysis as automatic recognition of \emph{context} and \emph{perceived
+emotion}~\cite{icassp2018dogbark}, explicitly building on the ELTE
+psychophysics. The important nuance---which we will return to in
+Section~\ref{sec:eval}---is that the target label is the \emph{human-perceived}
+emotion or the \emph{eliciting context}, not the dog's ``intended message.''
+The model learns a mapping that humans already agree on; it does not recover
+a hidden sentence.
+
+\subsection{The face: DogFACS and the ``puppy dog eyes'' effect}
+Canine facial behavior is codable with the same rigor as human facial
+action coding. DogFACS, the Dog Facial Action Coding
+System~\cite{waller2013dogfacs}, adapts Ekman and Friesen's FACS to the
+musculature of the dog face, defining action units (e.g., AU101, the inner
+brow raiser) and ear action descriptors. Using DogFACS, Kaminski et al.\
+showed that dogs produce markedly more facial movement---especially the
+inner brow raiser that enlarges the apparent eye---when a human is
+\emph{attending} to them than when the human's back is turned, and that the
+presence of food does not drive the effect~\cite{kaminski2017attention}.
+This is a striking result: it suggests the ``puppy dog eyes'' expression is
+a \emph{communicative} signal tuned to human attention, possibly shaped by
+selection during domestication, rather than a mere reflex of internal
+state. A 2024 comparative study further reported that domestication
+\emph{constrains} the dog's facial expressiveness relative to
+wolves~\cite{sci2024domestication}, complicating any simple ``dogs emote
+freely'' narrative.
+
+Automated facial analysis is now an active computer-vision subfield.
+Explainable CNN pipelines recognize emotional states from canine facial
+action patterns~\cite{sci2022explainable}, improved optimization schemes
+push expression-recognition accuracy~\cite{sci2023cnnewoa}, and 2025 work
+automates emotional-expression analysis end to end~\cite{sci2025automated}
+and standardizes facial landmark detection~\cite{sci2025landmarks}. These
+are genuine advances---but, again, their labels are human-coded affective
+categories or DogFACS action units, not propositions.
+
+\subsection{The body: posture, tail, and gaze}
+A large fraction of everyday canine signaling is postural: ear position,
+tail carriage and wag direction, weight distribution, piloerection, and
+gaze. Classic work reported lateralized tail-wagging biases tied to
+approach versus withdrawal motivation, and the broader ethogram of
+dominance, submission, play (the play bow), and stress is well documented in
+the clinical literature. Body signals are often \emph{more} diagnostic than
+vocalizations, a point commercial vendors themselves concede: Traini's
+founder has stated that audio alone is insufficient and that combining body
+language and facial expression raises accuracy. This is an implicit
+admission that the ``translation'' is really multimodal affect
+classification. Olfactory signaling---urine marking, pheromonal
+communication---is enormously important to dogs but essentially inaccessible
+to current consumer sensors, and we flag it as a blind spot rather than a
+solved channel.
+
+\subsection{Reception: dogs understand more than they say}
+Any honest account must separate what dogs \emph{produce} from what they
+\emph{comprehend}. The receptive side is impressive. Rico, a border collie,
+provided the first evidence of ``fast mapping''---inferring a novel word's
+referent by exclusion---in \emph{Science}~\cite{kaminski2004rico}. Chaser,
+another border collie, was documented retrieving 1{,}022 named objects and
+responding to simple noun--verb combinations~\cite{pilley2011chaser}. These
+are exceptional, intensively trained individuals, but they establish an
+upper bound on referential comprehension that is far higher than the
+productive repertoire. The asymmetry matters: a future ``dialogue'' system
+may succeed by letting dogs \emph{receive} structured human input (as
+soundboards do) long before it can \emph{read} structured canine output.
+
+\subsection{Soundboards: the closest thing to canine ``speech''}
+The most direct attempt to give dogs a productive symbolic channel is the
+augmentative interspecies communication (AIC) soundboard: a grid of buttons
+that each speak a recorded word when pressed. Popularized by speech
+pathologist Christina Hunger and the Instagram dog Bunny, the phenomenon is
+now under controlled study by Federico Rossano's UC San Diego
+\emph{TheyCanTalk} project, which tracks thousands of button-using pets
+across dozens of countries. Two 2024 peer-reviewed papers anchor the
+science. Bastos et al.\ (\emph{PLoS ONE}) showed that soundboard-trained dogs
+respond appropriately to words such as ``play'' and ``outside'' whether the
+word is spoken by the owner or triggered by an unfamiliar button-presser,
+indicating word comprehension rather than cue-reading~\cite{bastos2024plos}.
+A companion \emph{Scientific Reports} paper analyzed two-button
+combinations and found them to be non-accidental, non-random, and
+non-imitative---evidence of intentional, if linear,
+combination~\cite{bastos2024scirep}. A 2025 review synthesizes the evidence
+and the skepticism~\cite{animalcog2025review}. The consensus interpretation
+is careful: the combinations look like associative sequences (name\,+\,action,
+place\,+\,go), not recursive grammar; spatial and immediate concepts
+(``outside,'' ``paw'') are robust, while temporal abstractions
+(``yesterday,'' ``tomorrow'') are rare and inconsistent. Soundboards thus
+demonstrate \emph{referential intent} on the third rung of our ladder---but
+they do so by giving the dog a human-designed symbol set, not by decoding
+the dog's natural signal.
+
+\begin{table}[t]
+\centering
+\caption{Canine communication channels, the information they carry, and the
+strongest evidence. ``Decodable today'' refers to validated, above-chance
+machine or human inference on a defined label---not to sentence-level
+translation.}
+\label{tab:channels}
+\small
+\begin{tabular}{@{}p{2.5cm}p{4.1cm}p{4.0cm}p{2.6cm}@{}}
+\toprule
+\textbf{Channel} & \textbf{Information encoded} & \textbf{Key evidence} & \textbf{Decodable today} \\
+\midrule
+Bark & Affect, arousal, context, individual identity &
+Pongr\'acz et al.~\cite{pongracz2005barks,pongracz2006acoustic};
+Moln\'ar et al.~\cite{molnar2006discriminate} & Affect/context (above chance) \\
+Growl & Body size, aggressive intent, resource-guarding vs.\ play &
+Farag\'o et al.~\cite{farago2017growls} & Size/intent (human + ML) \\
+Whine/whimper & Separation distress, submission & Ethological observation &
+Coarse affect \\
+Face (DogFACS) & Attention-directed signals, affective state &
+Waller et al.~\cite{waller2013dogfacs}; Kaminski et al.~\cite{kaminski2017attention} &
+Action units; affect (CNN) \\
+Body/tail/gaze & Motivation, stress, play, social intent &
+Clinical ethograms; wag-laterality studies & Posture classes \\
+Olfaction & Identity, reproductive state, territory &
+Scent-marking literature & \emph{Not} sensor-accessible \\
+Reception (input) & Human word referents (up to 1{,}022) &
+Kaminski et al.~\cite{kaminski2004rico}; Pilley \& Reid~\cite{pilley2011chaser} &
+Comprehension, not production \\
+Soundboard (AIC) & Referential intent via human symbols &
+Bastos et al.~\cite{bastos2024plos,bastos2024scirep} &
+Word-level intent (trained) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The takeaway}
+The biological substrate is real and rich: dogs signal affect, arousal,
+identity, motivation, and---with human scaffolding---referential intent.
+What the substrate does \emph{not} contain is an open-ended generative
+grammar. This single fact, more than any limitation of current models,
+bounds what ``translation'' can mean. We formalize that bound next.

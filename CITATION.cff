@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this survey, please cite it as below."
+title: "The Canine Rosetta Stone: How Far Are We from Translating What Dogs Say? A Survey"
+type: dataset
+authors:
+  - name: "The dog2text Project"
+year: 2026
+date-released: "2026-11-10"
+url: "https://github.com/mcxiaoxiao/dog2text"
+repository-code: "https://github.com/mcxiaoxiao/dog2text"
+license: MIT
+keywords:
+  - animal communication
+  - bioacoustics
+  - foundation models
+  - canine cognition
+  - DogFACS
+  - semantic grounding
+  - interspecies interaction
+  - survey
+abstract: >
+  An evidence-bounded survey asking how far we are from translating what
+  dogs say. It introduces a five-rung translation ladder (signal, affect,
+  intent, reference, dialogue), synthesizes canine behavioral biology,
+  cross-species decoding projects (CETI, DolphinGemma, Earth Species
+  Project), and the commercial pet-translator landscape, and identifies a
+  semantic gap and a falsifiability crisis. Conclusion: validated
+  affect-and-intent inference is plausible this decade; faithful open-ended
+  translation of canine language may be permanently ill-posed.

@@ -1,0 +1,87 @@
+\section{Introduction: The Oldest Dream of Domestication}
+\label{sec:intro}
+
+For at least fifteen thousand years---and by some accounts more than
+thirty thousand---humans have lived alongside dogs, and for nearly as long we
+have wanted to know what they are saying. The wish is older than science:
+folktales grant the hero a magic fern-seed or a drop of dragon's blood that
+lets him understand the speech of beasts. What is new is that the wish now
+arrives packaged as a product. A smartphone application records a bark and
+returns a sentence---``I want to play,'' ``my tummy hurts,'' ``I love
+you''---in under a second. The vendor advertises an accuracy. The number is
+large. And the curious reader is left with a question that turns out to be
+surprisingly hard to answer: \emph{how far are we, actually, from translating
+what a dog says?}
+
+This survey takes that question seriously and refuses to answer it with a
+single number. ``Translation'' is not one capability but a stack of them, and
+the distance to each layer is different. A system that reports whether a dog
+is relaxed or distressed is doing something real and useful; a system that
+claims to render the dog's ``words'' as an English sentence is doing
+something else, and the difference between the two is not a matter of degree
+but of kind. Our central move is to make that stack explicit---a five-rung
+\emph{translation ladder} (Section~\ref{sec:ladder})---and to locate current
+research and current products on it. The headline finding is easy to state
+and, we will argue, well supported: \textbf{today's best systems live on the
+second rung, affect classification, with a handful of careful laboratory
+studies reaching toward the third.} Everything above that remains either
+aspirational or, in the strong sense, ill-posed.
+
+\subsection{Why now: three converging currents}
+Three developments make this the right moment for such a survey. First,
+\emph{bioacoustic foundation models} have matured. Self-supervised encoders
+trained on animal sound---AVES~\cite{hagiwara2023aves}, the audio--language
+model NatureLM-audio~\cite{robinson2024naturelm}, and Google DeepMind's Perch
+line~\cite{ghani2023perch}---now transfer across species and tasks, and
+standardized benchmarks such as BEANS~\cite{hagiwara2023beans} and BirdSet
+give the field common measuring sticks. Second, \emph{flagship decoding
+projects} have produced concrete, peer-reviewed structure discoveries:
+Project CETI's sperm-whale ``phonetic alphabet''~\cite{sharma2024whale},
+Google's DolphinGemma sequence model~\cite{google2025dolphingemma}, and the
+Earth Species Project's interactive songbird work. Third, \emph{canine
+cognition} has its own empirical renaissance, from the ELTE Budapest group's
+decades of bark and growl psychophysics~\cite{pongracz2005barks,farago2017growls}
+to the UC San Diego soundboard studies that put ``talking buttons'' under
+controlled observation~\cite{bastos2024plos,bastos2024scirep}. The
+intersection of these three currents is exactly the space this paper maps.
+
+\subsection{The thesis in one paragraph}
+A dog's communicative repertoire is rich, multimodal, and genuinely
+informative---but it is, in the technical sense, a \emph{signaling system}
+rather than a \emph{language}. It encodes affect, arousal, motivational
+state, individual identity, and some referential content (a specific toy, a
+specific door), yet it lacks the open-ended, recursive, generative syntax
+that human language translation presupposes. Consequently, ``translating
+what a dog says'' is, above the level of affect and intent, partly a
+\emph{category error}: there may be no sentence-shaped meaning in the signal
+to recover. This is not a counsel of despair. It reframes the achievable
+goal---validated, calibrated affect-and-intent inference---and exposes why
+the field's most quotable numbers (``81.5\% accuracy,'' ``94.6\% accuracy'')
+are, as presently defined, close to meaningless: there is no ground-truth
+intended message to score a translation against. We call this the
+\emph{falsifiability problem}, and it is the methodological heart of the
+survey (Section~\ref{sec:eval}).
+
+\subsection{Contributions and organization}
+This paper makes four contributions.
+\begin{enumerate}[label=(\arabic*)]
+  \item \textbf{A conceptual ladder} that separates signal, affect, intent,
+  reference, and dialogue, and uses it to adjudicate over-claiming
+  (Section~\ref{sec:ladder}, Figure~\ref{fig:ladder}).
+  \item \textbf{A unified technical synthesis} of the decoding pipeline---%
+  encoding, structure discovery, grounding, validation---connecting canine
+  work to the broader cross-species literature
+  (Sections~\ref{sec:biology}--\ref{sec:crossspecies}).
+  \item \textbf{A critical audit} of commercial ``pet translators'' and the
+  evaluation crisis that surrounds them
+  (Sections~\ref{sec:products}--\ref{sec:eval}).
+  \item \textbf{An honest distance estimate and roadmap}, with confidence
+  bands and an ethics framework
+  (Sections~\ref{sec:distance}--\ref{sec:future}, Figure~\ref{fig:roadmap}).
+\end{enumerate}
+Section~\ref{sec:biology} grounds the discussion in what dogs actually
+signal; Section~\ref{sec:conclusion} concludes. Throughout, we keep two
+registers separate: what is \emph{measured} (peer-reviewed effect sizes,
+model metrics on defined tasks) and what is \emph{claimed} (vendor
+accuracies, press-release superlatives). The gap between those registers is,
+in a real sense, the subject of this paper.

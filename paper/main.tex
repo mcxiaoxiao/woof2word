@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% The Canine Rosetta Stone: How Far Are We from Translating What Dogs Say?
+% A survey of cross-species communication decoding in the age of foundation
+% models. Repo: dog2text.  Compile: tectonic main.tex
+% ---------------------------------------------------------------------------
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,backgrounds,fit,calc,decorations.pathreplacing,patterns}
+\usetikzlibrary{patterns.meta}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+
+% ---- Palette (shared with the project page) -------------------------------
+\definecolor{ink}{HTML}{2B2B33}
+\definecolor{cream}{HTML}{FBF7F0}
+\definecolor{paw}{HTML}{E8A87C}
+\definecolor{pawdeep}{HTML}{C97B4A}
+\definecolor{sage}{HTML}{8FB996}
+\definecolor{sagedeep}{HTML}{4E7C59}
+\definecolor{sky}{HTML}{9CC5E8}
+\definecolor{skydeep}{HTML}{3E6E99}
+\definecolor{rose}{HTML}{E7A6B0}
+\definecolor{rosedeep}{HTML}{B05C6A}
+\definecolor{gold}{HTML}{E9C46A}
+\definecolor{gap}{HTML}{F4D9D0}
+
+\color{ink}
+\captionsetup{font=small,labelfont=bf}
+\setlist{itemsep=2pt,topsep=3pt,parsep=0pt}
+\linespread{1.12}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\itshape The Canine Rosetta Stone}
+\fancyhead[R]{\small\texttt{dog2text}}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\newcommand{\rung}[1]{\textbf{#1}}
+\newcommand{\sys}[1]{\textsc{#1}}
+\newcommand{\num}[1]{\textbf{#1}}
+
+\title{\vspace{-1.2cm}\textbf{\Huge The Canine Rosetta Stone}\\[0.35cm]
+\Large How Far Are We from Translating What Dogs Say?\\[0.25cm]
+\large A Survey of Cross-Species Communication Decoding\\ in the Age of Foundation Models}
+\author{\textbf{The \texttt{dog2text} Project}\\[0.15cm]
+\small An open, evidence-bounded literature survey\\
+\small \href{https://github.com/mcxiaoxiao/dog2text}{\texttt{github.com/mcxiaoxiao/dog2text}}}
+\date{\small November 2026\quad\textbullet\quad Version 1.0}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+\begin{abstract}
+\noindent
+Can a machine turn a bark into a sentence? Consumer products already claim to
+``translate'' dog vocalizations with accuracies above 80\%, while landmark
+projects such as Project CETI, Google's DolphinGemma, and the Earth Species
+Project apply foundation models to sperm whales, dolphins, and songbirds. This
+survey asks a deliberately narrow question: \emph{how far are we, really, from
+translating what a dog says?} We organize the answer around a five-rung
+``translation ladder''---signal detection, affect classification, intent and
+context inference, referential semantics, and open-ended dialogue---and argue
+that today's systems sit firmly on the second rung, with scattered footholds on
+the third. We synthesize three bodies of evidence: (i) the behavioral biology of
+canine communication (barks, growls, DogFACS facial actions, body posture, and
+soundboard button use); (ii) the technical pipeline that would be required for
+genuine translation (self-supervised acoustic encoding, sequence-structure
+discovery, semantic grounding, and interactive validation); and (iii) the
+commercial landscape and its evaluation crisis. We identify a central
+\emph{semantic gap}: dogs possess a rich affective and referential signaling
+system but lack the recursive, generative syntax that human translation
+presupposes, so ``translation'' is partly a category error. We further show that
+the field's headline accuracies are largely \emph{unfalsifiable}, because no
+ground-truth ``intended message'' exists to score against. We close with a
+capability roadmap, an honest distance estimate, and an ethics framework for
+responsible interspecies AI. Our conclusion is neither dismissive nor
+utopian: useful, validated \emph{affect-and-intent} translation is plausible
+within this decade, while faithful open-ended translation of canine
+``language'' may remain permanently out of reach---not for lack of model
+scale, but for lack of a language to translate.
+\end{abstract}
+
+\vspace{0.3cm}
+\noindent\textbf{Keywords:} animal communication, bioacoustics, foundation
+models, canine cognition, DogFACS, semantic grounding, interspecies
+interaction, evaluation, research ethics.
+
+\vspace{0.2cm}
+\noindent\textbf{A note on scope and method.} This is a narrative,
+evidence-bounded survey, not a PRISMA systematic review. Sources were gathered
+through structured web and literature search in November 2026; peer-reviewed
+publications, preprints, project reports, and journalism are distinguished
+throughout, and commercial accuracy claims are reported \emph{as claims}, not
+as verified results. Section~\ref{sec:eval} treats the verification problem
+explicitly.
+
+\newpage
+\tableofcontents
+\newpage
+
+\input{sections/01_introduction}
+\input{sections/02_biology}
+\input{sections/03_ladder}
+\input{sections/04_pipeline}
+\input{sections/05_crossspecies}
+\input{sections/06_products}
+\input{sections/07_evaluation}
+\input{sections/08_distance}
+\input{sections/09_ethics}
+\input{sections/10_future}
+\input{sections/11_conclusion}
+
+\input{sections/12_bibliography}
+
+\end{document}

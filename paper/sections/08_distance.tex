@@ -1,0 +1,88 @@
+\section{So How Far Are We? An Honest Distance Estimate}
+\label{sec:distance}
+
+We can now answer the title question without evasion. The answer is not a
+number of years but a map: the distance depends entirely on which rung of
+the ladder one means, and the rungs differ not by degree but by kind.
+Table~\ref{tab:distance} gives our estimate, with the evidence and the
+dominant blocker for each.
+
+\subsection{Rung 1--2: essentially here, and useful}
+Signal detection and affect classification are solved in the laboratory
+and shipping in products. The remaining work is engineering and
+validation---public benchmarks, calibration, multimodal fusion---not
+discovery. A calibrated, validated welfare monitor that reports arousal and
+valence with honest uncertainty is plausibly a \textbf{2--4 year} horizon
+from the research frontier to reliable deployment. This is the genuinely
+useful payoff: early stress or pain detection, shelter welfare assessment,
+veterinary triage. It is not ``translation,'' and calling it such would
+oversell it; but it is real.
+
+\subsection{Rung 3: a foothold, a decade of work}
+Intent and context inference on \emph{natural} signals is emerging. The
+soundboard literature proves that referential intent exists and is
+checkable~\cite{bastos2024plos,bastos2024scirep}, but it does so with
+human-supplied symbols. Extending this to spontaneous barks, faces, and
+postures---fusing modalities, modeling goals, validating closed-loop---is a
+research program, not a product cycle. We estimate \textbf{validated
+natural-signal intent inference at roughly 2030 or later}, contingent on
+the evaluation infrastructure of Section~\ref{sec:eval} being built. The
+blocker is not model capacity; it is labeled, grounded, validated data.
+
+\subsection{Rung 4--5: possibly never, and that is informative}
+Open referential translation and free dialogue presuppose a generative
+symbolic system in the dog that the biological evidence does not support.
+Here the honest answer is \textbf{no credible timeline}, and the reason is
+not pessimism about AI but a fact about the subject: there may be no
+language there to translate. This is the survey's central, deflationary
+claim. It does not rule out an \emph{engineered} dialogue---structured
+human-to-dog input via trained symbols, with the dog responding through a
+soundboard---which is a Rung-3 artifact wearing Rung-5 clothing. But faithful
+translation of spontaneous canine ``speech'' into English sentences is, in
+the strong sense, ill-posed, and more compute will not fix a category error.
+
+\subsection{Why ``more scale'' is not the answer}
+It is tempting to read the cross-species successes as evidence that scaling
+foundation models will eventually crack the dog. The reading is mistaken.
+CETI, DolphinGemma, and the finch models advance \emph{structure discovery
+and generation}---the front of the pipeline. They do not supply semantics,
+and their authors say so~\cite{sharma2024whale,google2025dolphingemma}. The
+canine bottleneck is at the \emph{back} of the pipeline (grounding,
+validation) and, above Rung 3, in the subject itself. Scaling the encoder
+makes Rung 1--2 better; it does not create a grammar that is not there.
+The distance to Rung 5 is therefore not a function of parameters but of
+biology.
+
+\subsection{The reframe: from translation to interpretation}
+The productive move is to stop asking ``when will we translate dogs?'' and
+start asking ``how well can we \emph{interpret} canine state, with calibrated
+uncertainty and animal-grounded validation?'' That question has answers,
+has metrics, and has welfare value. It also respects the animal: it treats
+the dog as a signaler with its own modalities, not as a defective human
+whose sentences we are waiting to recover. The Rosetta Stone metaphor that
+titles this survey is, in the end, a warning as much as a promise: the
+Rosetta Stone worked because the same decree existed in three scripts. For
+the dog, there may be no decree---only a rich, graded, affective life that
+we can learn to read, but not to transcribe.
+
+\begin{table}[t]
+\centering
+\caption{Distance estimate by rung. Horizons are judgments from the
+evidence reviewed, not predictions; ``blocker'' names the dominant
+obstacle. Rungs 4--5 are marked ill-posed because the requisite generative
+symbolic system is not evidenced in natural canine communication.}
+\label{tab:distance}
+\small
+\begin{tabular}{@{}p{2.7cm}p{2.5cm}p{4.0cm}p{3.6cm}@{}}
+\toprule
+\textbf{Rung} & \textbf{Status} & \textbf{Horizon} & \textbf{Dominant blocker} \\
+\midrule
+1 Signal & Solved & Now & Engineering only \\
+2 Affect & Shipping & 2--4 yr to validated welfare use &
+Calibration, public benchmarks \\
+3 Intent & Foothold & $\sim$2030+ & Grounded, validated data \\
+4 Reference & Unproven & No credible timeline & No productive symbol system \\
+5 Dialogue & Ill-posed & Possibly never & No generative grammar in subject \\
+\bottomrule
+\end{tabular}
+\end{table}

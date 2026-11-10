@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dog2text · The Canine Rosetta Stone</title>
+<meta name="description" content="How far are we from translating what dogs say? An open, evidence-bounded survey with a five-rung translation ladder.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF7F0; --ink:#2B2B33; --ink-soft:#5b5b66;
+    --paw:#E8A87C; --paw-deep:#C97B4A;
+    --sage:#8FB996; --sage-deep:#4E7C59;
+    --sky:#9CC5E8; --sky-deep:#3E6E99;
+    --rose:#E7A6B0; --rose-deep:#B05C6A;
+    --gold:#E9C46A; --card:#FFFFFF; --line:#efe6d8;
+    --shadow:0 10px 30px rgba(80,60,40,.10);
+    --radius:22px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+    line-height:1.6; -webkit-font-smoothing:antialiased;
+    background-image:radial-gradient(#f0e7d8 1px,transparent 1px);
+    background-size:26px 26px;
+  }
+  a{color:var(--paw-deep); text-decoration:none; font-weight:700}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
+  :focus-visible{outline:3px solid var(--sky-deep); outline-offset:3px; border-radius:8px}
+
+  /* top bar */
+  header.top{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
+    background:rgba(251,247,240,.82); border-bottom:1px solid var(--line)}
+  .top .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
+  .brand{display:flex; align-items:center; gap:10px; font-weight:900; font-size:1.15rem; letter-spacing:-.5px}
+  .brand .paw{width:26px;height:26px}
+  .lang{display:flex; gap:4px; background:#fff; border:1px solid var(--line);
+    border-radius:999px; padding:4px}
+  .lang button{border:0; background:transparent; cursor:pointer; font:inherit; font-weight:800;
+    padding:5px 14px; border-radius:999px; color:var(--ink-soft)}
+  .lang button[aria-pressed="true"]{background:var(--paw); color:#fff}
+
+  /* hero */
+  .hero{padding:64px 0 40px; text-align:center; position:relative}
+  .mascot{width:150px; height:150px; margin:0 auto 8px; display:block;
+    filter:drop-shadow(0 12px 18px rgba(120,80,50,.18))}
+  .hero h1{font-size:clamp(2.4rem,6vw,3.6rem); margin:.2em 0 .1em; font-weight:900; letter-spacing:-1.5px}
+  .hero h1 .accent{color:var(--paw-deep)}
+  .hero .kicker{font-weight:800; color:var(--sage-deep); letter-spacing:2px; text-transform:uppercase; font-size:.8rem}
+  .hero .sub{font-size:clamp(1.05rem,2.5vw,1.35rem); color:var(--ink-soft); max-width:620px; margin:.4em auto 0; font-weight:600}
+  .cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:30px}
+  .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px;
+    font-weight:800; font-size:1rem; box-shadow:var(--shadow); transition:transform .15s ease}
+  .btn:hover{transform:translateY(-2px); text-decoration:none}
+  .btn.primary{background:var(--paw); color:#fff}
+  .btn.ghost{background:#fff; color:var(--ink); border:2px solid var(--line)}
+  .woof{margin-top:26px; font-weight:800; color:var(--ink-soft); font-size:.95rem}
+  .woof b{color:var(--paw-deep)}
+
+  section{padding:46px 0}
+  .sec-head{text-align:center; max-width:640px; margin:0 auto 34px}
+  .sec-head h2{font-size:clamp(1.7rem,4vw,2.3rem); font-weight:900; letter-spacing:-1px; margin:.1em 0}
+  .sec-head p{color:var(--ink-soft); font-weight:600; margin:.3em 0 0}
+  .eyebrow{font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:.75rem; color:var(--paw-deep)}
+
+  /* ladder */
+  .ladder{display:flex; flex-direction:column-reverse; gap:12px; max-width:720px; margin:0 auto}
+  .rung{display:flex; align-items:center; gap:16px; background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); padding:16px 20px; box-shadow:var(--shadow); position:relative}
+  .rung .n{flex:0 0 46px; height:46px; border-radius:14px; display:grid; place-items:center;
+    font-weight:900; font-size:1.3rem; color:#fff}
+  .rung .txt{flex:1}
+  .rung .txt b{font-size:1.1rem}
+  .rung .txt span{display:block; color:var(--ink-soft); font-weight:600; font-size:.92rem}
+  .rung .stat{font-weight:800; font-size:.85rem; padding:5px 12px; border-radius:999px; white-space:nowrap}
+  .r1 .n{background:var(--sky-deep)} .r1 .stat{background:#e7f1fa; color:var(--sky-deep)}
+  .r2 .n{background:var(--sage-deep)} .r2 .stat{background:#e9f3ec; color:var(--sage-deep)}
+  .r3 .n{background:#caa53d} .r3 .stat{background:#fbf2d8; color:#9a7d1e}
+  .r4 .n{background:var(--paw-deep)} .r4 .stat{background:#fbeadd; color:var(--paw-deep)}
+  .r5 .n{background:var(--rose-deep)} .r5 .stat{background:#fbe7ea; color:var(--rose-deep)}
+  .rung.here{border:2px solid var(--sage-deep)}
+  .here-tag{position:absolute; top:-12px; right:18px; background:var(--sage-deep); color:#fff;
+    font-weight:800; font-size:.72rem; padding:3px 12px; border-radius:999px; letter-spacing:.5px}
+  .gap{max-width:720px; margin:14px auto; text-align:center; border-top:2px dashed var(--rose-deep);
+    position:relative; padding-top:12px}
+  .gap span{display:inline-block; background:var(--cream); padding:0 14px; color:var(--rose-deep);
+    font-weight:800; font-size:.9rem; transform:translateY(-26px)}
+  .gap small{display:block; color:var(--ink-soft); font-weight:600; margin-top:-14px}
+
+  /* answer cards */
+  .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
+  .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:26px 24px; box-shadow:var(--shadow)}
+  .card .big{font-size:2rem; font-weight:900; letter-spacing:-1px}
+  .card h3{margin:.2em 0 .4em; font-size:1.15rem}
+  .card p{color:var(--ink-soft); font-weight:600; margin:0; font-size:.95rem}
+  .card.c1 .big{color:var(--sage-deep)} .card.c2 .big{color:#caa53d} .card.c3 .big{color:var(--rose-deep)}
+
+  /* bark lab */
+  .lab{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
+    padding:30px; max-width:720px; margin:0 auto; text-align:center}
+  .barks{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:18px 0 22px}
+  .bark-btn{border:2px solid var(--line); background:var(--cream); border-radius:18px; cursor:pointer;
+    font:inherit; font-weight:800; padding:14px 18px; display:flex; flex-direction:column; align-items:center; gap:6px;
+    transition:transform .12s ease, border-color .12s ease; min-width:96px}
+  .bark-btn:hover{transform:translateY(-3px)}
+  .bark-btn[aria-pressed="true"]{border-color:var(--paw); background:#fff}
+  .bark-btn .emo{font-size:1.7rem}
+  .result{background:var(--cream); border-radius:20px; padding:22px; min-height:150px}
+  .meter{display:flex; align-items:center; gap:12px; justify-content:center; margin-bottom:14px; flex-wrap:wrap}
+  .meter .label{font-weight:800; color:var(--sage-deep)}
+  .bar{width:200px; height:12px; background:#eee2d0; border-radius:999px; overflow:hidden}
+  .bar i{display:block; height:100%; background:linear-gradient(90deg,var(--sage),var(--paw)); width:0; transition:width .6s ease}
+  .quote{font-size:1.3rem; font-weight:800; color:var(--ink); margin:6px 0}
+  .disclaimer{font-size:.82rem; color:var(--ink-soft); font-weight:600; margin-top:12px; font-style:italic}
+
+  /* figures */
+  .figs{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+  .fig{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+  .fig img{width:100%; height:auto; border-radius:12px; display:block}
+  .fig figcaption{font-weight:700; color:var(--ink-soft); font-size:.9rem; text-align:center; margin-top:10px}
+
+  footer{border-top:1px solid var(--line); padding:40px 0 60px; text-align:center; color:var(--ink-soft)}
+  footer .paw{width:30px;height:30px; margin-bottom:8px}
+  footer .links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:14px 0; font-weight:700}
+  footer small{font-weight:600}
+
+  @media (max-width:760px){
+    .cards{grid-template-columns:1fr}
+    .figs{grid-template-columns:1fr}
+    .rung .stat{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important; scroll-behavior:auto!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- paw symbol -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="paw" viewBox="0 0 64 64">
+    <ellipse cx="32" cy="42" rx="16" ry="13" fill="currentColor"/>
+    <ellipse cx="14" cy="26" rx="7" ry="9" fill="currentColor"/>
+    <ellipse cx="32" cy="20" rx="7" ry="9" fill="currentColor"/>
+    <ellipse cx="50" cy="26" rx="7" ry="9" fill="currentColor"/>
+  </symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><svg class="paw" style="color:var(--paw)"><use href="#paw"/></svg> dog2text</div>
+    <div class="lang" role="group" aria-label="Language">
+      <button id="en" aria-pressed="true" onclick="setLang('en')">EN</button>
+      <button id="zh" aria-pressed="false" onclick="setLang('zh')">中文</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero wrap">
+  <svg class="mascot" viewBox="0 0 200 200" role="img" aria-label="A cute cartoon dog">
+    <ellipse cx="100" cy="182" rx="58" ry="10" fill="#e9dcc8"/>
+    <path d="M40 70 Q22 120 48 150 Q60 120 58 80 Z" fill="#C97B4A"/>
+    <path d="M160 70 Q178 120 152 150 Q140 120 142 80 Z" fill="#C97B4A"/>
+    <circle cx="100" cy="105" r="62" fill="#E8A87C"/>
+    <circle cx="100" cy="120" r="44" fill="#FBF7F0"/>
+    <circle cx="78" cy="95" r="8" fill="#2B2B33"/>
+    <circle cx="122" cy="95" r="8" fill="#2B2B33"/>
+    <circle cx="80.5" cy="92.5" r="2.6" fill="#fff"/>
+    <circle cx="124.5" cy="92.5" r="2.6" fill="#fff"/>
+    <ellipse cx="66" cy="112" rx="9" ry="6" fill="#E7A6B0" opacity=".7"/>
+    <ellipse cx="134" cy="112" rx="9" ry="6" fill="#E7A6B0" opacity=".7"/>
+    <ellipse cx="100" cy="112" rx="10" ry="7.5" fill="#2B2B33"/>
+    <path d="M100 119 L100 128 M100 128 Q88 138 80 130 M100 128 Q112 138 120 130"
+      stroke="#2B2B33" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+    <path d="M92 132 Q100 150 108 132 Q100 140 92 132 Z" fill="#E7A6B0"/>
+  </svg>
+  <div class="kicker" data-i18n="kicker">An open survey · 25 pages</div>
+  <h1>dog<span class="accent">2</span>text</h1>
+  <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say? We built a ruler instead of a hype number.</p>
+  <div class="cta">
+    <a class="btn primary" href="assets/dog2text-survey.pdf" data-i18n="readPaper">📄 Read the paper</a>
+    <a class="btn ghost" href="https://github.com/mcxiaoxiao/dog2text" data-i18n="github">⭐ GitHub</a>
+  </div>
+  <p class="woof"><span data-i18n="woofA">woof</span> <b>→</b> <span data-i18n="woofB">words?</span> <span data-i18n="woofC">It's five questions, not one.</span></p>
+</div>
+
+<!-- LADDER -->
+<section id="ladder">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="ladderEye">The framework</div>
+      <h2 data-i18n="ladderTitle">The Translation Ladder</h2>
+      <p data-i18n="ladderSub">"Translating a dog" is five capabilities of increasing difficulty. Today we stand on Rung 2.</p>
+    </div>
+    <div class="ladder">
+      <div class="rung r1"><div class="n">1</div><div class="txt"><b data-i18n="r1t">Signal</b><span data-i18n="r1s">detection &amp; segmentation</span></div><div class="stat" data-i18n="r1stat">solved</div></div>
+      <div class="rung r2 here"><span class="here-tag" data-i18n="here">YOU ARE HERE</span><div class="n">2</div><div class="txt"><b data-i18n="r2t">Affect</b><span data-i18n="r2s">emotion / arousal class</span></div><div class="stat" data-i18n="r2stat">shipping</div></div>
+      <div class="rung r3"><div class="n">3</div><div class="txt"><b data-i18n="r3t">Intent</b><span data-i18n="r3s">goal + context inference</span></div><div class="stat" data-i18n="r3stat">emerging</div></div>
+      <div class="rung r4"><div class="n">4</div><div class="txt"><b data-i18n="r4t">Reference</b><span data-i18n="r4s">symbol → object</span></div><div class="stat" data-i18n="r4stat">unproven</div></div>
+      <div class="rung r5"><div class="n">5</div><div class="txt"><b data-i18n="r5t">Dialogue</b><span data-i18n="r5s">open-ended exchange</span></div><div class="stat" data-i18n="r5stat">ill-posed?</div></div>
+    </div>
+    <div class="gap"><span data-i18n="gapTitle">↑ THE SEMANTIC GAP ↑</span><small data-i18n="gapSub">above this line, the dog's natural signal has no generative grammar to translate</small></div>
+  </div>
+</section>
+
+<!-- ANSWER -->
+<section id="answer">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="ansEye">The honest answer</div>
+      <h2 data-i18n="ansTitle">So… how far?</h2>
+    </div>
+    <div class="cards">
+      <div class="card c1"><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
+      <div class="card c2"><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
+      <div class="card c3"><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BARK LAB -->
+<section id="lab">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="labEye">Try the thesis</div>
+      <h2 data-i18n="labTitle">The Bark Lab 🐾</h2>
+      <p data-i18n="labSub">Pick a bark. Watch what a "translator" really does: classify affect, then add a story.</p>
+    </div>
+    <div class="lab">
+      <div class="barks" role="group" aria-label="Bark samples">
+        <button class="bark-btn" aria-pressed="false" onclick="bark('play',this)"><span class="emo">🎾</span><span data-i18n="bPlay">playful</span></button>
+        <button class="bark-btn" aria-pressed="false" onclick="bark('alert',this)"><span class="emo">👀</span><span data-i18n="bAlert">alert</span></button>
+        <button class="bark-btn" aria-pressed="false" onclick="bark('distress',this)"><span class="emo">🥺</span><span data-i18n="bDistress">distressed</span></button>
+        <button class="bark-btn" aria-pressed="false" onclick="bark('relax',this)"><span class="emo">😴</span><span data-i18n="bRelax">relaxed</span></button>
+      </div>
+      <div class="result" aria-live="polite">
+        <div class="meter"><span class="label" id="emoLabel">—</span><div class="bar"><i id="emoBar"></i></div><span id="emoPct" style="font-weight:800;color:var(--ink-soft)">0%</span></div>
+        <div class="quote" id="quote" data-i18n="quoteInit">“…”</div>
+        <div class="disclaimer" data-i18n="disclaimer">The meter is a (real) Rung-2 emotion estimate. The sentence is a story added afterwards — never measured against the dog. That gap is the whole paper.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FIGURES -->
+<section id="figures">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="figEye">From the paper</div>
+      <h2 data-i18n="figTitle">The two hero figures</h2>
+    </div>
+    <div class="figs">
+      <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs with a semantic gap between affect and intent"><figcaption data-i18n="fig1cap">Fig 1 · The translation ladder &amp; the semantic gap</figcaption></figure>
+      <figure class="fig"><img src="assets/fig2_roadmap.png" alt="Capability roadmap 2002 to 2035 with three tracks: affect, intent, and open translation"><figcaption data-i18n="fig2cap">Fig 2 · Capability roadmap, 2002–2035</figcaption></figure>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <svg class="paw" style="color:var(--paw)"><use href="#paw"/></svg>
+    <div style="font-weight:900; font-size:1.2rem; color:var(--ink)">dog2text · The Canine Rosetta Stone</div>
+    <div class="links">
+      <a href="assets/dog2text-survey.pdf" data-i18n="fPaper">Paper (PDF)</a>
+      <a href="https://github.com/mcxiaoxiao/dog2text" data-i18n="fRepo">Repository</a>
+      <a href="https://github.com/mcxiaoxiao/dog2text/blob/main/sources/search-log.md" data-i18n="fSearch">Search log</a>
+      <a href="https://github.com/mcxiaoxiao/dog2text/blob/main/CITATION.cff" data-i18n="fCite">Cite</a>
+    </div>
+    <small data-i18n="fNote">Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026</small>
+  </div>
+</footer>
+
+<script>
+const I18N = {
+  en:{
+    kicker:"An open survey · 25 pages",
+    heroSub:"How far are we from translating what dogs say? We built a ruler instead of a hype number.",
+    readPaper:"📄 Read the paper", github:"⭐ GitHub",
+    woofA:"woof", woofB:"words?", woofC:"It's five questions, not one.",
+    ladderEye:"The framework", ladderTitle:"The Translation Ladder",
+    ladderSub:"\"Translating a dog\" is five capabilities of increasing difficulty. Today we stand on Rung 2.",
+    r1t:"Signal", r1s:"detection & segmentation", r1stat:"solved",
+    r2t:"Affect", r2s:"emotion / arousal class", r2stat:"shipping", here:"YOU ARE HERE",
+    r3t:"Intent", r3s:"goal + context inference", r3stat:"emerging",
+    r4t:"Reference", r4s:"symbol → object", r4stat:"unproven",
+    r5t:"Dialogue", r5s:"open-ended exchange", r5stat:"ill-posed?",
+    gapTitle:"↑ THE SEMANTIC GAP ↑", gapSub:"above this line, the dog's natural signal has no generative grammar to translate",
+    ansEye:"The honest answer", ansTitle:"So… how far?",
+    c1big:"2–4 yrs", c1t:"Affect, validated", c1p:"A calibrated stress/pain/welfare monitor is within reach. Useful — but not \"translation.\"",
+    c2big:"~2030+", c2t:"Intent, grounded", c2p:"Soundboards give a foothold. Validated natural-signal intent needs a decade of data & protocols.",
+    c3big:"maybe never", c3t:"Open dialogue", c3p:"There may be no language there to translate. More compute won't fix a category error.",
+    labEye:"Try the thesis", labTitle:"The Bark Lab 🐾",
+    labSub:"Pick a bark. Watch what a \"translator\" really does: classify affect, then add a story.",
+    bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
+    quoteInit:"“…”",
+    disclaimer:"The meter is a (real) Rung-2 emotion estimate. The sentence is a story added afterwards — never measured against the dog. That gap is the whole paper.",
+    figEye:"From the paper", figTitle:"The two hero figures",
+    fig1cap:"Fig 1 · The translation ladder & the semantic gap", fig2cap:"Fig 2 · Capability roadmap, 2002–2035",
+    fPaper:"Paper (PDF)", fRepo:"Repository", fSearch:"Search log", fCite:"Cite",
+    fNote:"Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026"
+  },
+  zh:{
+    kicker:"开放综述 · 25 页",
+    heroSub:"我们距离翻译小狗说的话还有多远？我们做了一把尺子，而不是一个噱头数字。",
+    readPaper:"📄 阅读论文", github:"⭐ GitHub",
+    woofA:"汪", woofB:"→ 人话？", woofC:"这是五个问题，不是一个。",
+    ladderEye:"分析框架", ladderTitle:"翻译阶梯",
+    ladderSub:"“翻译狗语”是五种难度递增的能力。今天我们站在第 2 层。",
+    r1t:"信号", r1s:"检测与切分", r1stat:"已解决",
+    r2t:"情绪", r2s:"情感 / 唤醒度分类", r2stat:"已上线", here:"我们在这",
+    r3t:"意图", r3s:"目标 + 情境推断", r3stat:"萌芽中",
+    r4t:"指称", r4s:"符号 → 对象", r4stat:"未证实",
+    r5t:"对话", r5s:"开放式交流", r5stat:"伪命题？",
+    gapTitle:"↑ 语义鸿沟 ↑", gapSub:"在这条线之上，狗的自然信号里没有可供翻译的生成语法",
+    ansEye:"诚实的回答", ansTitle:"那么……还有多远？",
+    c1big:"2–4 年", c1t:"情绪，经过验证", c1p:"经过校准的压力/疼痛/福利监测工具触手可及。有用——但不是“翻译”。",
+    c2big:"约 2030+", c2t:"意图，有接地", c2p:"说话按钮提供了立足点。自然信号的意图验证还需十年的数据与协议。",
+    c3big:"也许永远", c3t:"开放对话", c3p:"那里也许根本没有语言可翻译。更多算力修不了一个范畴错误。",
+    labEye:"体验论点", labTitle:"汪汪实验室 🐾",
+    labSub:"选一种叫声，看“翻译器”真正在做什么：先分类情绪，再补一个故事。",
+    bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",
+    quoteInit:"“……”",
+    disclaimer:"仪表是（真实的）第 2 层情绪估计；句子是事后补上的故事——从未对照狗本身验证。这道鸿沟正是整篇论文的主题。",
+    figEye:"来自论文", figTitle:"两张主图",
+    fig1cap:"图 1 · 翻译阶梯与语义鸿沟", fig2cap:"图 2 · 能力路线图，2002–2035",
+    fPaper:"论文 (PDF)", fRepo:"仓库", fSearch:"检索记录", fCite:"引用",
+    fNote:"读懂狗，而非转写它。 · MIT / CC BY 4.0 · 2026"
+  }
+};
+let LANG="en";
+function setLang(l){
+  LANG=l; document.documentElement.lang = (l==="zh"?"zh":"en");
+  document.getElementById("en").setAttribute("aria-pressed", l==="en");
+  document.getElementById("zh").setAttribute("aria-pressed", l==="zh");
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k=el.getAttribute("data-i18n"); if(I18N[l][k]!=null) el.textContent=I18N[l][k];
+  });
+  if(window.__lastBark) bark(window.__lastBark, window.__lastBtn, true);
+}
+const BARKS={
+  play:{p:84, en:{label:"play / positive arousal", q:"“Let's play! Throw the ball!”"}, zh:{label:"玩耍 / 正向唤醒", q:"“一起玩嘛！把球扔出去！”"}},
+  alert:{p:78, en:{label:"alert / stranger", q:"“Someone's at the door. I've got this.”"}, zh:{label:"警觉 / 陌生人", q:"“门口有人。交给我。”"}},
+  distress:{p:81, en:{label:"distress / separation", q:"“Don't leave me. I miss you.”"}, zh:{label:"不安 / 分离", q:"“别走。我想你。”"}},
+  relax:{p:90, en:{label:"relaxed / low arousal", q:"“Life is good. Belly rubs, please.”"}, zh:{label:"放松 / 低唤醒", q:"“狗生美好。摸摸肚子。”"}}
+};
+function bark(key, btn, keep){
+  window.__lastBark=key; window.__lastBtn=btn;
+  document.querySelectorAll(".bark-btn").forEach(b=>b.setAttribute("aria-pressed","false"));
+  if(btn) btn.setAttribute("aria-pressed","true");
+  const d=BARKS[key], t=d[LANG];
+  document.getElementById("emoLabel").textContent=t.label;
+  document.getElementById("emoBar").style.width=d.p+"%";
+  document.getElementById("emoPct").textContent=d.p+"%";
+  document.getElementById("quote").textContent=t.q;
+}
+</script>
+</body>
+</html>
