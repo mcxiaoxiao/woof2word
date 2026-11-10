@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🐾 dog2text
+# 🐾 Woof-to-Word
 
 ### The Canine Rosetta Stone
 **How Far Are We from Translating What Dogs Say?**
@@ -9,7 +9,7 @@
 
 [![Paper](https://img.shields.io/badge/paper-25%20pages-E8A87C?style=flat-square)](paper/main.pdf)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
-[![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/dog2text/)
+[![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-E7A6B0?style=flat-square)](#contributing--参与)
 
 **English** · [中文](#中文)
@@ -52,7 +52,7 @@ fix a category error.
 ## What's inside · 内容
 
 ```
-dog2text/
+woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
 │   ├── main.pdf            # compiled, 25 pages
@@ -92,12 +92,12 @@ tectonic main.tex      # → main.pdf
 ## Citation · 引用
 
 ```bibtex
-@misc{dog2text2026,
+@misc{wooftoword2026,
   title  = {The Canine Rosetta Stone: How Far Are We from Translating
             What Dogs Say? A Survey},
-  author = {The dog2text Project},
+  author = {The Woof-to-Word Project},
   year   = {2026},
-  url    = {https://github.com/mcxiaoxiao/dog2text}
+  url    = {https://github.com/mcxiaoxiao/woof2word}
 }
 ```
 

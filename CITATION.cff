@@ -3,11 +3,11 @@ message: "If you use this survey, please cite it as below."
 title: "The Canine Rosetta Stone: How Far Are We from Translating What Dogs Say? A Survey"
 type: dataset
 authors:
-  - name: "The dog2text Project"
+  - name: "The Woof-to-Word Project"
 year: 2026
 date-released: "2026-11-10"
-url: "https://github.com/mcxiaoxiao/dog2text"
-repository-code: "https://github.com/mcxiaoxiao/dog2text"
+url: "https://github.com/mcxiaoxiao/woof2word"
+repository-code: "https://github.com/mcxiaoxiao/woof2word"
 license: MIT
 keywords:
   - animal communication
