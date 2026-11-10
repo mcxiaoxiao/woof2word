@@ -85,6 +85,45 @@ None of today's consumer products satisfies these. The research community
 satisfies (1) and (2) in patches and (3) in the soundboard and cross-species
 literature. The gap between the two is the evaluation crisis.
 
+\subsection{The limitations, consolidated}
+The evaluation crisis is not unique to pets; it is the animal-communication
+instance of a broader reckoning in AI about what benchmarks measure and what
+models merely memorize. The ``stochastic parrots'' critique warns that scaling
+text models amplifies form without grounding~\cite{bender2021parrots}, and the
+``climbing toward NLU'' position paper argues that the field mistakes
+benchmark gains for understanding~\cite{bender2020climbing}. Broad evaluation
+suites---HELM, BIG-bench, MMLU, TruthfulQA---expose how much headline scores
+depend on task choice and contamination~\cite{liang2023helm,srivastava2023bigbench,hendrycks2021mmlu,lin2022truthfulqa}.
+Documentation practices such as datasheets and model cards exist precisely to
+make a system's limits legible~\cite{gebru2021datasheets,mitchell2019modelcards},
+and the hallucination/faithfulness literature shows that fluent generation
+routinely outruns its evidence~\cite{ji2023hallucination,maynez2020faithfulness}.
+Table~\ref{tab:limits} consolidates the limitations this survey has identified,
+each with its locus and its consequence.
+
+\begin{table}[htbp]
+\centering
+\caption{Consolidated limitations of canine ``translation,'' with the locus
+and consequence of each. This is the survey's audit in one place.}
+\label{tab:limits}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{4.0cm}p{4.6cm}p{5.0cm}@{}}
+\toprule
+\textbf{Limitation} & \textbf{Where it bites} & \textbf{Consequence} \\
+\midrule
+No ground-truth message & bark-to-sentence scoring & fidelity is unfalsifiable \\
+Human-perceived labels & Rung-2 metrics & a proxy for state, not a readout \\
+Undisclosed protocols & vendor accuracies & claims cannot be checked \\
+Clever Hans / anthropomorphism & uncontrolled home use & the observer leaks the answer \\
+No parallel corpus & supervised training & no translation signal exists \\
+Semantic gap / no recursion & Rung 5 & the target may not exist \\
+Fluency $\neq$ fidelity & LLM sentence rendering & hallucinated ``translations'' \\
+No closed-loop error signal & consumer market & the field cannot self-correct \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{A falsifiability criterion for the field}
 We propose a simple demarcation: \emph{a canine communication system should
 be called a translator only if its outputs are scored against an

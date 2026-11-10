@@ -7,7 +7,8 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-25%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![Paper](https://img.shields.io/badge/paper-46%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![References](https://img.shields.io/badge/references-222%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-E7A6B0?style=flat-square)](#contributing--参与)
@@ -55,8 +56,8 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 25 pages
-│   ├── sections/           # 11 sections + bibliography
+│   ├── main.pdf            # compiled, 46 pages, 222 cited references
+│   ├── sections/           # 16 sections + bibliography (12 comparison tables)
 │   └── figures/            # hero figures (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
@@ -66,6 +67,44 @@ woof-to-word/
 ├── CITATION.cff
 └── LICENSE
 ```
+
+## The CS/AI core · 计算机视角
+
+The survey is written **from a computer-science and AI standpoint**, with
+biology, linguistics, and ethics as supporting witnesses. Six large comparison
+tables carry the argument:
+
+- **The human translation genealogy** — seq2seq → attention → Transformer →
+  pretraining/LLMs → multilingual MT (NLLB) → speech/audio foundation models
+  (Whisper, Seamless), and what each layer offers animal decoding.
+- **The speech/audio toolkit** — self-supervised encoders (wav2vec 2.0, HuBERT,
+  data2vec), neural codecs (SoundStream, EnCodec, AudioLM), and audio-LLMs,
+  mapped to their transfer value.
+- **A transfer-feasibility audit** — which presuppositions of human MT survive
+  contact with animal signals (the acoustic layers transfer; the semantic and
+  evaluative layers do not).
+- **Seven lessons** from human MT for animal decoding.
+- **An existence-proofs table** adjudicating feasibility (below).
+- **A consolidated limitations table** auditing the evaluation crisis.
+
+## Is it even possible? · 是否可行
+
+We refuse to assume the destination exists. History offers three templates for
+an impossible-sounding goal, and we adjudicate each rung against them:
+
+| Template | Meaning | Verdict for dog "translation" |
+|---|---|---|
+| **Alchemy** | a category error; no effort reaches it | Rung 5 (open-ended sentences): *possibly* this — the target may not exist |
+| **Flight** | declared impossible, but sound physics; achieved once mechanisms assembled | Rungs 1–4: **this** — hard but grounded, with existence proofs already in hand |
+| **Perpetual motion** | provably impossible by conservation law | **none** — no theorem forbids interspecies understanding |
+
+The existence proofs are real: referential alarm calls (vervets, prairie dogs),
+the honeybee dance, dolphin signature whistles, compositional tit calls; and on
+the canine side, pointing comprehension, voice-sensitive brain regions, fMRI
+reward responses, and soundboard word use. So *something* genuine is achievable.
+The honest claim is layered: **affect-and-intent decoding is flight; open-ended
+sentence translation of a non-linguistic signal is alchemy-like — possibly
+ill-posed, not provably impossible.**
 
 ## The honest answer · 诚实的回答
 
@@ -113,11 +152,21 @@ peer-reviewed results as *results*.
 <a name="中文"></a>
 ## 中文
 
-**我们距离翻译小狗说的话还有多远？** 本仓库是一篇开放、证据有界的**综述**
-（25 页），核心工具是一架"翻译阶梯"：把"翻译狗语"拆成五层能力。结论是——
-**今天的产品停在第 2 层（情绪分类），少数研究摸到第 3 层（意图）**；再往上
-要么尚待证实，要么在严格意义上**是个伪命题**，因为狗的自然信号里并没有
-可供翻译的递归生成语法。
+**我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
+开放、证据有界的**综述**（46 页，引用 222 篇文献，含 12 张大型对照表），以
+**计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
+把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
+少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个
+伪命题**，因为狗的自然信号里并没有可供翻译的递归生成语法。
+
+综述系统梳理了**人类翻译的 Transformer 技术栈**（seq2seq → attention →
+Transformer → 预训练 / LLM → 多语 NLLB → 语音 / 音频基础模型），并逐层审计
+哪些能迁移到动物解码、哪些不能；从中提炼出**七条启示**。
+
+**可行性裁决**（炼金术 / 飞机 / 永动机三模板）：第 1–4 层是"飞机"——难但有
+坚实物理与**存在性证明**（_vervet_ 猴警报、蜜蜂舞蹈、海豚签名哨、犬类指称
+理解与脑区证据），可以实现；第 5 层（开放句子翻译）更像"炼金术"——目标可能
+根本不存在；而**没有任何一层是"永动机"**（没有被守恒律证明不可能）。
 
 - 第 1–2 层（信号 / 情绪）：已经实现，**2–4 年**内可做出经过校准与验证的
   福利监测工具——有用，但不是"翻译"。

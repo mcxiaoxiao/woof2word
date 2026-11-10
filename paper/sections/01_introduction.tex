@@ -1,17 +1,60 @@
-\section{Introduction: The Oldest Dream of Domestication}
+\section{Introduction: The Oldest Silence}
 \label{sec:intro}
 
 For at least fifteen thousand years---and by some accounts more than
-thirty thousand---humans have lived alongside dogs, and for nearly as long we
-have wanted to know what they are saying. The wish is older than science:
+thirty thousand---humans have lived alongside dogs~\cite{frantz2016genomic},
+and for nearly as long we have talked \emph{at} them without ever being able
+to talk \emph{with} them. The wish to close that loop is older than science:
 folktales grant the hero a magic fern-seed or a drop of dragon's blood that
-lets him understand the speech of beasts. What is new is that the wish now
-arrives packaged as a product. A smartphone application records a bark and
-returns a sentence---``I want to play,'' ``my tummy hurts,'' ``I love
-you''---in under a second. The vendor advertises an accuracy. The number is
-large. And the curious reader is left with a question that turns out to be
-surprisingly hard to answer: \emph{how far are we, actually, from translating
-what a dog says?}
+lets him understand the speech of beasts. What is new is the scale of the
+longing, and the arrival of a technology that claims to satisfy it.
+
+\subsection{A billion companions, one-sided conversations}
+The demographic facts make the silence hard to ignore. There are roughly
+\textbf{900 million dogs} on Earth~\cite{dogster2026stats}, of which on the
+order of \textbf{half a billion} live as companions in human
+homes~\cite{sustainablediets2025}. Dogs are the most widely kept companion
+animal on the planet: some \textbf{65 million U.S.\ households} own at least
+one~\cite{avma2025,dogster2026stats}, about \textbf{a quarter of European
+households} keep a dog~\cite{fediaf2025}, and tens of millions more households
+do so across Asia~\cite{worldanimalfoundation2026}. And these households do
+not treat their dogs as mute appliances: in one national survey
+\textbf{58\% of owners report regularly conversing} with their dog or cat,
+and the majority do so precisely because the animal is experienced as a
+family member~\cite{budgetdirect2024}. Table~\ref{tab:scale} collects these
+figures. The picture they form is striking: \emph{hundreds of millions of
+people hold daily, affectionate, one-sided conversations with a companion
+who cannot reply in any shared language.} That asymmetry---intimate
+cohabitation without mutual intelligibility---is the regret this survey
+takes as its starting point.
+
+\begin{table}[htbp]
+\centering
+\caption{The scale of the human--dog communication gap. Industry and survey
+estimates; orders of magnitude, not censuses.}
+\label{tab:scale}
+\small
+\begin{tabular}{@{}p{6.0cm}p{3.2cm}p{4.6cm}@{}}
+\toprule
+\textbf{Quantity} & \textbf{Estimate} & \textbf{Source} \\
+\midrule
+Dogs worldwide (all regimes) & $\approx$900 million & \cite{dogster2026stats} \\
+Companion (pet) dogs, 2024 & $\approx$528 million & \cite{sustainablediets2025} \\
+U.S.\ households owning $\geq$1 dog & $\approx$65.1 million & \cite{avma2025} \\
+European households owning $\geq$1 dog & $\approx$25\% ($\approx$90M dogs) & \cite{fediaf2025} \\
+Pet dogs, China & $\approx$54 million & \cite{dogster2026stats} \\
+Owners regularly conversing with pet & 58\% (AU survey) & \cite{budgetdirect2024} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+What is new is that the old wish now arrives packaged as a product. A
+smartphone application records a bark and returns a sentence---``I want to
+play,'' ``my tummy hurts,'' ``I love you''---in under a second. The vendor
+advertises an accuracy. The number is large. And the curious reader is left
+with two questions that turn out to be surprisingly hard to answer:
+\emph{how far are we, actually, from translating what a dog says?} and, more
+fundamentally, \emph{is the thing possible at all?}
 
 This survey takes that question seriously and refuses to answer it with a
 single number. ``Translation'' is not one capability but a stack of them, and
@@ -27,23 +70,51 @@ second rung, affect classification, with a handful of careful laboratory
 studies reaching toward the third.} Everything above that remains either
 aspirational or, in the strong sense, ill-posed.
 
-\subsection{Why now: three converging currents}
-Three developments make this the right moment for such a survey. First,
-\emph{bioacoustic foundation models} have matured. Self-supervised encoders
-trained on animal sound---AVES~\cite{hagiwara2023aves}, the audio--language
-model NatureLM-audio~\cite{robinson2024naturelm}, and Google DeepMind's Perch
-line~\cite{ghani2023perch}---now transfer across species and tasks, and
-standardized benchmarks such as BEANS~\cite{hagiwara2023beans} and BirdSet
-give the field common measuring sticks. Second, \emph{flagship decoding
-projects} have produced concrete, peer-reviewed structure discoveries:
-Project CETI's sperm-whale ``phonetic alphabet''~\cite{sharma2024whale},
-Google's DolphinGemma sequence model~\cite{google2025dolphingemma}, and the
-Earth Species Project's interactive songbird work. Third, \emph{canine
-cognition} has its own empirical renaissance, from the ELTE Budapest group's
-decades of bark and growl psychophysics~\cite{pongracz2005barks,farago2017growls}
-to the UC San Diego soundboard studies that put ``talking buttons'' under
-controlled observation~\cite{bastos2024plos,bastos2024scirep}. The
-intersection of these three currents is exactly the space this paper maps.
+\subsection{Why now: four converging currents}
+Four developments make this the right moment for such a survey. First,
+\emph{the human translation stack has matured} into a reusable toolkit:
+sequence-to-sequence learning~\cite{sutskever2014seq2seq,cho2014rnn},
+attention~\cite{bahdanau2015attention}, the
+Transformer~\cite{vaswani2017attention}, large-scale
+pretraining~\cite{devlin2019bert,brown2020gpt3}, multilingual
+translation~\cite{costajussa2022nllb,nllb2024scaling}, and speech/audio
+foundation models~\cite{radford2023whisper,baevski2020wav2vec2,borsos2023audiolm}
+(Sections~\ref{sec:humanmt}--\ref{sec:foundationaudio}). Second,
+\emph{bioacoustic foundation models} have matured in their own right:
+self-supervised encoders trained on animal sound---AVES~\cite{hagiwara2023aves},
+the audio--language model NatureLM-audio~\cite{robinson2024naturelm}, and
+Google DeepMind's Perch line~\cite{ghani2023perch}---now transfer across
+species and tasks, with standardized benchmarks such as
+BEANS~\cite{hagiwara2023beans}. Third, \emph{flagship decoding projects} have
+produced concrete, peer-reviewed structure discoveries: Project CETI's
+sperm-whale ``phonetic alphabet''~\cite{sharma2024whale}, Google's
+DolphinGemma sequence model~\cite{google2025dolphingemma}, and the Earth
+Species Project's interactive songbird work~\cite{esp2026finch}. Fourth,
+\emph{canine cognition} has its own empirical renaissance, from the ELTE
+Budapest group's decades of bark and growl
+psychophysics~\cite{pongracz2005barks,farago2017growls} to the UC San Diego
+soundboard studies that put ``talking buttons'' under controlled
+observation~\cite{bastos2024plos,bastos2024scirep}. The intersection of these
+four currents is exactly the space this paper maps.
+
+\subsection{Not only ``how far'' but ``whether'': alchemy, flight, or perpetual motion?}
+A survey that only estimates distances implicitly assumes the destination
+exists. We refuse that assumption. History offers three templates for a
+long-cherished impossible-sounding goal. \emph{Alchemy} pursued a target
+(transmutation of lead into gold by chemical means) that rested on a
+category error about the underlying science; no amount of effort or scale
+would reach it. \emph{Heavier-than-air flight} was widely declared impossible
+by competent authorities, yet rested on sound physics and was achieved once
+the right mechanisms were assembled. \emph{Perpetual motion} is provably
+impossible, ruled out by conservation laws. The central question we pose is
+which template interspecies translation fits
+(Section~\ref{sec:feasibility}). Our answer is layered: the \emph{lower
+rungs} (affect, intent) resemble flight---hard but grounded, with existence
+proofs already in hand (Section~\ref{sec:feasibility},
+Table~\ref{tab:proofs}); the \emph{upper rung} (open-ended sentence-level
+translation of a non-linguistic signal) resembles alchemy---not because the
+engineering is hard but because the target may not exist. Distinguishing
+these two is the survey's most consequential act.
 
 \subsection{The thesis in one paragraph}
 A dog's communicative repertoire is rich, multimodal, and genuinely
@@ -51,7 +122,8 @@ informative---but it is, in the technical sense, a \emph{signaling system}
 rather than a \emph{language}. It encodes affect, arousal, motivational
 state, individual identity, and some referential content (a specific toy, a
 specific door), yet it lacks the open-ended, recursive, generative syntax
-that human language translation presupposes. Consequently, ``translating
+that human language translation presupposes~\cite{hauser2002faculty,chomsky1957syntactic}.
+Consequently, ``translating
 what a dog says'' is, above the level of affect and intent, partly a
 \emph{category error}: there may be no sentence-shaped meaning in the signal
 to recover. This is not a counsel of despair. It reframes the achievable
@@ -63,18 +135,28 @@ intended message to score a translation against. We call this the
 survey (Section~\ref{sec:eval}).
 
 \subsection{Contributions and organization}
-This paper makes four contributions.
+This paper is written from a computer-science and AI standpoint, with
+biology, linguistics, and ethics as supporting witnesses. It makes six
+contributions.
 \begin{enumerate}[label=(\arabic*)]
-  \item \textbf{A conceptual ladder} that separates signal, affect, intent,
-  reference, and dialogue, and uses it to adjudicate over-claiming
+  \item \textbf{A CS/AI tech-stack synthesis}: the human translation
+  genealogy from seq2seq to Transformers to speech/audio foundation models,
+  and what each layer contributes to animal decoding
+  (Sections~\ref{sec:humanmt}--\ref{sec:foundationaudio},
+  Tables~\ref{tab:genealogy}--\ref{tab:audio}).
+  \item \textbf{A transfer-feasibility audit and a set of lessons}: what
+  human machine translation presupposes, what of it survives contact with
+  animal signals, and what human MT teaches animal decoding
+  (Sections~\ref{sec:transfer}--\ref{sec:lessons}, Table~\ref{tab:transfer}).
+  \item \textbf{A feasibility adjudication}: alchemy vs.\ flight vs.\
+  perpetual motion, with a table of existence proofs
+  (Section~\ref{sec:feasibility}, Table~\ref{tab:proofs}).
+  \item \textbf{A conceptual ladder} separating signal, affect, intent,
+  reference, and dialogue, used to adjudicate over-claiming
   (Section~\ref{sec:ladder}, Figure~\ref{fig:ladder}).
-  \item \textbf{A unified technical synthesis} of the decoding pipeline---%
-  encoding, structure discovery, grounding, validation---connecting canine
-  work to the broader cross-species literature
-  (Sections~\ref{sec:biology}--\ref{sec:crossspecies}).
   \item \textbf{A critical audit} of commercial ``pet translators'' and the
-  evaluation crisis that surrounds them
-  (Sections~\ref{sec:products}--\ref{sec:eval}).
+  evaluation crisis, with a consolidated limitations table
+  (Sections~\ref{sec:products}--\ref{sec:eval}, Table~\ref{tab:limits}).
   \item \textbf{An honest distance estimate and roadmap}, with confidence
   bands and an ethics framework
   (Sections~\ref{sec:distance}--\ref{sec:future}, Figure~\ref{fig:roadmap}).

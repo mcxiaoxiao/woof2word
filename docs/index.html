@@ -100,6 +100,7 @@
   .card h3{margin:.2em 0 .4em; font-size:1.15rem}
   .card p{color:var(--ink-soft); font-weight:600; margin:0; font-size:.95rem}
   .card.c1 .big{color:var(--sage-deep)} .card.c2 .big{color:#caa53d} .card.c3 .big{color:var(--rose-deep)}
+  .card.f1 .big{color:var(--sage-deep)} .card.f2 .big{color:var(--rose-deep)} .card.f3 .big{color:var(--sky-deep)}
 
   /* bark lab */
   .lab{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
@@ -182,9 +183,9 @@
       stroke="#2B2B33" stroke-width="3.5" fill="none" stroke-linecap="round"/>
     <path d="M92 132 Q100 150 108 132 Q100 140 92 132 Z" fill="#E7A6B0"/>
   </svg>
-  <div class="kicker" data-i18n="kicker">An open survey · 25 pages</div>
+  <div class="kicker" data-i18n="kicker">An open survey · 46 pages · 222 refs</div>
   <h1>woof<span class="accent">2</span>word</h1>
-  <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say? We built a ruler instead of a hype number.</p>
+  <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.</p>
   <div class="cta">
     <a class="btn primary" href="assets/woof-to-word-survey.pdf" data-i18n="readPaper">📄 Read the paper</a>
     <a class="btn ghost" href="https://github.com/mcxiaoxiao/woof2word" data-i18n="github">⭐ GitHub</a>
@@ -222,6 +223,22 @@
       <div class="card c1"><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
       <div class="card c2"><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
       <div class="card c3"><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEASIBILITY -->
+<section id="feasibility">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="feasEye">The feasibility question</div>
+      <h2 data-i18n="feasTitle">Alchemy, flight, or perpetual motion?</h2>
+      <p data-i18n="feasSub">We don't assume the destination exists. Three historical templates adjudicate each rung.</p>
+    </div>
+    <div class="cards">
+      <div class="card f1"><div class="big" data-i18n="f1big">Rungs 1–4</div><h3 data-i18n="f1t">Flight — hard but real</h3><p data-i18n="f1p">Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.</p></div>
+      <div class="card f2"><div class="big" data-i18n="f2big">Rung 5</div><h3 data-i18n="f2t">Alchemy — a category error?</h3><p data-i18n="f2p">Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.</p></div>
+      <div class="card f3"><div class="big" data-i18n="f3big">None</div><h3 data-i18n="f3t">Perpetual motion — ruled out?</h3><p data-i18n="f3p">No conservation law forbids interspecies understanding. Nothing here is provably impossible.</p></div>
     </div>
   </div>
 </section>
@@ -282,8 +299,8 @@
 <script>
 const I18N = {
   en:{
-    kicker:"An open survey · 25 pages",
-    heroSub:"How far are we from translating what dogs say? We built a ruler instead of a hype number.",
+    kicker:"An open survey · 46 pages · 222 refs",
+    heroSub:"How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.",
     readPaper:"📄 Read the paper", github:"⭐ GitHub",
     woofA:"woof", woofB:"words?", woofC:"It's five questions, not one.",
     ladderEye:"The framework", ladderTitle:"The Translation Ladder",
@@ -298,6 +315,11 @@ const I18N = {
     c1big:"2–4 yrs", c1t:"Affect, validated", c1p:"A calibrated stress/pain/welfare monitor is within reach. Useful — but not \"translation.\"",
     c2big:"~2030+", c2t:"Intent, grounded", c2p:"Soundboards give a foothold. Validated natural-signal intent needs a decade of data & protocols.",
     c3big:"maybe never", c3t:"Open dialogue", c3p:"There may be no language there to translate. More compute won't fix a category error.",
+    feasEye:"The feasibility question", feasTitle:"Alchemy, flight, or perpetual motion?",
+    feasSub:"We don't assume the destination exists. Three historical templates adjudicate each rung.",
+    f1big:"Rungs 1–4", f1t:"Flight — hard but real", f1p:"Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.",
+    f2big:"Rung 5", f2t:"Alchemy — a category error?", f2p:"Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.",
+    f3big:"None", f3t:"Perpetual motion — ruled out?", f3p:"No conservation law forbids interspecies understanding. Nothing here is provably impossible.",
     labEye:"Try the thesis", labTitle:"The Bark Lab 🐾",
     labSub:"Pick a bark. Watch what a \"translator\" really does: classify affect, then add a story.",
     bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
@@ -309,8 +331,8 @@ const I18N = {
     fNote:"Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026"
   },
   zh:{
-    kicker:"开放综述 · 25 页",
-    heroSub:"我们距离翻译小狗说的话还有多远？我们做了一把尺子，而不是一个噱头数字。",
+    kicker:"开放综述 · 46 页 · 222 篇引用",
+    heroSub:"我们距离翻译小狗说的话还有多远——以及，这究竟可行吗？我们做了一把尺子，而不是噱头数字。",
     readPaper:"📄 阅读论文", github:"⭐ GitHub",
     woofA:"汪", woofB:"→ 人话？", woofC:"这是五个问题，不是一个。",
     ladderEye:"分析框架", ladderTitle:"翻译阶梯",
@@ -325,6 +347,11 @@ const I18N = {
     c1big:"2–4 年", c1t:"情绪，经过验证", c1p:"经过校准的压力/疼痛/福利监测工具触手可及。有用——但不是“翻译”。",
     c2big:"约 2030+", c2t:"意图，有接地", c2p:"说话按钮提供了立足点。自然信号的意图验证还需十年的数据与协议。",
     c3big:"也许永远", c3t:"开放对话", c3p:"那里也许根本没有语言可翻译。更多算力修不了一个范畴错误。",
+    feasEye:"可行性之问", feasTitle:"炼金术、飞机，还是永动机？",
+    feasSub:"我们不预设终点存在。用三种历史模板裁决每一层。",
+    f1big:"第 1–4 层", f1t:"飞机——难但真实", f1p:"曾被宣判不可能，却有坚实物理。存在性证明已在手：vervet 猴警报、蜜蜂舞蹈、海豚签名哨、犬类词语理解。",
+    f2big:"第 5 层", f2t:"炼金术——范畴错误？", f2p:"把非语言信号翻译成开放句子。目标可能根本不存在；单靠努力与算力到不了。",
+    f3big:"皆非", f3t:"永动机——被证明不可能？", f3p:"没有任何守恒律禁止跨物种理解。这里没有被证明不可能的事。",
     labEye:"体验论点", labTitle:"汪汪实验室 🐾",
     labSub:"选一种叫声，看“翻译器”真正在做什么：先分类情绪，再补一个故事。",
     bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",

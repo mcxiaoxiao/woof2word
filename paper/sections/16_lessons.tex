@@ -1,0 +1,97 @@
+\section{Seven Lessons from Human Translation for Animal Decoding}
+\label{sec:lessons}
+
+The previous sections catalogued tools and audited their transfer. This
+section distills the exchange into seven concrete lessons---what the history
+of human machine translation, read as a computer-science narrative, teaches
+anyone attempting to decode an animal. Each lesson pairs a human-MT finding
+with a prescription for animal work. Table~\ref{tab:lessons} collects them.
+
+\subsection{Lesson 1: Pretrain on unlabeled signal before anything else}
+The single most robust finding of the last decade is that a large unlabeled
+corpus, pretrained with a masked or contrastive objective, beats a clever
+architecture trained from scratch~\cite{devlin2019bert,baevski2020wav2vec2,liu2019roberta}.
+The animal prescription is immediate: invest first in a large, open,
+unlabeled corpus of dog vocalizations and a self-supervised encoder, exactly
+as AVES and NatureLM-audio have done for animals
+generally~\cite{hagiwara2023aves,robinson2024naturelm}. Architecture is not the
+bottleneck; data regime is.
+
+\subsection{Lesson 2: Discretize before you translate}
+BPE showed that composing rare words from frequent subword units unlocks
+generalization~\cite{sennrich2016bpe}; neural codecs showed the same for
+audio~\cite{zeghidour2021soundstream,defossez2022encodec}; and Project CETI's
+``phonetic alphabet'' showed it for whales~\cite{sharma2024whale}. The
+prescription: before claiming to translate, discover whether barks admit a
+small set of reusable, recombinable units. If they do not, the signal is not
+language-like and the translation framing should be dropped.
+
+\subsection{Lesson 3: Bootstrap when no parallel corpus exists}
+Human MT learned to manufacture its own supervision:
+back-translation~\cite{sennrich2016improving,edunov2018backtrans} and fully
+unsupervised translation~\cite{artetxe2018unsupervised,lample2018unsupervised}
+removed the need for a bespoke parallel corpus. Animals have no parallel
+corpus and never will. The prescription is to build a synthetic loop:
+generate candidate vocalizations, play them back, and score the animal's
+response---the generative-plus-reinforcement recipe of
+Section~\ref{sec:transfer}. The error signal must come from the animal, not
+from a human annotator's intuition.
+
+\subsection{Lesson 4: Share structure across related systems}
+Multilingual models showed that one encoder can serve hundreds of languages,
+with low-resource pairs benefiting from high-resource
+relatives~\cite{johnson2017multilingual,costajussa2022nllb,fan2021beyond}. The
+prescription: train across species and across individuals, letting wolves,
+coyotes, and many dogs inform a shared canid encoder, rather than fitting a
+bespoke model per dog. Cross-species transfer is the animal analogue of
+low-resource MT, and it is already paying off~\cite{ghani2023perch,babu2022xlsr}.
+
+\subsection{Lesson 5: Evaluation precedes the claim}
+Human MT earned its credibility through reference corpora and shared
+tasks---BLEU, WMT, learned metrics validated against expert
+judgment~\cite{papineni2002bleu,bojar2018wmt,rei2020comet,freitag2021experts}.
+The animal field has no reference and therefore no comparable discipline. The
+prescription is the demarcation of Section~\ref{sec:eval}: define the task,
+disclose the protocol, and refuse the word ``translator'' until an independent
+error signal exists. A field that cannot measure cannot improve.
+
+\subsection{Lesson 6: Grounding is the wall, not scale}
+Scaling laws make returns predictable~\cite{kaplan2020scaling,hoffmann2022chinchilla},
+which tempts the inference that a big enough model will eventually translate a
+bark. But the symbol-grounding problem is not a data deficit; it is a
+referential mismatch~\cite{harnad1990grounding,bisk2020experience}. No amount
+of compute creates a shared lexicon where none exists. The prescription:
+spend effort on grounding and validation, not on parameter count, for the
+upper rungs. Scale helps Rungs~1--3; it cannot fix a category error at
+Rung~5.
+
+\subsection{Lesson 7: Separate the interface from the measurement}
+Modern systems render fluent sentences with a language
+model~\cite{brown2020gpt3,ouyang2022instruct}, and fluency is easily mistaken
+for fidelity---the hallucination and faithfulness literature documents exactly
+this failure~\cite{ji2023hallucination,maynez2020faithfulness}. The
+prescription: treat the rendered sentence as a user-interface layer, clearly
+labeled as interpretation, and never let its fluency count as evidence. The
+honest number lives upstream, at the classifier; the sentence is packaging.
+
+\begin{table}[htbp]
+\centering
+\caption{Seven lessons from human machine translation, each paired with a
+prescription for animal decoding.}
+\label{tab:lessons}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.6cm}p{4.7cm}p{8.0cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Human-MT finding} & \textbf{Prescription for animals} \\
+\midrule
+1 & pretraining beats architecture~\cite{devlin2019bert,baevski2020wav2vec2} & build a large unlabeled bark corpus + SSL encoder first \\
+2 & subwords / codecs unlock generalization~\cite{sennrich2016bpe,sharma2024whale} & discover reusable bark units before claiming translation \\
+3 & unsupervised / back-translation~\cite{artetxe2018unsupervised,sennrich2016improving} & bootstrap supervision via playback + RL, not annotators \\
+4 & multilingual sharing helps low-resource~\cite{costajussa2022nllb,johnson2017multilingual} & one shared canid encoder across species and individuals \\
+5 & references + shared tasks = credibility~\cite{papineni2002bleu,bojar2018wmt} & no error signal, no ``translator''; disclose protocols \\
+6 & scaling laws predict returns~\cite{kaplan2020scaling} & scale helps Rungs 1--3; grounding, not scale, blocks Rung 5 \\
+7 & fluency $\neq$ fidelity~\cite{ji2023hallucination,maynez2020faithfulness} & label the sentence as interface; score the classifier \\
+\bottomrule
+\end{tabular}
+\end{table}

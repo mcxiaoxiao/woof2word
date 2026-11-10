@@ -1,0 +1,107 @@
+\section{Transfer Feasibility: What Survives Contact with Animal Signals}
+\label{sec:transfer}
+
+We now have two stacks in view: the human translation genealogy
+(Section~\ref{sec:humanmt}) and the speech/audio toolkit
+(Section~\ref{sec:foundationaudio}). The decisive question is not whether these
+tools are powerful---they are---but which of their \emph{presuppositions}
+survive when the source is a dog rather than a human. This section audits the
+transfer component by component, grounding the audit in the machine-learning
+literature on transfer, representation, grounding, and compositionality. The
+result, summarized in Table~\ref{tab:transfer}, is a clear pattern:
+\emph{the acoustic and representational layers transfer almost intact; the
+semantic and evaluative layers do not transfer at all.}
+
+\subsection{Transfer learning: the formal picture}
+Transfer learning formalizes when knowledge from a source domain helps in a
+target domain~\cite{pan2010transfer,zhuang2021transfer}. Deep features are
+often transferable, with generality decreasing as one moves from early to
+late layers~\cite{yosinski2014transferable}. This is the optimistic half of
+the story: an encoder pretrained on human speech or general audio can be
+fine-tuned on barks, and cross-species bioacoustic models already demonstrate
+the gain~\cite{hagiwara2023aves,ghani2023perch}. But transfer of
+\emph{features} is not transfer of \emph{semantics}. The source domain of human
+MT carries a target language with shared reference; the animal target domain
+carries no such thing. Feature transfer succeeds precisely where the task is
+classification; it cannot manufacture a reference translation that the source
+domain never had.
+
+\subsection{Representation-learning foundations}
+The machinery that makes transfer possible is the standard deep-learning
+stack: backpropagation~\cite{rumelhart1986backprop}, long short-term memory for
+sequences~\cite{hochreiter1997lstm}, the deep-learning synthesis of
+LeCun, Bengio, and Hinton~\cite{lecun2015deep,bengio2013representation,goodfellow2016deep},
+and the optimization and regularization practices (Adam,
+dropout) that make large models trainable~\cite{kingma2015adam,srivastava2014dropout}.
+These are modality-agnostic: nothing in them assumes human language. A bark
+encoder built from the same components is therefore engineerable, and indeed
+AVES and NatureLM-audio are built from exactly
+them~\cite{hagiwara2023aves,robinson2024naturelm}. The foundations transfer
+without remainder; the bottleneck is downstream.
+
+\subsection{The symbol-grounding problem}
+Here the transfer breaks. Human translation is grounded: source and target
+symbols alike refer to a shared world of objects, actions, and
+states~\cite{harnad1990grounding}. A model trained only on text inherits this
+grounding indirectly through human usage, but the limits of that inheritance
+are well documented---text-only models lack the sensorimotor experience that
+gives words their meaning~\cite{bisk2020experience}. For a dog there is no
+shared symbolic world to ground into. The dog's signal is grounded in
+\emph{its} affective and motivational states, not in a public lexicon; mapping
+it to an English sentence is not translation between two grounded languages
+but an act of interpretation across an unbridgeable referential gap. This is
+the technical content of the ``semantic gap'' thesis, and it is why grounding,
+not model scale, is the binding constraint.
+
+\subsection{Compositionality, systematicity, and what probing reveals}
+Human language is compositional: the meaning of a whole is a function of the
+meanings of its parts and their combination. Whether neural models learn this
+is contested~\cite{hupkes2020compositionality}, and diagnostic benchmarks
+(SCAN, systematic-generalization tests) show that standard architectures
+often fail to generalize compositionally even when they fit the training
+distribution~\cite{lake2018scan,lake2023systematic}. Probing studies further
+show that what a model ``knows'' is task- and probe-dependent, and that
+BERT-style representations encode syntax without necessarily encoding
+meaning~\cite{conneau2018cram,rogers2020bertology}. The implication for animals
+is twofold. First, even if a bark sequence had compositional structure
+(Section~\ref{sec:feasibility}), our models might not recover it. Second, the
+absence of compositionality in the \emph{signal}---the likely case for
+dogs---means there is no recursive structure for a sequence model to exploit,
+so the very property that makes human MT work is missing at the source.
+
+\subsection{Generative and interactive methods: the validation loop}
+Two further ML lineages matter not for decoding but for \emph{validation}.
+Generative models---GANs~\cite{goodfellow2014gan}, denoising diffusion
+models~\cite{ho2020ddpm}, and latent diffusion~\cite{rombach2022ldm}---could
+synthesize candidate vocalizations for playback experiments, closing the loop
+between hypothesis and animal response. Reinforcement learning---from
+DQN~\cite{mnih2015dqn} through PPO~\cite{schulman2017ppo} to the
+self-play paradigm of AlphaGo~\cite{silver2016alphago}---supplies the framework
+for an interactive agent that learns which inferred intents predict the dog's
+behavior. These are the tools that could turn an unfalsifiable interpretation
+into a measured, closed-loop system (Section~\ref{sec:eval}). They transfer
+well; what they require is an error signal, which the field currently lacks.
+
+\begin{table}[htbp]
+\centering
+\caption{Transfer-feasibility audit: what each layer of the human translation
+stack presupposes, and whether that presupposition holds for animal signals.
+Verdicts are our assessment.}
+\label{tab:transfer}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{2.8cm}p{4.4cm}p{4.4cm}p{2.0cm}@{}}
+\toprule
+\textbf{Component} & \textbf{Human MT presupposes} & \textbf{Animal reality} & \textbf{Verdict} \\
+\midrule
+Acoustic encoder & raw waveform, any language & raw waveform, any species & transfers \\
+Self-supervision & large unlabeled corpus & large unlabeled barks exist & transfers \\
+Subword / codec units & discrete reusable units & units discoverable (cf.\ CETI) & partial \\
+Sequence model & recursive, compositional source & likely non-compositional signal & limited \\
+Parallel corpus & bilingual reference text & no reference exists & fails \\
+Grounding & shared public lexicon & private affective states & fails \\
+Evaluation metric & ground-truth target sentence & no intended message to score & fails \\
+Closed-loop validation & observable error signal & buildable via playback / RL & buildable \\
+\bottomrule
+\end{tabular}
+\end{table}

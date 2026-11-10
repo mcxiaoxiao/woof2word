@@ -1,0 +1,136 @@
+\section{The Human Translation Stack: A Transformer Genealogy}
+\label{sec:humanmt}
+
+Before asking what machines can make of a bark, we must be precise about
+what machines already make of human speech and text. The last decade of
+machine translation (MT) is not a single invention but a layered stack, and
+each layer supplies a tool that animal decoding either inherits or lacks.
+This section reads that stack from a computer-science standpoint;
+Section~\ref{sec:transfer} then audits which layers survive transfer to
+non-human signals.
+
+\subsection{From symbolic phrase tables to neural sequence models}
+Statistical MT treated translation as noisy-channel decoding over
+phrase tables learned from parallel corpora such as
+Europarl~\cite{koehn2004europarl} and OPUS~\cite{tiedemann2012opus},
+toolkitted by Moses~\cite{koehn2005moses}. The neural turn replaced
+hand-built phrases with end-to-end encoder--decoder
+learning~\cite{sutskever2014seq2seq,cho2014rnn}, and the decisive ingredient
+was \emph{attention}: a soft, learned alignment between source and target
+positions~\cite{bahdanau2015attention,luong2015effective}. Convolutional
+variants competed briefly~\cite{gehring2017conv}, and production systems
+(GNMT) demonstrated that deep recurrent attention models could be deployed
+at scale~\cite{wu2016gnmt,ott2018scaling}. Two data-side inventions proved
+as important as the architecture: subword segmentation (BPE), which lets a
+model compose rare words from frequent
+pieces~\cite{sennrich2016bpe}, and back-translation, which manufactures
+parallel signal from monolingual text~\cite{sennrich2016improving,edunov2018backtrans}.
+Both are directly relevant to animals: BPE is a recipe for discretizing a
+continuous signal into reusable units, and back-translation is a recipe for
+learning when no parallel corpus exists.
+
+\subsection{The Transformer and the pretraining paradigm}
+The Transformer dispensed with recurrence entirely, relying on
+self-attention~\cite{vaswani2017attention}. Its real legacy, however, is
+that it made \emph{pretraining} scalable: masked language modeling
+(BERT)~\cite{devlin2019bert}, causal language modeling
+(GPT)~\cite{radford2018gpt,radford2019gpt2,brown2020gpt3}, and
+sequence-to-sequence denoising (T5, BART)~\cite{raffel2020t5,lewis2020bart}
+turned massive unlabeled corpora into general-purpose representations.
+Ablations and refinements (RoBERTa, XLNet, ELECTRA,
+DeBERTa)~\cite{liu2019roberta,yang2019xlnet,clark2020electra,he2021deberta}
+established that the objective and data regime matter more than architectural
+cleverness. Contextual embeddings had already shown the value of
+pretraining over static vectors (word2vec,
+GloVe, ELMo, ULMFiT)~\cite{mikolov2013word2vec,pennington2014glove,peters2018elmo,howard2018ulmfit}.
+For bioacoustics the lesson is that a large \emph{unlabeled} corpus of
+vocalizations, pretrained with a masked or contrastive objective, is the
+right starting point---exactly the strategy later adopted by wav2vec~2.0
+and AVES (Section~\ref{sec:foundationaudio}).
+
+\subsection{Multilinguality, low-resource transfer, and mined parallelism}
+Human MT's most encouraging result for animal decoding is that translation
+quality does not require a bespoke parallel corpus per language pair.
+Shared-encoder multilingual models enable zero-shot
+transfer~\cite{johnson2017multilingual,firat2016multiway}; cross-lingual
+pretraining (XLM, XLM-R, mBART, multilingual
+BERT)~\cite{conneau2019xlm,conneau2020xlmr,liu2020mbart,pires2019mbert}
+shares structure across languages; and massive mined parallelism
+(WikiMatrix, CCAligned) plus English-centric or many-to-many training
+(M2M-100, NLLB) brought hundreds of low-resource languages into
+scope~\cite{schwenk2021wikimatrix,elkishky2020ccaligned,fan2021beyond,costajussa2022nllb,nllb2024scaling}.
+Even fully \emph{unsupervised} MT is possible from monolingual corpora
+alone~\cite{artetxe2018unsupervised,lample2018unsupervised}. This is the
+closest human analogue to the animal situation: a target ``language'' with
+no parallel corpus, where one must bootstrap structure from raw signal and
+transfer from related, better-resourced systems.
+
+\subsection{Speech-to-speech and unified multimodal translation}
+Translation moved from text-only to end-to-end speech: listen-and-translate
+proofs of concept~\cite{berard2016listen}, direct sequence-to-sequence
+speech translation~\cite{weiss2017speech}, and direct speech-to-speech
+models~\cite{jia2019direct}, culminating in unified multilingual multimodal
+systems (SeamlessM4T, Seamless)~\cite{seamless2023m4t,seamless2024streaming}.
+These architectures---acoustic encoder plus semantic decoder plus optional
+vocoder---are precisely the template a genuine animal translator would
+need, and they show the template is engineerable \emph{when the source is
+human language}.
+
+\subsection{Evaluation: the part animals do not have}
+Human MT rests on a century of accumulated \emph{reference translations}:
+BLEU~\cite{papineni2002bleu}, METEOR~\cite{denkowski2014meteor}, and learned
+metrics such as COMET~\cite{rei2020comet}, validated against expert human
+judgment~\cite{freitag2021experts} and adjudicated annually at
+WMT~\cite{bojar2018wmt,barrault2019wmt,kocmi2022wmt}. Every one of these
+presupposes a ground-truth target sentence. Animal communication has no
+such reference, which is why importing MT metrics wholesale is a category
+error (Section~\ref{sec:eval}).
+
+\subsection{Scale, instruction-tuning, and multimodal LLMs}
+Finally, scaling laws make returns predictable~\cite{kaplan2020scaling},
+compute-optimal training clarifies the data/scale
+trade-off~\cite{hoffmann2022chinchilla}, and the foundation-model paradigm
+frames both opportunity and risk~\cite{bommasani2021foundation}. Open and
+proprietary LLMs (LLaMA, Llama~2, GPT-4, Gemini, Claude,
+Gemma)~\cite{touvron2023llama,touvron2023llama2,openai2023gpt4,gemini2024,anthropic2024claude,gemma2024},
+instruction tuning~\cite{ouyang2022instruct}, and chain-of-thought
+reasoning~\cite{wei2022chain} supply the semantic and interactive layer;
+vision-language models (CLIP, Flamingo, LLaVA,
+BLIP-2)~\cite{radford2021clip,alayrac2022flamingo,liu2023llava,li2023blip2}
+show how to bind a non-linguistic modality to language---the exact operation
+a dog translator would attempt when grounding a bark to a context.
+Table~\ref{tab:genealogy} condenses the genealogy and, for each layer, states
+what it offers animal decoding.
+
+\begin{table}[htbp]
+\centering
+\caption{The human translation / Transformer genealogy and its transfer
+value to animal decoding. ``Transfer value'' is our assessment, not a
+vendor claim.}
+\label{tab:genealogy}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{0.8cm}p{3.0cm}p{3.2cm}p{2.6cm}p{4.0cm}@{}}
+\toprule
+\textbf{Year} & \textbf{Milestone} & \textbf{Key mechanism} & \textbf{Data regime} & \textbf{Transfer value to animals} \\
+\midrule
+2006 & CTC~\cite{graves2006ctc} & alignment-free sequence labeling & weak labels & label variable-length vocalizations \\
+2014 & seq2seq~\cite{sutskever2014seq2seq,cho2014rnn} & encoder--decoder & parallel & map signal sequence $\to$ symbol sequence \\
+2015 & attention~\cite{bahdanau2015attention,luong2015effective} & soft alignment & parallel & align bark segments to labels \\
+2016 & BPE~\cite{sennrich2016bpe} & subword composition & monolingual & discretize continuous signal into units \\
+2016 & back-translation~\cite{sennrich2016improving,edunov2018backtrans} & synthetic parallelism & monolingual & bootstrap without a parallel corpus \\
+2017 & Transformer~\cite{vaswani2017attention} & self-attention & large parallel & the universal backbone \\
+2017 & multilingual NMT~\cite{johnson2017multilingual,firat2016multiway} & shared encoder, zero-shot & many pairs & one encoder across species \\
+2019 & BERT / GPT-2~\cite{devlin2019bert,radford2019gpt2} & masked / causal pretraining & massive unlabeled & foundation encoder from raw signal \\
+2020 & GPT-3 / T5 / BART~\cite{brown2020gpt3,raffel2020t5,lewis2020bart} & scale + text-to-text & massive & few-shot task framing \\
+2020 & scaling laws~\cite{kaplan2020scaling} & predictable returns & compute & budget planning \\
+2021 & ViT / CLIP~\cite{dosovitskiy2021vit,radford2021clip} & cross-modal transformers & image--text & bind non-linguistic modality to language \\
+2022 & NLLB / M2M-100~\cite{costajussa2022nllb,fan2021beyond} & 200-language mining & mined parallel & low-resource transfer recipe \\
+2022 & Chinchilla~\cite{hoffmann2022chinchilla} & compute-optimal & tokens & data-vs-scale trade-off \\
+2023 & LLaMA / GPT-4 / Gemini~\cite{touvron2023llama,openai2023gpt4,gemini2024} & open + multimodal LLMs & massive & semantic \& interactive layer \\
+2023 & Whisper~\cite{radford2023whisper} & weak-supervision ASR & 680k hours & robust acoustic encoder \\
+2023 & SeamlessM4T~\cite{seamless2023m4t} & unified speech/text MT & multilingual & end-to-end speech translation template \\
+2024 & NLLB (Nature)~\cite{nllb2024scaling} & 200 languages deployed & mined & proof that low-resource scale works \\
+\bottomrule
+\end{tabular}
+\end{table}

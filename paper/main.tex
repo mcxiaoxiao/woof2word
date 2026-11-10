@@ -39,6 +39,17 @@
 \captionsetup{font=small,labelfont=bf}
 \setlist{itemsep=2pt,topsep=3pt,parsep=0pt}
 \linespread{1.12}
+\emergencystretch=3em
+
+% Keep the many comparison tables near their sections rather than deferring
+% them to the end of the document.
+\renewcommand{\topfraction}{0.92}
+\renewcommand{\bottomfraction}{0.85}
+\renewcommand{\textfraction}{0.08}
+\renewcommand{\floatpagefraction}{0.75}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{5}
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -112,6 +123,11 @@ explicitly.
 \newpage
 
 \input{sections/01_introduction}
+\input{sections/13_humanmt}
+\input{sections/14_foundationaudio}
+\input{sections/15_transfer}
+\input{sections/16_lessons}
+\input{sections/17_feasibility}
 \input{sections/02_biology}
 \input{sections/03_ladder}
 \input{sections/04_pipeline}
