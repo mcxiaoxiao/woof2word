@@ -1,95 +1,57 @@
-\section{Ethics and Governance: Responsible Interspecies AI}
+\section{Ethics: The Animal as Partner}
 \label{sec:ethics}
 
-A technology that claims to read an animal's mind carries obligations that
-a ordinary classifier does not. This section outlines an ethics framework
-for canine communication AI, organized around welfare, honesty, privacy,
-and the moral status of the animal as a communication partner.
+A technology that claims to read an animal's mind carries obligations an
+ordinary classifier does not. The most immediate is welfare: an owner told
+``she says she loves you'' may overlook the flattened ears, the whale eye,
+the lip lick that signal stress, and an owner told ``my tummy hurts'' may
+over-react or dismiss genuine pain when the app stays silent. Human
+observers already project their categories onto
+dogs~\cite{sci2022explainable}, and a resonant language model amplifies the
+projection. Welfare-first design therefore surfaces calibrated state
+estimates with uncertainty rather than sentences, never overrides
+observable body signals, routes high-stakes inferences (pain, aggression,
+distress) to human or veterinary review, and collects passively, without
+induced stress to elicit training barks.
 
-\subsection{Welfare first: do no harm}
-The most immediate risk is that a flattering ``translation'' displaces
-attention to the dog's real signals. An owner told ``she says she loves
-you'' may overlook the flattened ears, the whale eye, the lip lick that
-signal stress; an owner told ``my tummy hurts'' may either over-react or,
-worse, dismiss genuine pain when the app stays silent. The critical-review
-literature on canine emotion perception is explicit that human observers
-already project their categories onto dogs~\cite{sci2022explainable}; a
-resonant language model amplifies the projection. A welfare-first design
-therefore (i) surfaces calibrated state estimates with uncertainty, not
-sentences; (ii) never suppresses or contradicts observable body signals;
-and (iii) routes high-stakes inferences (pain, aggression, distress) to
-human or veterinary review. Data collection itself must be non-invasive:
-passive audio and video, no induced stress to elicit ``training'' barks.
-
-\subsection{Honesty: labeling interpretation as interpretation}
-The honesty obligation follows directly from the evaluation crisis
-(Section~\ref{sec:eval}). A system must not present a generative rendering
-as a measurement. Concretely: separate the calibrated classifier output
-from the narrative interface; label the latter as interpretation; disclose
-that accuracy figures refer to emotion classification, not translation;
-and refrain from reverse-direction claims (human-to-dog ``speech'') that
-have no validation. The Ig Nobel history of Bow-Lingual is a reminder that
-the market rewards the appearance of understanding; governance should
-reward the substance.
-
-\subsection{Privacy: the home as sensor}
-Canine monitors live in the home, always-on, capturing audio and video that
-inevitably include humans. The data flywheel that improves the classifier
-also accumulates intimate domestic recordings. Privacy-by-design---on-device
-inference where possible (the DolphinGemma-on-Pixel precedent is
+Honesty follows from the evaluation crisis: separate the calibrated
+classifier from the narrative interface, label the latter as
+interpretation, disclose that accuracy figures refer to emotion
+classification, and refrain from unvalidated reverse-direction claims.
+Privacy follows from the always-on home sensor: on-device inference where
+possible (the DolphinGemma-on-Pixel precedent is
 instructive~\cite{google2025dolphingemma}), minimal retention, explicit
-consent for cloud training, and clear deletion---is not optional. The
-animal cannot consent; the human household must, and the design should
-make that consent meaningful.
+household consent for cloud training, and clear deletion. The animal cannot
+consent; the household must, and the design should make that consent
+meaningful.
 
-\subsection{The animal as partner, not oracle}
-Finally, there is a conceptual obligation. Treating the dog as an oracle
-whose ``words'' we extract instrumentalizes it and flattens its
-communicative life into a human format. The soundboard paradigm is
-ethically attractive precisely because it treats the dog as a
-\emph{partner} in a shared, negotiated symbol system, with the dog's
-behavior as the check~\cite{bastos2024plos,bastos2024scirep}. The
-cross-species community is beginning to formalize this: CETI's leadership
-has stressed that any breakthrough in whale communication should be a
-collective human decision, with responsible-interaction guidelines developed
-before signals are sent to wild animals. The canine analogue is to validate
-through the dog's response, to avoid anthropomorphic over-claiming, and to
-keep the animal's welfare as the terminal criterion.
+Finally, a conceptual obligation. Treating the dog as an oracle whose
+``words'' we extract flattens its communicative life into a human format.
+The soundboard paradigm is ethically attractive precisely because it treats
+the dog as a partner in a negotiated symbol system, with the dog's behavior
+as the check~\cite{bastos2024plos,bastos2024scirep}; CETI's leadership has
+likewise stressed that breakthroughs in whale communication should be a
+collective human decision, with responsible-interaction guidelines before
+signals are sent to wild animals. This framework inherits the consensus
+principles of responsible AI (transparency, justice, non-maleficence,
+responsibility, privacy)~\cite{jobin2019global}, the documented gap between
+principles and practice~\cite{mittelstadt2019principles,floridi2018ai4people},
+the political-economy critique of hidden data and labor supply
+chains~\cite{crawford2021atlas}, and the risk-tiered regulatory baseline of
+the EU AI Act~\cite{european2024aiact}. On the animal side, the precautionary
+principle for sentience warrants moral consideration under
+uncertainty~\cite{birch2017precaution}, and recent work locates the edge of
+sentience in exactly the graded affective capacities this survey treats as
+decodable~\cite{birch2024edge}. The synthesis is a double obligation: be
+honest about what the model knows, and be careful toward what the animal
+feels.
 
-\subsection{Situated in AI ethics and animal sentience}
-This framework does not stand alone. It inherits the consensus principles of
-responsible AI: the global landscape of ethics guidelines converges on
-transparency, justice, non-maleficence, responsibility, and
-privacy~\cite{jobin2019global}, and the gap between principles and practice is
-well documented~\cite{mittelstadt2019principles,floridi2018ai4people}. It
-inherits, too, the political-economy critique that AI systems extract data,
-labor, and energy from hidden supply chains~\cite{crawford2021atlas}, and the
-emerging regulatory baseline of risk-tiered obligations such as the EU AI
-Act~\cite{european2024aiact}. On the animal side, the precautionary principle
-for sentience argues that credible evidence of affective experience warrants
-moral consideration even under uncertainty~\cite{birch2017precaution}, and
-recent work locates the ``edge'' of sentience in exactly the graded, affective
-capacities this survey treats as decodable~\cite{birch2024edge}. The synthesis
-is a double obligation: be honest about what the model \emph{knows} (AI
-ethics) and be careful toward what the animal \emph{feels} (sentience ethics).
-A pet translator that fails either is not a neutral product; it is a welfare
-and credibility harm.
-
-\subsection{A governance checklist}
-We summarize the framework as a checklist for builders and reviewers:
-\begin{enumerate}[label=(\arabic*)]
-  \item Report Rung-2 metrics on public, held-out data with calibration;
-  never label them ``translation accuracy.''
-  \item Separate interpretation (narrative) from measurement (classifier);
-  label both clearly.
-  \item Validate intent claims closed-loop and blind; otherwise call them
-  hypotheses.
-  \item Collect passively; infer on-device where feasible; minimize
-  retention; obtain meaningful household consent.
-  \item Route high-stakes outputs to human/veterinary review; never
-  override observable body signals.
-  \item Treat the animal as a partner; keep welfare as the terminal
-  criterion.
-\end{enumerate}
-None of this slows the useful science; all of it protects the animals and
-the credibility of the field.
+For builders and reviewers, the framework condenses to six checks: report
+Rung-2 metrics on public held-out data with calibration, never as
+``translation accuracy''; separate and label interpretation versus
+measurement; validate intent claims closed-loop and blind or call them
+hypotheses; collect passively, infer on-device, minimize retention, obtain
+meaningful consent; route high-stakes outputs to human or veterinary review
+and never override body signals; and treat the animal as a partner, keeping
+welfare as the terminal criterion. None of this slows the useful science;
+all of it protects the animals and the credibility of the field.

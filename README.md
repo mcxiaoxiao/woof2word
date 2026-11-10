@@ -7,7 +7,7 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-49%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![Paper](https://img.shields.io/badge/paper-29%20pages-E8A87C?style=flat-square)](paper/main.pdf)
 [![References](https://img.shields.io/badge/references-222%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
@@ -56,8 +56,8 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 49 pages, 222 cited references
-│   ├── sections/           # 16 sections + bibliography (14 comparison tables)
+│   ├── main.pdf            # compiled, 29 pages, 222 cited references
+│   ├── sections/           # 11 sections + bibliography (11 comparison tables)
 │   └── figures/            # 3 TikZ figures (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
@@ -71,7 +71,7 @@ woof-to-word/
 ## The CS/AI core · 计算机视角
 
 The survey is written **from a computer-science and AI standpoint**, with
-biology, linguistics, and ethics as supporting witnesses. Fourteen comparison
+biology, linguistics, and ethics as supporting witnesses. Eleven comparison
 tables carry the argument; the CS/AI core includes:
 
 - **The human translation genealogy** — seq2seq → attention → Transformer →
@@ -153,7 +153,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（49 页，引用 222 篇文献，含 14 张大型对照表与 3 幅图），以
+开放、证据有界的**综述**（29 页，引用 222 篇文献，含 11 张大型对照表与 3 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个

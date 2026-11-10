@@ -38,8 +38,9 @@
 \color{ink}
 \captionsetup{font=small,labelfont=bf}
 \setlist{itemsep=2pt,topsep=3pt,parsep=0pt}
-\linespread{1.12}
+\linespread{1.08}
 \emergencystretch=3em
+\setcounter{tocdepth}{1}
 
 % Keep the many comparison tables near their sections rather than deferring
 % them to the end of the document.
@@ -68,7 +69,7 @@
 \author{\textbf{The \texttt{woof-to-word} Project}\\[0.15cm]
 \small An open, evidence-bounded literature survey\\
 \small \href{https://github.com/mcxiaoxiao/woof2word}{\texttt{github.com/mcxiaoxiao/woof2word}}}
-\date{\small November 2026\quad\textbullet\quad Version 1.0}
+\date{\small November 2026\quad\textbullet\quad Version 2.0}
 
 \begin{document}
 \maketitle
@@ -76,33 +77,27 @@
 
 \begin{abstract}
 \noindent
-Can a machine turn a bark into a sentence? Consumer products already claim to
-``translate'' dog vocalizations with accuracies above 80\%, while landmark
-projects such as Project CETI, Google's DolphinGemma, and the Earth Species
-Project apply foundation models to sperm whales, dolphins, and songbirds. This
-survey asks a deliberately narrow question: \emph{how far are we, really, from
-translating what a dog says?} We organize the answer around a five-rung
-``translation ladder''---signal detection, affect classification, intent and
-context inference, referential semantics, and open-ended dialogue---and argue
-that today's systems sit firmly on the second rung, with scattered footholds on
-the third. We synthesize three bodies of evidence: (i) the behavioral biology of
-canine communication (barks, growls, DogFACS facial actions, body posture, and
-soundboard button use); (ii) the technical pipeline that would be required for
-genuine translation (self-supervised acoustic encoding, sequence-structure
-discovery, semantic grounding, and interactive validation); and (iii) the
-commercial landscape and its evaluation crisis. We identify a central
-\emph{semantic gap}: dogs possess a rich affective and referential signaling
-system but show no evidence of the recursive, generative syntax that human
-translation presupposes, so ``translation'' is, above the lower rungs, partly
-a category error. We further show that
-the field's headline accuracies are largely \emph{unfalsifiable}, because no
-ground-truth ``intended message'' exists to score against. We close with a
-capability roadmap, an honest distance estimate, and an ethics framework for
-responsible interspecies AI. Our conclusion is neither dismissive nor
-utopian: useful, validated \emph{affect-and-intent} translation is plausible
-within this decade, while faithful open-ended translation of canine
-``language'' may remain permanently out of reach---not for lack of model
-scale, but for lack of a language to translate.
+Consumer apps already claim to translate dog barks into sentences, and
+flagship projects apply foundation models to whales, dolphins, and songbirds.
+How far are we, really, from translating what a dog says? This survey answers
+through a five-rung \emph{translation ladder}: signal detection, affect
+classification, intent and context inference, referential semantics, and
+open-ended dialogue. Synthesizing canine behavioral biology, the human
+machine-translation tech stack, cross-species decoding projects, and the
+commercial market, we locate today's best systems on the second rung, with
+scattered footholds on the third. Two findings shape the verdict. First, a
+\emph{semantic gap}: dogs signal affect, arousal, identity, and some
+referential content, but show no evidence of the generative syntax that
+sentence-level translation presupposes; above the lower rungs, ``translation''
+is partly a category error. Second, an \emph{evaluation crisis}: headline
+accuracies are unfalsifiable as translation metrics, because no ground-truth
+intended message exists to score against. The lower rungs resemble
+heavier-than-air flight---hard but grounded, with existence proofs in
+hand---while open-ended translation of a non-linguistic signal resembles
+alchemy, whose target may not exist. We close with a capability roadmap,
+distance estimates, and an ethics framework that keeps the animal's welfare
+as the terminal criterion. Validated affect-and-intent inference is plausible
+within this decade; it is the achievable goal, and it is worth building.
 \end{abstract}
 
 \vspace{0.3cm}
@@ -110,34 +105,20 @@ scale, but for lack of a language to translate.
 models, canine cognition, DogFACS, semantic grounding, interspecies
 interaction, evaluation, research ethics.
 
-\vspace{0.2cm}
-\noindent\textbf{A note on scope and method.} This is a narrative,
-evidence-bounded survey, not a PRISMA systematic review. Sources were gathered
-through structured web and literature search in November 2026; peer-reviewed
-publications, preprints, project reports, and journalism are distinguished
-throughout, and commercial accuracy claims are reported \emph{as claims}, not
-as verified results. Section~\ref{sec:eval} treats the verification problem
-explicitly.
-
 \newpage
 \tableofcontents
 \newpage
 
 \input{sections/01_introduction}
 \input{sections/13_humanmt}
-\input{sections/14_foundationaudio}
 \input{sections/15_transfer}
-\input{sections/16_lessons}
-\input{sections/17_feasibility}
 \input{sections/02_biology}
 \input{sections/03_ladder}
 \input{sections/04_pipeline}
-\input{sections/05_crossspecies}
+\input{sections/17_feasibility}
 \input{sections/06_products}
-\input{sections/07_evaluation}
 \input{sections/08_distance}
 \input{sections/09_ethics}
-\input{sections/10_future}
 \input{sections/11_conclusion}
 
 \input{sections/12_bibliography}

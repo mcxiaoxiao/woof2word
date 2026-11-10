@@ -1,123 +1,110 @@
-\section{The Technical Pipeline: From Waveform to (Something Like) Meaning}
+\section{The Pipeline and the Cross-Species Evidence}
 \label{sec:pipeline}
+\label{sec:crossspecies}
 
-If genuine translation were possible, what would the system look like?
-Drawing on the cross-species decoding literature, we decompose the problem
-into four stages---\emph{encoding}, \emph{structure discovery},
-\emph{semantic grounding}, and \emph{interactive validation}---and assess
-the maturity of each for the canine case. The stages are not a waterfall so
-much as a loop: validation feeds back into grounding, which constrains
-structure, which shapes the encoder.
+If genuine translation were possible, what would the system look like? We
+decompose it into four stages, encoding, structure discovery, semantic
+grounding, and interactive validation, and read the flagship cross-species
+projects as evidence for each. The stages are a loop rather than a
+waterfall: validation feeds back into grounding, which constrains structure,
+which shapes the encoder. Table~\ref{tab:milestones} places the milestones
+on a timeline.
 
-\subsection{Stage 1: self-supervised acoustic encoding}
-The modern starting point is a self-supervised representation trained on
-large, unlabeled audio. AVES (Animal Vocalization Encoder based on
-Self-Supervision) adapts the HuBERT/wav2vec paradigm to animal sound and
-shows that representations learned without labels transfer to downstream
-bioacoustic tasks~\cite{hagiwara2023aves}. NatureLM-audio extends this to an
-\emph{audio--language} foundation model: trained on text--audio pairs
-spanning bioacoustics, speech, and music, it can detect vocalizations,
-classify rare species, and even caption or generate animal sounds from
-natural-language prompts, demonstrating transfer from speech and music to
-bioacoustics~\cite{robinson2024naturelm}. Google DeepMind's Perch line and
-the global birdsong embeddings show that a single encoder can serve many
-taxa~\cite{ghani2023perch}. Standardized benchmarks---BEANS (the Benchmark
-of Animal Sounds) and BirdSet---give these encoders a common evaluation
-surface~\cite{hagiwara2023beans}, while open general-purpose encoders such
-as OpenBEATs push state of the art on a majority of BEANS
-subtasks~\cite{openbeats2025}. For dogs, the implication is that a strong
-\emph{Rung 1--2} encoder is available off the shelf; the bottleneck is not
-representation quality but labels and semantics.
+\textbf{Encoding} is the mature front. AVES adapts the HuBERT/wav2vec
+paradigm to animal sound~\cite{hagiwara2023aves}; NatureLM-audio extends this
+to an audio--language foundation model that detects, captions, and generates
+animal sounds~\cite{robinson2024naturelm}; Perch shows a single encoder can
+serve many taxa~\cite{ghani2023perch}; and BEANS, BirdSet, and OpenBEATs give
+these encoders a common, measured evaluation
+surface~\cite{hagiwara2023beans,openbeats2025}. For dogs, a strong Rung~1--2
+encoder is available off the shelf; the bottleneck is labels and semantics,
+not representation quality.
 
-\subsection{Stage 2: sequence-structure discovery}
-Given an encoder, the next question is whether the signal has
-\emph{combinatorial structure}---discrete units that recombine, the way
-phonemes form words. This is where the flagship projects have produced
+\textbf{Structure discovery} is where the flagship projects have produced
 their most cited results. Project CETI's analysis of 8{,}719 sperm-whale
 codas revealed a ``phonetic alphabet'': rhythm, tempo, rubato, and
-ornamentation combine contextually, expanding the repertoire of
-distinguishable forms by nearly an order of magnitude~\cite{sharma2024whale}.
-Crucially, the authors are explicit that this describes \emph{form}, not
-\emph{meaning}: the paper answers what the units are and how they combine,
-not what most of them say. Google's DolphinGemma takes the language-model
-route directly---a roughly 400-million-parameter Gemma-based model with a
-SoundStream tokenizer, trained on the Wild Dolphin Project's four-decade
-Atlantic spotted dolphin corpus, that predicts the next sound in a sequence
-exactly as an LLM predicts the next token~\cite{google2025dolphingemma}.
-CETI's WhAM (2025) similarly learns to complete masked clicks and to render
-whale-like codas from other audio. The Earth Species Project's 2026
+ornamentation combine contextually, expanding the inventory of
+distinguishable forms nearly tenfold~\cite{sharma2024whale}. The 2022 program
+paper lays out the ambition~\cite{andreas2022ceti}, the 2025 WhAM model
+learns to complete and generate whale-like codas~\cite{wham2025}, and a
+late-2025 preprint proposes a translative model of whale
+vocalization~\cite{arxiv2025whaletrans}. Yet the investigators are careful:
+the alphabet describes how signals are \emph{built}, not what they
+\emph{mean}. Google's DolphinGemma takes the language-model route directly,
+a roughly 400-million-parameter Gemma-based model with a SoundStream
+tokenizer, trained on four decades of Atlantic spotted dolphin recordings,
+that predicts the next sound as an LLM predicts the next
+token~\cite{google2025dolphingemma}. The Earth Species Project's 2026
 zebra-finch model (ZF-AIM) goes further, detecting, predicting, and
-\emph{generating} calls in real time and engaging birds in turn-taking
-exchanges.
+generating calls in real time and engaging birds in turn-taking
+exchanges~\cite{esp2026finch}. The lesson for dogs is double-edged: the
+methods are species-agnostic, but the structure they find is statistical,
+and predicting the next sound is not understanding it. Yovel and others
+warn that such models may cluster calls by acoustic similarity while
+missing meaning entirely~\cite{yovel2025critique}. For a repertoire as
+graded and context-bound as the dog's, the prior probability of a clean
+combinatorial alphabet is lower than for whale codas or birdsong.
 
-The lesson for dogs is double-edged. On one hand, the methods are
-species-agnostic and could be applied to bark sequences. On the other, the
-structure these models find is \emph{statistical}, and predicting the next
-sound is not understanding it. Yossi Yovel and others have warned that such
-models may cluster calls by acoustic similarity while missing meaning
-entirely---grouping signals that sound alike but signify different
-things. For a repertoire as graded and context-bound as the dog's, the
-prior probability of finding a clean combinatorial alphabet is lower than
-for whale codas or birdsong.
+\textbf{Grounding} ties a signal to the world: the eliciting context, the
+subsequent behavior, the objects in view, the social partner. Dogs are
+paradoxically advantaged here, because they live in richly instrumented
+human homes and their behavior is legible to us. The soundboard is
+effectively a grounding device: the button press, the spoken word, and the
+consequent action form a triangulated, checkable
+mapping~\cite{bastos2024plos,bastos2024scirep}. The Wild Dolphin Project's
+CHAT system does the analogous thing underwater, pairing a synthetic
+whistle with a coveted object so the dolphin can request it by
+name~\cite{google2025dolphingemma}. The general principle, ground symbols
+through interaction and consequence rather than passive correlation, is the
+field's most important methodological insight, and exactly what consumer
+bark-to-sentence apps lack.
 
-\subsection{Stage 3: semantic grounding}
-Structure without semantics is syntax without a dictionary. Grounding ties
-a signal to the world: to the eliciting context, the dog's subsequent
-behavior, the objects in view, the social partner. This is the hardest
-stage and the one where dogs are paradoxically \emph{advantaged}, because
-they live in richly instrumented human homes and their behavior is legible
-to us. The soundboard paradigm is effectively a grounding
-device~\cite{bastos2024plos,bastos2024scirep}: the button press, the spoken
-word, and the consequent action (door opens, toy appears) form a
-triangulated, checkable mapping. The Wild Dolphin Project's CHAT system
-does the analogous thing underwater, pairing a synthetic whistle with a
-coveted object (sargassum, a scarf) so that the dolphin can request it by
-name~\cite{google2025dolphingemma}. The general principle---\emph{ground
-symbols through interaction and consequence}, not through passive
-correlation---is the field's most important methodological insight, and it
-is exactly what consumer bark-to-sentence apps lack.
+\textbf{Validation} closes the loop: does the animal treat the model's
+output as meaningful? The gold standard is the playback experiment, used
+for decades to establish referential alarm calls, with ESP's interactive
+finch work and CHAT as modern model-driven versions. For dogs, the loop
+would infer an intent, emit a candidate signal or action, and test whether
+the dog's behavior confirms the inference, with the experimenter blind to
+the model's guess to avoid Clever-Hans contamination. No consumer product
+does this; it is the dividing line between science and entertainment.
 
-\subsection{Stage 4: interactive validation (playback)}
-The final stage closes the loop: does the animal treat the model's output
-as meaningful? The gold standard is the \emph{playback experiment}---play a
-recorded or synthesized signal and observe whether the receiver responds
-appropriately. Comparative ethology has used playbacks for decades to
-establish that, e.g., vervet alarm calls refer to specific predators. The
-Earth Species Project's interactive finch work and the CHAT dolphin
-protocol are modern, model-driven versions. For dogs, a validation loop
-would look like: infer an intent, emit a candidate signal or action, and
-test whether the dog's behavior confirms the inference---with the
-experimenter blind to the model's guess to avoid Clever-Hans contamination.
-No consumer product does this; it is the dividing line between science and
-entertainment.
-
-\subsection{Maturity summary}
-Table~\ref{tab:pipeline} rates each stage for the canine case. The pattern
-is clear: the \emph{front} of the pipeline (encoding, structure) is
-borrowable from the broader bioacoustics boom and is relatively mature; the
-\emph{back} (grounding, validation) is where canine-specific, falsifiable
-work is needed and where almost none of the commercial effort is directed.
-This asymmetry---strong models, weak semantics, absent validation---is the
-technical signature of the whole field.
+Reading the cross-species literature through the ladder, three things
+transfer to dogs: the self-supervised encoders, the structure-discovery
+toolkit, and above all the interaction-grounding and validation protocol.
+Three things do not: the assumption of discrete culturally transmitted
+units, the luxury of decades of labeled wild corpora, and the clean playback
+accessibility of whales and birds. Dogs are domestic, multimodal, and
+graded; their advantage is legibility and proximity, their disadvantage the
+absence of a syntax to decode. The maturity pattern is the technical
+signature of the whole field: the front of the pipeline is borrowable and
+relatively mature, the back is where canine-specific, falsifiable work is
+needed and where almost no commercial effort is directed.
 
 \begin{table}[htbp]
 \centering
-\caption{Maturity of the four decoding stages for the canine case.
-``Borrowable'' means general bioacoustic methods transfer directly;
-``canine-specific'' means dedicated dog data and protocols are required.}
-\label{tab:pipeline}
-\small
-\begin{tabular}{@{}p{2.7cm}p{4.6cm}p{2.5cm}p{3.0cm}@{}}
+\caption{Selected milestones in cross-species decoding. Type: R =
+peer-reviewed structure result; M = generative / foundation model; I =
+interactive grounding protocol; P = consumer product. These advance the
+toolbox; none yet delivers validated sentence-level translation.}
+\label{tab:milestones}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{1.0cm}p{4.6cm}p{0.9cm}p{5.5cm}@{}}
 \toprule
-\textbf{Stage} & \textbf{Representative method} & \textbf{Maturity} & \textbf{Canine status} \\
+\textbf{Year} & \textbf{Milestone} & \textbf{Type} & \textbf{Significance} \\
 \midrule
-Encoding & AVES, NatureLM-audio, Perch~\cite{hagiwara2023aves,robinson2024naturelm,ghani2023perch} &
-High & Borrowable; Rung 1--2 ready \\
-Structure & CETI alphabet, DolphinGemma, WhAM~\cite{sharma2024whale,google2025dolphingemma} &
-Medium & Statistical only; meaning open \\
-Grounding & Soundboards, CHAT object-labeling~\cite{bastos2024plos,google2025dolphingemma} &
-Low--medium & Needs interaction data \\
-Validation & Playback / closed-loop response & Low & Absent in products \\
+2002 & Bow-Lingual~\cite{bowlingual2002} & P & six-emotion bark matcher; the consumer archetype \\
+2005 & ELTE bark psychophysics~\cite{pongracz2005barks} & R & humans classify bark context above chance \\
+2013 & DogFACS~\cite{waller2013dogfacs} & R & objective facial-action coding for dogs \\
+2018 & ESP founded; ICASSP bark ML~\cite{icassp2018dogbark} & M/R & open infrastructure; automated context/affect \\
+2022 & CETI program paper~\cite{andreas2022ceti} & R & roadmap for whale decoding \\
+2023 & AVES; BEANS~\cite{hagiwara2023aves,hagiwara2023beans} & M & animal-sound SSL encoder + benchmark \\
+2024 & whale phonetic alphabet~\cite{sharma2024whale} & R & combinatorial coda structure (form, not meaning) \\
+2024 & soundboard studies~\cite{bastos2024plos,bastos2024scirep} & R/I & canine word comprehension + intentional combination \\
+2024 & NatureLM-audio~\cite{robinson2024naturelm} & M & audio--language foundation model \\
+2025 & DolphinGemma + CHAT~\cite{google2025dolphingemma} & M/I & sequence model + object-grounded interaction \\
+2025 & WhAM~\cite{wham2025} & M & generative whale-coda model \\
+2026 & ZF-AIM finch interaction~\cite{esp2026finch} & I & real-time turn-taking with a songbird \\
 \bottomrule
 \end{tabular}
 \end{table}

@@ -1,87 +1,141 @@
-\section{So How Far Are We? An Honest Distance Estimate}
+\section{Distance, Agenda, and the Leap Question}
 \label{sec:distance}
+\label{sec:future}
 
 We can now answer the title question without evasion. The answer is not a
-number of years but a map: the distance depends entirely on which rung of
-the ladder one means, and the rungs differ not by degree but by kind.
-Table~\ref{tab:distance} gives our estimate, with the evidence and the
-dominant blocker for each.
+number of years but a map: the distance depends on which rung one means, and
+the rungs differ in kind (Table~\ref{tab:distance},
+Figure~\ref{fig:roadmap}). Signal detection and affect classification are
+solved in the laboratory and shipping in products; the remaining work is
+engineering and validation, not discovery. A calibrated, validated welfare
+monitor reporting arousal and valence with honest uncertainty is plausibly
+a \textbf{2--4 year} horizon, with real payoff in early stress or pain
+detection, shelter welfare assessment, and veterinary triage. It is not
+``translation,'' but it is real. Intent inference on natural signals is a
+research program, not a product cycle: the soundboard literature proves
+referential intent exists and is checkable, but with human-supplied
+symbols~\cite{bastos2024plos,bastos2024scirep}. Extending this to spontaneous
+barks, faces, and postures, we estimate \textbf{validated natural-signal
+intent at roughly 2030 or later}, contingent on the evaluation
+infrastructure being built. Open referential translation and free dialogue
+presuppose a generative symbolic system the biological evidence does not
+support; the honest answer is \textbf{no credible timeline}, because there
+may be no language there to translate. An engineered dialogue, structured
+human-to-dog input with the dog responding through trained symbols, is a
+Rung-3 artifact wearing Rung-5 clothing.
 
-\subsection{Rung 1--2: essentially here, and useful}
-Signal detection and affect classification are solved in the laboratory
-and shipping in products. The remaining work is engineering and
-validation---public benchmarks, calibration, multimodal fusion---not
-discovery. A calibrated, validated welfare monitor that reports arousal and
-valence with honest uncertainty is plausibly a \textbf{2--4 year} horizon
-from the research frontier to reliable deployment. This is the genuinely
-useful payoff: early stress or pain detection, shelter welfare assessment,
-veterinary triage. It is not ``translation,'' and calling it such would
-oversell it; but it is real.
+\begin{figure}[t]
+\centering
+\input{figures/fig2.tex}
+\caption{\textbf{Capability roadmap, 2002--2035.} Solid bars denote
+validated, shipping capability; hatched bars denote projection with
+confidence decreasing to the right. Track A (affect, Rung 2) heads toward
+calibrated welfare monitoring; Track B (intent, Rung 3) is emerging through
+soundboards and fusion, with validated natural-signal intent plausible
+after 2030; Track C (open translation, Rungs 4--5) has no credible timeline
+and may be permanently ill-posed. The dashed line marks the present (2026).}
+\label{fig:roadmap}
+\end{figure}
 
-\subsection{Rung 3: a foothold, a decade of work}
-Intent and context inference on \emph{natural} signals is emerging. The
-soundboard literature proves that referential intent exists and is
-checkable~\cite{bastos2024plos,bastos2024scirep}, but it does so with
-human-supplied symbols. Extending this to spontaneous barks, faces, and
-postures---fusing modalities, modeling goals, validating closed-loop---is a
-research program, not a product cycle. We estimate \textbf{validated
-natural-signal intent inference at roughly 2030 or later}, contingent on
-the evaluation infrastructure of Section~\ref{sec:eval} being built. The
-blocker is not model capacity; it is labeled, grounded, validated data.
-
-\subsection{Rung 4--5: possibly never, and that is informative}
-Open referential translation and free dialogue presuppose a generative
-symbolic system in the dog that the biological evidence does not support.
-Here the honest answer is \textbf{no credible timeline}, and the reason is
-not pessimism about AI but a fact about the subject: there may be no
-language there to translate. This is the survey's central, deflationary
-claim. It does not rule out an \emph{engineered} dialogue---structured
-human-to-dog input via trained symbols, with the dog responding through a
-soundboard---which is a Rung-3 artifact wearing Rung-5 clothing. But faithful
-translation of spontaneous canine ``speech'' into English sentences is, in
-the strong sense, possibly ill-posed, and more compute will not fix a
-category error.
-
-\subsection{Why ``more scale'' is not the answer}
 It is tempting to read the cross-species successes as evidence that scaling
 foundation models will eventually crack the dog. The reading is mistaken.
-CETI, DolphinGemma, and the finch models advance \emph{structure discovery
-and generation}---the front of the pipeline. They do not supply semantics,
-and their authors say so~\cite{sharma2024whale,google2025dolphingemma}. The
-canine bottleneck is at the \emph{back} of the pipeline (grounding,
-validation) and, above Rung 3, in the subject itself. Scaling the encoder
-makes Rung 1--2 better; it does not create a grammar that is not there.
-The distance to Rung 5 is therefore not a function of parameters but of
-biology.
+CETI, DolphinGemma, and the finch models advance structure discovery and
+generation, the front of the pipeline; they do not supply semantics, and
+their authors say so~\cite{sharma2024whale,google2025dolphingemma}. The
+canine bottleneck is at the back (grounding, validation) and, above Rung~3,
+in the subject itself. Scaling the encoder makes Rungs~1--2 better; it does
+not create a grammar that is not there. The productive reframe is to stop
+asking ``when will we translate dogs?'' and start asking ``how well can we
+interpret canine state, with calibrated uncertainty and animal-grounded
+validation?'' That question has answers, metrics, and welfare value, and it
+treats the dog as a signaler with its own modalities rather than a defective
+human whose sentences we are waiting to recover.
 
-\subsection{The reframe: from translation to interpretation}
-The productive move is to stop asking ``when will we translate dogs?'' and
-start asking ``how well can we \emph{interpret} canine state, with calibrated
-uncertainty and animal-grounded validation?'' That question has answers,
-has metrics, and has welfare value. It also respects the animal: it treats
-the dog as a signaler with its own modalities, not as a defective human
-whose sentences we are waiting to recover. The Rosetta Stone that titles
-this survey is, in the end, a warning as much as a promise: there may be no
-decree to transcribe (Section~\ref{sec:conclusion}).
+If that is right, the highest-leverage work is infrastructure and protocols,
+ordered as follows. First, a public, grounded canine corpus: synchronized
+audio, video, context metadata, and consequent behavior, with the soundboard
+citizen-science network as the natural collection
+substrate~\cite{bastos2024plos,hagiwara2023beans}. Second, calibrated
+multimodal affect models fusing bark, growl, face, and posture on that
+corpus, with self-supervised encoders as the
+backbone~\cite{hagiwara2023aves,robinson2024naturelm,ghani2023perch}. Third,
+closed-loop intent validation: infer, act, and test the dog's response under
+blind conditions, the soundboard and CHAT protocols adapted to the
+home~\cite{bastos2024scirep,google2025dolphingemma}. Fourth, structure
+discovery with humility: apply the CETI and DolphinGemma toolkits to bark
+corpora with the explicit prior that graded displays may yield no clean
+alphabet, report structure as form rather than meaning, and heed the
+acoustic-similarity critique~\cite{yovel2025critique}; a negative result
+would itself sharpen the semantic-gap claim. Fifth, engineered rather than
+extracted dialogue: expand the soundboard into a richer negotiated symbol
+system, with the dog as partner and the behavior as check.
+
+\subsection{Could there be an ``Attention Is All You Need'' moment?}
+The Transformer arrived as a machine-translation paper and became a
+general-purpose engine of the field~\cite{vaswani2017attention}, so it is
+natural to ask whether one architectural insight could produce the same
+leap for canine decoding. The history of 2017 is usually told as a story
+about architecture; it is equally a story about preconditions. Attention
+caught fire because three conditions were already in place: human languages
+supply a productive, recursive target; web-scale parallel corpora
+(Europarl, OPUS) supplied supervision at
+scale~\cite{koehn2004europarl,tiedemann2012opus}; and reference translations
+gave the field a cheap shared error signal, BLEU, against which thousands of
+groups could iterate~\cite{papineni2002bleu}. The architecture was the
+spark; target structure, parallel data, and a trustworthy error signal were
+the dry tinder.
+
+Auditing the canine case against those conditions is sobering. The
+biological record shows graded, context-bound displays and no evidenced
+generative grammar, so the first condition is precisely what
+fails~\cite{pongracz2005barks,farago2017growls}. A bark--sentence bitext
+cannot be harvested from the web; it can only be constructed, and the
+soundboard is the first small constructed one~\cite{bastos2024plos}. The
+error signal is absent altogether, which is why the field cannot compound
+its progress. A new architecture, however elegant, lands on wet tinder.
+
+Yet the same history says that leaps begin when a representation makes
+hidden structure visible: the CETI alphabet multiplied the inventory of
+distinguishable coda forms nearly tenfold~\cite{sharma2024whale}, and a
+comparable discovery of discrete, context-grounded units in canine displays
+would rewrite our ladder. The more probable attention-moment is
+infrastructural: a grounded public corpus plus blind, closed-loop
+validation would supply the error signal that BLEU supplied to MT, with the
+dog's own behavior as the reference
+translation~\cite{bastos2024scirep,google2025dolphingemma}. When a field
+acquires a trustworthy error signal, progress begins to compound. So yes: a
+leap is possible, and the door should stay open to empirical surprise. It
+will arrive as a discovery about the dog, or as a protocol that lets the dog
+correct us, recognizable by the same signature as 2017: suddenly, everyone
+can measure progress. Until then, the honest posture is the one any good
+listener adopts toward a companion whose language is not our own:
+attention, patience, and the willingness to be corrected.
+
+\subsection{What would falsify our thesis}
+The central claim, that Rungs~4--5 are ill-posed for natural canine
+communication, would be undermined by a reproducible demonstration of a
+productive, open referential vocabulary in spontaneous dog signals
+validated by playback, or by evidence of recursive, generative combination
+in natural canine displays (not trained soundboard sequences). Absent such
+evidence, the ladder stands. We invite the community to try to falsify it;
+that is how the distance estimate should shrink.
 
 \begin{table}[htbp]
 \centering
 \caption{Distance estimate by rung. Horizons are judgments from the
-evidence reviewed, not predictions; ``blocker'' names the dominant
-obstacle. Rungs 4--5 are marked possibly ill-posed because the requisite
-generative symbolic system is not evidenced in natural canine communication.}
+evidence reviewed, not predictions.}
 \label{tab:distance}
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}p{2.7cm}p{2.5cm}p{4.0cm}p{3.6cm}@{}}
 \toprule
 \textbf{Rung} & \textbf{Status} & \textbf{Horizon} & \textbf{Dominant blocker} \\
 \midrule
-1 Signal & Solved & Now & Engineering only \\
-2 Affect & Shipping & 2--4 yr to validated welfare use &
-Calibration, public benchmarks \\
-3 Intent & Foothold & $\sim$2030+ & Grounded, validated data \\
-4 Reference & Unproven & No credible timeline & No productive symbol system \\
-5 Dialogue & Possibly ill-posed & Possibly never & No evidenced generative grammar \\
+1 Signal & solved & now & engineering only \\
+2 Affect & shipping & 2--4 yr to validated welfare use & calibration, public benchmarks \\
+3 Intent & foothold & $\sim$2030+ & grounded, validated data \\
+4 Reference & unproven & no credible timeline & no productive symbol system \\
+5 Dialogue & possibly ill-posed & possibly never & no evidenced generative grammar \\
 \bottomrule
 \end{tabular}
 \end{table}

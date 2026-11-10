@@ -1,101 +1,172 @@
-\section{The Commercial Landscape: Translators That Are Not Translators}
+\section{Products and the Evaluation Crisis}
 \label{sec:products}
+\label{sec:eval}
 
-A small industry now sells the folkloric dream as a feature. This section
-catalogs the principal products, reports their claims \emph{as claims}, and
-audits what they actually do against the ladder. The pattern is uniform:
-the technology is affect classification (Rung 2); the marketing is dialogue
-(Rung 5); and the accuracy numbers, as defined, cannot be checked.
-Table~\ref{tab:products} summarizes the landscape.
-
-\subsection{A brief history: from Bow-Lingual to PetGPT}
-The archetype is Takara's \sys{Bow-Lingual} (2002): a collar microphone and
-handheld display that matched bark acoustics to six emotions---happiness,
-sadness, frustration, anger, assertion, desire---and then to one of roughly
-200 canned phrases~\cite{bowlingual2002}. It sold well, won the 2002 Ig Nobel
-Peace Prize, and established the template: \emph{classify affect, then
-decorate it with a sentence}. Two decades later the template is unchanged;
+A small industry now sells the folkloric dream as a feature. The archetype
+is Takara's \sys{Bow-Lingual} (2002): a collar microphone and handheld
+display that matched bark acoustics to six emotions and then to one of
+roughly 200 canned phrases~\cite{bowlingual2002}. It sold well, won the 2002
+Ig Nobel Peace Prize, and established the template: classify affect, then
+decorate it with a sentence. Two decades later the template is unchanged;
 only the classifier has been swapped for a deep model and the phrase bank
-for a language model.
+for a language model. The current flagship, \sys{Traini}, analyzes sound,
+images, and video to infer emotion and need, reporting about 12 emotions
+across roughly 120 breeds with a headline accuracy of
+81.5\%~\cite{traini2024}. Its founder has publicly conceded that audio alone
+is insufficient and that body language and face must be fused to reach the
+claimed accuracy, an implicit admission that the product is multimodal
+affect inference; the reverse direction (human speech rendered as ``dog'')
+is far weaker, on the order of 40\% in independent coverage.
+\sys{MeowTalk} applies the idea to cats~\cite{meowtalk2020}, the
+\sys{Petpuls} collar classifies emotional states from
+vocalizations~\cite{petpuls2021}, and in China ``Meng Xiao Yi'' reports a
+Qwen-based model trained on millions of pet voiceprints with a claimed
+94.6\% emotion accuracy~\cite{mengxiaoyi2026}. Table~\ref{tab:products}
+audits the landscape against the ladder.
 
-The current flagship is \sys{Traini}, a Silicon Valley ``pet empathy AI''
-whose PetGPT/PEBI model analyzes sound, images, and video to infer canine
-emotion and need~\cite{traini2024}. Vendor materials report recognition of
-about 12 emotions across roughly 120 breeds, with a headline accuracy of
-81.5\%, and describe a corpus on the order of hundreds of thousands of dogs'
-sounds and expressions labeled with input from behavior specialists. The
-company has raised venture funding and amassed a large consumer user base.
-Notably, its founder has publicly conceded that audio alone is insufficient
-and that body language and facial expression must be fused to reach the
-claimed accuracy---an implicit admission that the product is multimodal
-affect inference. The reverse direction (human speech rendered as ``dog'')
-is reported to be far weaker, on the order of 40\% in independent coverage,
-and rests on the questionable premise that synthesized barks carry meaning
-to the dog.
+Read carefully, every headline number is an emotion-classification metric,
+not a translation metric. ``81.5\%'' means that on some held-out set the
+model's emotion label agreed with a human-assigned label 81.5\% of the
+time. That is a real, falsifiable Rung-2 result, if the test set, label
+protocol, and class balance are disclosed, which consumer vendors rarely
+do. It says nothing about whether the rendered sentence corresponds to
+anything the dog intended, because no such ground truth exists. The
+sentence is generated downstream of the classifier by a language model
+optimizing for human emotional resonance, not fidelity to the animal. The
+product demonstrates Rung 2 and sells Rung 5.
 
-\subsection{The wider field}
-Other products fill out the picture. \sys{MeowTalk}, from a former Amazon
-engineer, applies the same idea to cats~\cite{meowtalk2020}. The
-\sys{Petpuls} collar, a Seoul National University spin-off, classifies
-emotional states from vocalizations~\cite{petpuls2021}. In China,
-``Meng Xiao Yi'' reports a Qwen-based model trained on millions of pet
-voiceprints with a claimed 94.6\% emotion accuracy~\cite{mengxiaoyi2026},
-and vendors such as PETKIT and various ``pet LLM'' startups market
-health-and-emotion monitoring. \sys{DogTok} and similar apps invert the
-direction, turning human commands into bark-like sounds for training. The
-market context is a global pet industry measured in hundreds of billions of
-dollars, with smart devices the fastest-growing segment---which explains
-the velocity of the claims, if not their validity.
+Three incentives keep the gap open. The consumer value proposition is
+emotional, so a plausible affectionate sentence beats a calibrated
+probability vector even though the latter is the honest output. The data
+flywheel favors engagement over validation: every uploaded clip enriches
+the classifier, but no mechanism tests whether the ``translation'' is
+correct, because the dog cannot complain. And the scientific validation
+loop is slow and unglamorous and yields no shareable screenshot. The result
+is a market optimized for the appearance of translation.
 
-\subsection{The audit: what the accuracy numbers actually measure}
-Read carefully, every headline number is an \emph{emotion-classification}
-metric, not a translation metric. ``81.5\%'' means: on some held-out set,
-the model's emotion label agreed with a human-assigned label 81.5\% of the
-time. That is a real, falsifiable Rung-2 result---\emph{if} the test set,
-label protocol, and class balance are disclosed, which consumer vendors
-rarely do. It says nothing about whether the rendered sentence (``I love
-you forever'') corresponds to anything the dog intended, because no such
-ground truth exists. The sentence is generated \emph{downstream} of the
-classifier by a language model optimizing for human emotional resonance,
-not for fidelity to the animal. This is the commercial instance of the
-semantic gap: the product demonstrates Rung 2 and sells Rung 5.
+The deeper problem is falsifiability. Translation in the human sense is
+scored against a reference; canine communication has none. There is no
+canonical intended message behind a bark and no bilingual informant who can
+confirm that ``I want to play'' is what the dog meant, and per
+Section~\ref{sec:biology} there may be no sentence-shaped intent to report.
+What can be scored is the upstream classifier, and reporting that as a
+``translation accuracy'' is a category mistake. The ELTE tradition is
+explicit that its labels are human-perceived emotion or eliciting
+context~\cite{pongracz2006acoustic,icassp2018dogbark}. ``This bark means `I
+love you'\,'' admits no observation that could show it false: the dog will
+not contradict it, and any subsequent behavior can be retrofitted to the
+narrative. Compare a weather forecast, scored against tomorrow's weather,
+or speech-to-text, scored against a transcript. The pet translator has no
+tomorrow and no transcript.
 
-\subsection{Why the gap persists}
-Three incentives keep the gap open. First, the consumer value proposition
-is emotional---owners want to feel understood by their pets---so a
-plausible, affectionate sentence beats a calibrated probability vector,
-even though the latter is the honest output. Second, the data flywheel
-favors engagement over validation: every uploaded clip enriches the
-classifier, but no mechanism tests whether the ``translation'' is correct,
-because the dog cannot complain. Third, the scientific validation loop
-(playback, blind protocols) is slow and unglamorous, and yields no
-shareable screenshot. The result is a market optimized for the
-\emph{appearance} of translation. Section~\ref{sec:eval} formalizes why this
-appearance cannot, as presently constructed, be falsified.
+Two classic threats compound this. The Clever Hans effect, the horse that
+appeared to do arithmetic but was reading its trainer's unconscious cues,
+is the permanent hazard of animal-communication experiments; soundboard
+studies guard against it with blind protocols and unfamiliar
+button-pressers~\cite{bastos2024plos}, while consumer apps used by the
+devoted owner in an uncontrolled home do the opposite. Anthropomorphism is
+the second: human observers project their categories onto the
+dog~\cite{sci2022explainable}, and a language model trained on human text
+amplifies the projection, risking teaching owners to ignore the dog's real
+body signals in favor of a flattering sentence.
+
+A defensible evaluation program therefore has four ingredients: defined
+labels and disclosed protocols on a public held-out corpus, the BEANS/BirdSet
+discipline applied to dogs~\cite{hagiwara2023beans}; calibration, so
+probabilities match observed frequencies and a welfare tool can threshold
+responsibly; closed-loop validation of inferred intent against the dog's
+subsequent behavior under blind conditions; and a strict separation of the
+rendered sentence from the score. None of today's consumer products
+satisfies these. Table~\ref{tab:evidence} maps the principal canine results
+to their actual label source: everything at Rungs~1--2 has an objective or
+consensus label and is falsifiable; Rung~3 is falsifiable only because a
+human-designed symbol set makes the intent checkable; the bark-to-sentence
+claim has no label at all.
+
+This crisis is the animal-communication instance of a broader reckoning in
+AI about what benchmarks measure. The ``stochastic parrots'' critique warns
+that scaling text models amplifies form without
+grounding~\cite{bender2021parrots}, the ``climbing toward NLU'' position
+argues that the field mistakes benchmark gains for
+understanding~\cite{bender2020climbing}, and broad suites (HELM, BIG-bench,
+MMLU, TruthfulQA) expose how much headline scores depend on task choice and
+contamination~\cite{liang2023helm,srivastava2023bigbench,hendrycks2021mmlu,lin2022truthfulqa}.
+Documentation practices such as datasheets and model cards exist to make a
+system's limits legible~\cite{gebru2021datasheets,mitchell2019modelcards},
+and the hallucination literature shows that fluent generation routinely
+outruns its evidence~\cite{ji2023hallucination,maynez2020faithfulness}.
+Table~\ref{tab:limits} consolidates the limitations this survey has
+identified. We propose a simple demarcation: a canine communication system
+should be called a translator only if its outputs are scored against an
+independent, animal-grounded error signal. By this criterion no current
+product qualifies; the soundboard paradigm qualifies at the word level; the
+rest is affect classification with a narrative interface. This is the
+difference between a measurement and a story.
 
 \begin{table}[htbp]
 \centering
 \caption{Commercial ``pet translators'' audited against the ladder.
-Accuracies are \emph{vendor-reported claims}, not independently verified;
-all measure emotion classification (Rung 2), none measures sentence-level
-translation. ``Reverse'' = human-to-animal direction.}
+Accuracies are vendor-reported claims, not independently verified; all
+measure emotion classification (Rung 2).}
 \label{tab:products}
-\small
+\footnotesize
+\setlength{\tabcolsep}{4pt}
 \begin{tabular}{@{}p{2.5cm}p{3.5cm}p{2.6cm}p{2.0cm}p{2.2cm}@{}}
 \toprule
 \textbf{Product} & \textbf{Modality / method} & \textbf{Claim} & \textbf{Actual rung} & \textbf{Reverse} \\
 \midrule
-Bow-Lingual (2002)~\cite{bowlingual2002} & Bark acoustics $\rightarrow$ 6 emotions &
-$\sim$200 phrases & 2 & No \\
-Traini / PetGPT~\cite{traini2024} & Audio + image + video, PEBI &
-81.5\%, 12 emotions & 2 & Weak ($\sim$40\%) \\
-MeowTalk~\cite{meowtalk2020} & Cat vocalization classifier &
-Emotion labels & 2 & No \\
-Petpuls~\cite{petpuls2021} & Collar vocalization analysis &
-Emotion states & 2 & No \\
-Meng Xiao Yi~\cite{mengxiaoyi2026} & Qwen + voiceprints &
-94.6\% (claimed) & 2 & No \\
-DogTok & Human command $\rightarrow$ bark & Training aid & n/a & Yes \\
+Bow-Lingual (2002)~\cite{bowlingual2002} & bark acoustics $\to$ 6 emotions & $\sim$200 phrases & 2 & no \\
+Traini / PetGPT~\cite{traini2024} & audio + image + video & 81.5\%, 12 emotions & 2 & weak ($\sim$40\%) \\
+MeowTalk~\cite{meowtalk2020} & cat vocalization classifier & emotion labels & 2 & no \\
+Petpuls~\cite{petpuls2021} & collar vocalization analysis & emotion states & 2 & no \\
+Meng Xiao Yi~\cite{mengxiaoyi2026} & Qwen + voiceprints & 94.6\% (claimed) & 2 & no \\
+DogTok & human command $\to$ bark & training aid & n/a & yes \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence-type map: what ground truth each canine study actually
+has. ``Falsifiable'' means an independent error signal exists.}
+\label{tab:evidence}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{3.0cm}p{3.4cm}p{3.3cm}p{1.7cm}p{2.2cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Task} & \textbf{Label / ground truth} & \textbf{Rung} & \textbf{Falsifiable?} \\
+\midrule
+Pongr\'acz et al.~\cite{pongracz2005barks,pongracz2006acoustic} & bark context / emotion & human consensus on context & 2 & yes \\
+Moln\'ar et al.~\cite{molnar2006discriminate} & individual ID & dog identity (objective) & 1 & yes \\
+Farag\'o et al.~\cite{farago2017growls} & growl size / intent & human judgment + known context & 2--3 & yes \\
+ICASSP 2018~\cite{icassp2018dogbark} & context / emotion & human-perceived label & 2 & yes, if disclosed \\
+DogFACS CNNs~\cite{sci2022explainable,sci2023cnnewoa,sci2025automated} & facial affect / AUs & human-coded FACS & 2 & yes \\
+Bastos et al.\ (PLoS)~\cite{bastos2024plos} & word comprehension & blind behavioral response & 3 & yes (scaffolded) \\
+Bastos et al.\ (Sci.\ Rep.)~\cite{bastos2024scirep} & two-button combination & combination statistics & 3 & yes (scaffolded) \\
+bark-to-sentence apps~\cite{traini2024} & rendered sentence & none (no intended message) & 5 (claimed) & \textbf{no} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Consolidated limitations of canine ``translation,'' with locus and
+consequence.}
+\label{tab:limits}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{4.0cm}p{4.6cm}p{5.0cm}@{}}
+\toprule
+\textbf{Limitation} & \textbf{Where it bites} & \textbf{Consequence} \\
+\midrule
+No ground-truth message & bark-to-sentence scoring & fidelity is unfalsifiable \\
+Human-perceived labels & Rung-2 metrics & a proxy for state, not a readout \\
+Undisclosed protocols & vendor accuracies & claims cannot be checked \\
+Clever Hans / anthropomorphism & uncontrolled home use & the observer leaks the answer \\
+No parallel corpus & supervised training & no translation signal exists \\
+Semantic gap / no recursion & Rung 5 & the target may not exist \\
+Fluency $\neq$ fidelity & LLM sentence rendering & hallucinated ``translations'' \\
+No closed-loop error signal & consumer market & the field cannot self-correct \\
 \bottomrule
 \end{tabular}
 \end{table}

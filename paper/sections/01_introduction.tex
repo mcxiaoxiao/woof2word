@@ -1,213 +1,125 @@
 \section{Introduction: The Oldest Silence}
 \label{sec:intro}
 
-For at least fifteen thousand years---and by some accounts more than
-thirty thousand---humans have lived alongside dogs~\cite{frantz2016genomic},
-and for nearly as long we have talked \emph{at} them without ever being able
-to talk \emph{with} them. The wish to close that loop is older than science:
-folktales grant the hero a magic fern-seed or a drop of dragon's blood that
-lets him understand the speech of beasts. What is new is the scale of the
-longing, and the arrival of a technology that claims to satisfy it.
+For at least fifteen thousand years humans have lived alongside
+dogs~\cite{frantz2016genomic}, and for nearly as long we have talked
+\emph{at} them without ever talking \emph{with} them. Folktales grant the
+hero a magic fern-seed or a drop of dragon's blood that lets him understand
+the speech of beasts; the wish is older than science. What is new is the
+scale of the longing, and the arrival of a technology that claims to
+satisfy it.
 
-\subsection{A billion companions, one-sided conversations}
-The demographic facts make the silence hard to ignore. There are roughly
-\textbf{900 million dogs} on Earth~\cite{dogster2026stats}, of which on the
-order of \textbf{half a billion} live as companions in human
-homes~\cite{sustainablediets2025}. Dogs are the most widely kept companion
-animal on the planet: some \textbf{65 million U.S.\ households} own at least
-one~\cite{avma2025,dogster2026stats}, about \textbf{a quarter of European
-households} keep a dog~\cite{fediaf2025}, and tens of millions more households
-do so across Asia~\cite{worldanimalfoundation2026}. And these households do
-not treat their dogs as mute appliances: in one national survey
-\textbf{58\% of owners report regularly conversing} with their dog or cat,
-and the majority do so precisely because the animal is experienced as a
-family member~\cite{budgetdirect2024}. Table~\ref{tab:scale} collects these
-figures. The picture they form is striking: \emph{hundreds of millions of
-people hold daily, affectionate, one-sided conversations with a companion
-who cannot reply in any shared language.} That asymmetry---intimate
-cohabitation without mutual intelligibility---is the regret this survey
-takes as its starting point.
+Roughly \textbf{900 million dogs} live on Earth~\cite{dogster2026stats},
+some \textbf{half a billion} of them as companions in human
+homes~\cite{sustainablediets2025}. About \textbf{65 million U.S.\
+households} own a dog~\cite{avma2025,dogster2026stats}, a quarter of
+European households keep one~\cite{fediaf2025}, and tens of millions more
+do so across Asia~\cite{worldanimalfoundation2026}. These households do not
+treat their dogs as mute appliances: in one national survey \textbf{58\% of
+owners report regularly conversing} with their pet, precisely because the
+animal is experienced as a family member~\cite{budgetdirect2024}. The
+picture is striking in its quiet way: hundreds of millions of people hold
+daily, affectionate, one-sided conversations with a companion who cannot
+reply in any shared language. That asymmetry, intimate cohabitation without
+mutual intelligibility, is the regret this survey takes as its starting
+point.
 
-\begin{table}[htbp]
-\centering
-\caption{The scale of the human--dog communication gap. Industry and survey
-estimates; orders of magnitude, not censuses.}
-\label{tab:scale}
-\small
-\begin{tabular}{@{}p{6.0cm}p{3.2cm}p{4.6cm}@{}}
-\toprule
-\textbf{Quantity} & \textbf{Estimate} & \textbf{Source} \\
-\midrule
-Dogs worldwide (all regimes) & $\approx$900 million & \cite{dogster2026stats} \\
-Companion (pet) dogs, 2024 & $\approx$528 million & \cite{sustainablediets2025} \\
-U.S.\ households owning $\geq$1 dog & $\approx$65.1 million & \cite{avma2025} \\
-European households owning $\geq$1 dog & $\approx$25\% ($\approx$90M dogs) & \cite{fediaf2025} \\
-Pet dogs, China & $\approx$54 million & \cite{dogster2026stats} \\
-Owners regularly conversing with pet & 58\% (AU survey) & \cite{budgetdirect2024} \\
-\bottomrule
-\end{tabular}
-\end{table}
+The old wish now arrives packaged as a product. A smartphone application
+records a bark and returns a sentence, ``I want to play,'' ``my tummy
+hurts,'' ``I love you,'' in under a second, with a large advertised
+accuracy. The curious reader is left with two questions that turn out to be
+surprisingly hard to answer: \emph{how far are we, actually, from
+translating what a dog says?} and, more fundamentally, \emph{is the thing
+possible at all?}
 
-What is new is that the old wish now arrives packaged as a product. A
-smartphone application records a bark and returns a sentence---``I want to
-play,'' ``my tummy hurts,'' ``I love you''---in under a second. The vendor
-advertises an accuracy. The number is large. And the curious reader is left
-with two questions that turn out to be surprisingly hard to answer:
-\emph{how far are we, actually, from translating what a dog says?} and, more
-fundamentally, \emph{is the thing possible at all?}
-
-This survey takes that question seriously and refuses to answer it with a
-single number. ``Translation'' is not one capability but a stack of them, and
-the distance to each layer is different. A system that reports whether a dog
-is relaxed or distressed is doing something real and useful; a system that
-claims to render the dog's ``words'' as an English sentence is doing
-something else, and the difference between the two is not a matter of degree
-but of kind. Our central move is to make that stack explicit---a five-rung
-\emph{translation ladder} (Section~\ref{sec:ladder})---and to locate current
-research and current products on it. The headline finding is easy to state
-and, we will argue, well supported: \textbf{today's best systems live on the
-second rung, affect classification, with a handful of careful laboratory
-studies reaching toward the third.} Everything above that remains either
+We refuse to answer with a single number. ``Translation'' is not one
+capability but a stack of them, and the distance to each layer is different
+in kind. A system that reports whether a dog is relaxed or distressed is
+doing something real and useful; a system that claims to render the dog's
+``words'' as an English sentence is doing something else. Our central move
+is to make that stack explicit, a five-rung \emph{translation ladder}
+(Section~\ref{sec:ladder}), and to locate current research and current
+products on it. The headline finding is easy to state and, we will argue,
+well supported: \textbf{today's best systems live on the second rung,
+affect classification, with a handful of careful laboratory studies
+reaching toward the third.} Everything above that remains either
 aspirational or, in the strong sense, ill-posed.
 
-\subsection{Why now: four converging currents}
-Four developments make this the right moment for such a survey. First,
-\emph{the human translation stack has matured} into a reusable toolkit:
-sequence-to-sequence learning~\cite{sutskever2014seq2seq,cho2014rnn},
-attention~\cite{bahdanau2015attention}, the
-Transformer~\cite{vaswani2017attention}, large-scale
-pretraining~\cite{devlin2019bert,brown2020gpt3}, multilingual
-translation~\cite{costajussa2022nllb,nllb2024scaling}, and speech/audio
-foundation models~\cite{radford2023whisper,baevski2020wav2vec2,borsos2023audiolm}
-(Sections~\ref{sec:humanmt}--\ref{sec:foundationaudio}). Second,
-\emph{bioacoustic foundation models} have matured in their own right:
-self-supervised encoders trained on animal sound---AVES~\cite{hagiwara2023aves},
-the audio--language model NatureLM-audio~\cite{robinson2024naturelm}, and
-Google DeepMind's Perch line~\cite{ghani2023perch}---now transfer across
-species and tasks, with standardized benchmarks such as
-BEANS~\cite{hagiwara2023beans}. Third, \emph{flagship decoding projects} have
-produced concrete, peer-reviewed structure discoveries: Project CETI's
-sperm-whale ``phonetic alphabet''~\cite{sharma2024whale}, Google's
-DolphinGemma sequence model~\cite{google2025dolphingemma}, and the Earth
-Species Project's interactive songbird work~\cite{esp2026finch}. Fourth,
-\emph{canine cognition} has its own empirical renaissance, from the ELTE
-Budapest group's decades of bark and growl
-psychophysics~\cite{pongracz2005barks,farago2017growls} to the UC San Diego
-soundboard studies that put ``talking buttons'' under controlled
-observation~\cite{bastos2024plos,bastos2024scirep}. The intersection of these
-four currents is exactly the space this paper maps.
+Four currents make this the right moment for such a survey. The human
+translation stack has matured into a reusable toolkit, from sequence-to-sequence
+learning and attention to the Transformer, large-scale pretraining,
+multilingual translation, and speech/audio foundation
+models~\cite{sutskever2014seq2seq,cho2014rnn,bahdanau2015attention,vaswani2017attention,devlin2019bert,brown2020gpt3,costajussa2022nllb,nllb2024scaling,radford2023whisper,baevski2020wav2vec2,borsos2023audiolm}
+(Section~\ref{sec:humanmt}). Bioacoustic foundation models have matured in
+their own right and now transfer across species on standardized
+benchmarks~\cite{hagiwara2023aves,robinson2024naturelm,ghani2023perch,hagiwara2023beans}.
+Flagship decoding projects have produced concrete, peer-reviewed structure
+discoveries in sperm whales, dolphins, and
+songbirds~\cite{sharma2024whale,google2025dolphingemma,esp2026finch}. And
+canine cognition has its own empirical renaissance, from the ELTE Budapest
+group's bark and growl psychophysics to the UC San Diego soundboard
+studies~\cite{pongracz2005barks,farago2017growls,bastos2024plos,bastos2024scirep}.
+The intersection of these four currents is the space this paper maps.
 
-\subsection{Not only ``how far'' but ``whether'': alchemy, flight, or perpetual motion?}
 A survey that only estimates distances implicitly assumes the destination
-exists. We refuse that assumption. History offers three templates for a
-long-cherished impossible-sounding goal. \emph{Alchemy} pursued a target
-(transmutation of lead into gold by chemical means) that rested on a
-category error about the underlying science; no amount of effort or scale
-would reach it. \emph{Heavier-than-air flight} was widely declared impossible
-by competent authorities, yet rested on sound physics and was achieved once
-the right mechanisms were assembled. \emph{Perpetual motion} is provably
-impossible, ruled out by conservation laws. The central question we pose is
-which template interspecies translation fits
-(Section~\ref{sec:feasibility}). Our answer is layered: the \emph{lower
-rungs} (affect, intent) resemble flight---hard but grounded, with existence
-proofs already in hand (Section~\ref{sec:feasibility},
-Table~\ref{tab:proofs}); the \emph{upper rung} (open-ended sentence-level
-translation of a non-linguistic signal) resembles alchemy---not because the
-engineering is hard but because the target may not exist. Distinguishing
-these two is the survey's most consequential act.
+exists, so we also adjudicate feasibility against three historical
+templates (Section~\ref{sec:feasibility}). \emph{Alchemy} pursued a target
+that rested on a category error; no amount of effort would reach it.
+\emph{Heavier-than-air flight} was widely declared impossible by competent
+authorities, yet rested on sound physics and fell once the right mechanisms
+were assembled. \emph{Perpetual motion} is provably impossible, ruled out by
+conservation laws. Our layered verdict: the lower rungs (affect, intent)
+resemble flight, hard but grounded with existence proofs already in hand;
+the upper rung (open-ended sentence translation of a non-linguistic signal)
+resembles alchemy, because the target may not exist. Distinguishing these
+two is the survey's most consequential act.
 
-\subsection{The thesis in one paragraph}
-A dog's communicative repertoire is rich, multimodal, and genuinely
-informative---but it is, in the technical sense, a \emph{signaling system}
-rather than a \emph{language}. It encodes affect, arousal, motivational
-state, individual identity, and some referential content (a specific toy, a
-specific door), yet it shows no evidence of the open-ended, recursive,
-generative syntax that human language translation
-presupposes~\cite{hauser2002faculty,chomsky1957syntactic}.
-Consequently, ``translating
-what a dog says'' is, above the level of affect and intent, partly a
-\emph{category error}: there may be no sentence-shaped meaning in the signal
-to recover. This is not a counsel of despair. It reframes the achievable
-goal---validated, calibrated affect-and-intent inference---and exposes why
-the field's most quotable numbers (``81.5\% accuracy,'' ``94.6\% accuracy'')
-are, as presently defined, close to meaningless: there is no ground-truth
-intended message to score a translation against. We call this the
+The thesis, in one paragraph. A dog's communicative repertoire is rich,
+multimodal, and genuinely informative, but it is, in the technical sense, a
+\emph{signaling system} rather than a \emph{language}. It encodes affect,
+arousal, motivational state, individual identity, and some referential
+content, yet it shows no evidence of the open-ended, recursive, generative
+syntax that human language translation
+presupposes~\cite{hauser2002faculty,chomsky1957syntactic}. Consequently,
+``translating what a dog says'' is, above the level of affect and intent,
+partly a \emph{category error}: there may be no sentence-shaped meaning in
+the signal to recover. This reframes the achievable goal, validated and
+calibrated affect-and-intent inference, and exposes why the field's most
+quotable numbers (``81.5\% accuracy,'' ``94.6\% accuracy'') are, as
+presently defined, close to meaningless: there is no ground-truth intended
+message to score a translation against. We call this the
 \emph{falsifiability problem}, and it is the methodological heart of the
 survey (Section~\ref{sec:eval}).
 
-\subsection{Contributions and organization}
-This paper is written from a computer-science and AI standpoint, with
-biology, linguistics, and ethics as supporting witnesses. It makes six
-contributions.
-\begin{enumerate}[label=(\arabic*)]
-  \item \textbf{A CS/AI tech-stack synthesis}: the human translation
-  genealogy from seq2seq to Transformers to speech/audio foundation models,
-  and what each layer contributes to animal decoding
-  (Sections~\ref{sec:humanmt}--\ref{sec:foundationaudio},
-  Tables~\ref{tab:genealogy}--\ref{tab:audio}).
-  \item \textbf{A transfer-feasibility audit and a set of lessons}: what
-  human machine translation presupposes, what of it survives contact with
-  animal signals, and what human MT teaches animal decoding
-  (Sections~\ref{sec:transfer}--\ref{sec:lessons}, Table~\ref{tab:transfer}).
-  \item \textbf{A feasibility adjudication}: alchemy vs.\ flight vs.\
-  perpetual motion, with a table of existence proofs
-  (Section~\ref{sec:feasibility}, Table~\ref{tab:proofs}).
-  \item \textbf{A conceptual ladder} separating signal, affect, intent,
-  reference, and dialogue, used to adjudicate over-claiming
-  (Section~\ref{sec:ladder}, Figure~\ref{fig:ladder}).
-  \item \textbf{A critical audit} of commercial ``pet translators'' and the
-  evaluation crisis, with a consolidated limitations table
-  (Sections~\ref{sec:products}--\ref{sec:eval}, Table~\ref{tab:limits}).
-  \item \textbf{An honest distance estimate and roadmap}, with confidence
-  bands and an ethics framework
-  (Sections~\ref{sec:distance}--\ref{sec:future}, Figure~\ref{fig:roadmap}).
-\end{enumerate}
-Section~\ref{sec:biology} grounds the discussion in what dogs actually
-signal; Section~\ref{sec:conclusion} concludes. Throughout, we keep two
+The paper is written from a computer-science and AI standpoint, with
+biology, linguistics, and ethics as supporting witnesses. It contributes a
+tech-stack synthesis and transfer audit
+(Sections~\ref{sec:humanmt}--\ref{sec:transfer}), a feasibility adjudication
+and the ladder (Sections~\ref{sec:feasibility} and~\ref{sec:ladder}), a
+critical audit of commercial ``pet translators'' and the evaluation crisis
+(Section~\ref{sec:products}), and an honest distance estimate with a
+research agenda and ethics framework
+(Sections~\ref{sec:distance}--\ref{sec:ethics}). Throughout, we keep two
 registers separate: what is \emph{measured} (peer-reviewed effect sizes,
 model metrics on defined tasks) and what is \emph{claimed} (vendor
-accuracies, press-release superlatives). The gap between those registers is,
-in a real sense, the subject of this paper.
+accuracies, press-release superlatives). The gap between those registers
+is, in a real sense, the subject of this paper.
 
-\subsection{Survey methodology and reference tiers}
+\subsection{Method and reference tiers}
 \label{sec:method}
-We state the method plainly so the reference base can be audited and
-extended. Sources were gathered in November 2026 through structured search of
-scholarly indexes (Google Scholar, Semantic Scholar), preprint servers
-(arXiv), publisher sites, and project reports, using query families derived
-from the ladder and the tech stack---e.g.\ ``dog bark emotion
-classification,'' ``canine soundboard word comprehension,''
-``self-supervised bioacoustic encoder,'' ``neural machine translation
-Transformer,'' and ``sperm whale combinatorial structure.'' Inclusion
+Sources were gathered in November 2026 through structured search of
+scholarly indexes (Google Scholar, Semantic Scholar), preprint servers,
+publisher sites, and project reports, using query families derived from the
+ladder and the tech stack; the documented search log
+(\texttt{sources/search-log.md}) records queries and dates. Inclusion
 required a direct bearing on at least one rung, one pipeline stage, or one
-transfer lesson; vendor marketing without a methodological claim was excluded
-except as an object of audit. Every reference is assigned to one of four
-tiers (Table~\ref{tab:tiers}): \textbf{T1} peer-reviewed venue papers;
-\textbf{T2} preprints and technical reports not yet peer reviewed;
-\textbf{T3} vendor/commercial claims, reported \emph{as claims} and never as
-results; and \textbf{T4} journalism and industry statistics, used for scale
-and context only. The bibliography records venue/year/DOI or arXiv ID per
-entry, and the documented search log (\texttt{sources/search-log.md}) records
-queries and dates. Entries confirmed only via secondary indexes are flagged
-in the limitations (Section~\ref{sec:conclusion}) and should be checked
-against the primary record before reuse. This tiering is the survey's defense
-against citation inflation: a claim is only as strong as its tier.
-
-\begin{table}[htbp]
-\centering
-\caption{Reference tiers and their epistemic weight. The tier, not the count,
-determines how much load a citation may bear.}
-\label{tab:tiers}
-\small
-\setlength{\tabcolsep}{4pt}
-\begin{tabular}{@{}p{1.2cm}p{4.6cm}p{4.4cm}p{3.4cm}@{}}
-\toprule
-\textbf{Tier} & \textbf{What it includes} & \textbf{Epistemic weight} & \textbf{Examples} \\
-\midrule
-T1 & peer-reviewed venue paper & strongest; protocols \& effect sizes & \cite{pongracz2005barks,sharma2024whale,vaswani2017attention} \\
-T2 & preprint / technical report & provisional; labeled as such & \cite{robinson2024naturelm,wham2025,esp2026finch} \\
-T3 & vendor / commercial claim & object of audit, not evidence & \cite{traini2024,mengxiaoyi2026} \\
-T4 & journalism / industry stats & scale \& context only & \cite{dogster2026stats,avma2025} \\
-\bottomrule
-\end{tabular}
-\end{table}
+transfer lesson; vendor marketing without a methodological claim was
+excluded except as an object of audit. Every reference falls into one of
+four tiers: \textbf{T1} peer-reviewed venue papers; \textbf{T2} preprints
+and technical reports, labeled as provisional; \textbf{T3} vendor claims,
+reported \emph{as claims} and never as results; \textbf{T4} journalism and
+industry statistics, used for scale and context only. The tier, not the
+count, determines how much load a citation may bear. This is a narrative
+survey, not a PRISMA systematic review; entries confirmed only via
+secondary indexes should be checked against the primary record before
+reuse.

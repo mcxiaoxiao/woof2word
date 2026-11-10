@@ -1,94 +1,72 @@
-\section{The Translation Ladder: What ``Translating a Dog'' Could Mean}
+\section{The Translation Ladder}
 \label{sec:ladder}
 
-The phrase ``translate what a dog says'' smuggles in an assumption: that
-there is a sentence-shaped meaning waiting in the signal, the way a French
-sentence waits behind its English translation. The biological review of
-Section~\ref{sec:biology} gives us reason to doubt this. To make progress we
-replace the single verb ``translate'' with a ladder of five distinct
+The phrase ``translate what a dog says'' smuggles in an assumption: that a
+sentence-shaped meaning waits in the signal, the way a French sentence waits
+behind its English translation. The biological record gives reason to doubt
+this. We therefore replace the single verb with a ladder of five distinct
 capabilities, each with its own input--output contract, its own notion of
 ground truth, and its own distance from the present
 (Figure~\ref{fig:ladder}).
 
-% ===========================================================================
-% FIGURE 1 — The Translation Ladder (hero figure)
-% ===========================================================================
 \begin{figure}[t]
 \centering
-\input{figures/fig1.tex}
-\caption{\textbf{The translation ladder.} ``Translating a dog'' decomposes
-into five capabilities of increasing difficulty. Current consumer products
-and most machine-learning work occupy \rung{Rung 2} (affect classification);
+\resizebox{\textwidth}{!}{\input{figures/fig1.tex}}
+\caption{\textbf{The translation ladder.} Current consumer products and most
+machine-learning work occupy \rung{Rung 2} (affect classification);
 controlled soundboard studies reach \rung{Rung 3} (referential intent) but
 only by supplying a human-designed symbol set. The dashed boundary marks the
 \emph{semantic gap}: above it, the dog's natural signal lacks the recursive,
 generative syntax that sentence-level translation presupposes, so the target
-becomes possibly ill-posed rather than merely hard. The lower rungs are
-data-rich and falsifiable; the upper rungs are data-poor and, in the strong
-sense, may have no ground truth to recover.}
+becomes possibly ill-posed rather than merely hard.}
 \label{fig:ladder}
 \end{figure}
 
-\subsection{Rung 1: signal detection and segmentation}
-The base rung asks only: \emph{is there a vocalization, where does it begin
-and end, and who produced it?} This is a classical detection-and-classification
-problem with objective ground truth (a human annotator marks the waveform),
-and it is essentially solved. Bioacoustic detectors trained on large
-corpora~\cite{ghani2023perch,hagiwara2023aves} segment and attribute calls
-reliably; individual identification from bark acoustics is above
+\textbf{Rung 1, signal detection and segmentation}, asks only whether there
+is a vocalization, where it begins and ends, and who produced it. This is a
+classical detection problem with objective ground truth, and it is
+essentially solved: bioacoustic detectors segment and attribute calls
+reliably~\cite{ghani2023perch,hagiwara2023aves}, and individual
+identification from bark acoustics is above
 chance~\cite{molnar2006discriminate}. Nothing about Rung 1 requires
 understanding.
 
-\subsection{Rung 2: affect and arousal classification}
-The second rung maps a signal to a small set of affective categories---happy,
-fearful, aggressive, distressed, relaxed---or to continuous arousal/valence
-dimensions. This is where nearly all commercial ``translators'' actually
-live, and where the peer-reviewed ML literature is strongest, because the
-labels are human-perceived emotions or eliciting contexts that annotators
-can agree on~\cite{pongracz2006acoustic,icassp2018dogbark,sci2022explainable}.
-Rung 2 is \emph{falsifiable}: one can hold out recordings, score against
-consensus labels, and report a real accuracy. It is also genuinely useful
-for welfare monitoring. Its limit is that an emotion label is not a
-sentence; rendering ``fearful'' as ``I am scared of the vacuum'' adds
-narrative the signal never contained.
+\textbf{Rung 2, affect and arousal classification}, maps a signal to a small
+set of affective categories or to continuous arousal/valence dimensions.
+This is where nearly all commercial ``translators'' live and where the
+peer-reviewed ML literature is strongest, because the labels are
+human-perceived emotions or eliciting contexts that annotators can agree
+on~\cite{pongracz2006acoustic,icassp2018dogbark,sci2022explainable}. Rung 2
+is falsifiable and genuinely useful for welfare monitoring. Its limit is
+that an emotion label is not a sentence; rendering ``fearful'' as ``I am
+scared of the vacuum'' adds narrative the signal never contained.
 
-\subsection{Rung 3: intent and context inference}
-The third rung asks what the dog is \emph{trying to do}---solicit play,
-request egress, guard a resource, signal pain---given the surrounding
-context. This requires multimodal fusion (voice + face + posture +
-situation) and begins to need a model of the dog's goals. Soundboard studies
-provide the cleanest evidence here, because the button press makes the
-intent explicit and checkable~\cite{bastos2024plos,bastos2024scirep}. But
-note the scaffolding: the symbol set is human-designed and trained. Rung 3
-on \emph{natural} signals is far less developed and much harder to validate.
+\textbf{Rung 3, intent and context inference}, asks what the dog is trying
+to do, given the surrounding context, and requires multimodal fusion and a
+model of the dog's goals. Soundboard studies provide the cleanest evidence,
+because the button press makes the intent explicit and
+checkable~\cite{bastos2024plos,bastos2024scirep}, but the symbol set is
+human-designed and trained. Rung 3 on natural signals is far less developed
+and much harder to validate.
 
-\subsection{Rung 4: referential semantics}
-The fourth rung would map a spontaneous canine signal to a specific
-referent---\emph{that} ball, \emph{this} door, a particular person---without
-human-supplied symbols. Receptive studies show dogs can \emph{understand}
-such mappings~\cite{kaminski2004rico,pilley2011chaser}, and some vocal
-signals carry identity information, but a productive, open referential
-vocabulary in natural dog communication has not been demonstrated. This is
-the first rung where the ``translation'' framing starts to strain: there may
-be no stable symbol-to-referent dictionary to recover.
+\textbf{Rung 4, referential semantics}, would map a spontaneous canine
+signal to a specific referent without human-supplied symbols. Receptive
+studies show dogs can understand such
+mappings~\cite{kaminski2004rico,pilley2011chaser}, but a productive, open
+referential vocabulary in natural dog communication has not been
+demonstrated. This is the first rung where the translation framing strains:
+there may be no stable symbol-to-referent dictionary to recover.
 
-\subsection{Rung 5: open-ended dialogue}
-The top rung is the folkloric dream: free, generative, two-way conversation
-in which the dog expresses novel propositions and understands ours. It
-presupposes a recursive generative grammar on the canine side. The evidence
-of Section~\ref{sec:biology}---graded affective signals, linear associative
-combinations, no demonstrated syntax---gives no evidence that this
-presupposition holds for natural canine communication. Rung 5 is therefore
-not merely distant; in its strong form it is \emph{possibly ill-posed}. A weaker, engineered version (structured
-human-to-dog input via soundboards, with the dog responding through trained
-symbols) is conceivable and already nascent.
+\textbf{Rung 5, open-ended dialogue}, is the folkloric dream: free,
+generative, two-way conversation. It presupposes a recursive generative
+grammar on the canine side, and the evidence of graded affective signals,
+linear associative combinations, and no demonstrated syntax gives no
+support for that presupposition. Rung 5 is therefore not merely distant; in
+its strong form it is possibly ill-posed. A weaker engineered version,
+structured human-to-dog input via soundboards with the dog responding
+through trained symbols, is conceivable and already nascent.
 
-\subsection{Why the ladder matters}
-The ladder converts a vague question into answerable ones. ``Can we
-translate a dog?'' becomes: \emph{which rung, with what ground truth, at what
-validated accuracy?} It also explains the rhetoric of the market: vendors
-demonstrate Rung 2 while marketing Rung 5. The rest of this survey uses the
-ladder as a ruler---to measure the technical pipeline
-(Section~\ref{sec:pipeline}), to read the cross-species evidence
-(Section~\ref{sec:crossspecies}), and to audit the products
-(Section~\ref{sec:products}).
+The ladder converts a vague question into answerable ones: which rung, with
+what ground truth, at what validated accuracy? It also explains the rhetoric
+of the market, where vendors demonstrate Rung 2 while marketing Rung 5. The
+rest of the survey uses it as a ruler.
