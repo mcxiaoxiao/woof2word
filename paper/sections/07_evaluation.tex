@@ -85,6 +85,40 @@ None of today's consumer products satisfies these. The research community
 satisfies (1) and (2) in patches and (3) in the soundboard and cross-species
 literature. The gap between the two is the evaluation crisis.
 
+\subsection{An evidence-type map of the canine literature}
+The crisis becomes concrete when we tabulate not accuracies but \emph{what
+kind of ground truth each study actually has}. Table~\ref{tab:evidence} maps
+the principal canine results to their label source, their rung, and whether
+they are falsifiable. The pattern is the survey's argument in miniature:
+everything at Rungs~1--2 has an objective or consensus label and is
+falsifiable; Rung~3 is falsifiable only because a human-designed symbol set
+makes the intent checkable; and the bark-to-sentence claim has no label at
+all, which is precisely why it cannot be scored.
+
+\begin{table}[htbp]
+\centering
+\caption{Evidence-type map: what ground truth each canine study actually has.
+``Falsifiable'' means an independent error signal exists. No accuracies are
+reproduced here; the point is the label source, not the number.}
+\label{tab:evidence}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{3.0cm}p{3.4cm}p{4.0cm}p{1.0cm}p{2.2cm}@{}}
+\toprule
+\textbf{Study} & \textbf{Task} & \textbf{Label / ground truth} & \textbf{Rung} & \textbf{Falsifiable?} \\
+\midrule
+Pongr\'acz et al.~\cite{pongracz2005barks,pongracz2006acoustic} & bark context / perceived emotion & human consensus on eliciting context & 2 & yes \\
+Moln\'ar et al.~\cite{molnar2006discriminate} & individual ID from bark & dog identity (objective) & 1 & yes \\
+Farag\'o et al.~\cite{farago2017growls} & growl size / intent & human judgment + known context & 2--3 & yes \\
+ICASSP 2018~\cite{icassp2018dogbark} & automatic context / emotion & human-perceived label & 2 & yes, if disclosed \\
+DogFACS CNNs~\cite{sci2022explainable,sci2023cnnewoa,sci2025automated} & facial affect / action units & human-coded FACS & 2 & yes \\
+Bastos et al.\ (PLoS)~\cite{bastos2024plos} & soundboard word comprehension & blind behavioral response & 3 & yes (scaffolded) \\
+Bastos et al.\ (Sci.\ Rep.)~\cite{bastos2024scirep} & two-button combination & combination statistics & 3 & yes (scaffolded) \\
+Bark-to-sentence apps~\cite{traini2024} & rendered sentence & \emph{none} (no intended message) & 5 (claimed) & \textbf{no} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
 \subsection{The limitations, consolidated}
 The evaluation crisis is not unique to pets; it is the animal-communication
 instance of a broader reckoning in AI about what benchmarks measure and what

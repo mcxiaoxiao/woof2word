@@ -102,6 +102,46 @@
   .card.c1 .big{color:var(--sage-deep)} .card.c2 .big{color:#caa53d} .card.c3 .big{color:var(--rose-deep)}
   .card.f1 .big{color:var(--sage-deep)} .card.f2 .big{color:var(--rose-deep)} .card.f3 .big{color:var(--sky-deep)}
 
+  /* stats band */
+  .stats{display:grid; grid-template-columns:repeat(4,1fr); background:var(--card); border:1px solid var(--line);
+    border-radius:var(--radius); box-shadow:var(--shadow); padding:20px 8px; margin-top:6px}
+  .stat-item{text-align:center; padding:4px 10px}
+  .stat-item + .stat-item{border-left:2px dashed var(--line)}
+  .stat-item .num{font-size:2.1rem; font-weight:900; letter-spacing:-1px; line-height:1.1}
+  .num.n1{color:var(--paw-deep)} .num.n2{color:var(--sage-deep)} .num.n3{color:var(--sky-deep)} .num.n4{color:var(--rose-deep)}
+  .stat-item .lbl{font-size:.75rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink-soft)}
+
+  /* CS/AI stack */
+  .stack-panel{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow); padding:30px}
+  .genealogy{display:grid; grid-template-columns:repeat(6,1fr); gap:10px}
+  .gene{border-radius:14px; padding:10px 6px; text-align:center; position:relative}
+  .gene .yr{font-size:.72rem; font-weight:900; letter-spacing:1px; color:var(--ink-soft)}
+  .gene .nm{font-size:.82rem; font-weight:800; line-height:1.3}
+  .gene.gA{background:#f7e3d3; color:#8a5a33}
+  .gene.gB{background:#e7f1fa; color:var(--sky-deep)}
+  .gene.gC{background:#e9f3ec; color:var(--sage-deep)}
+  .gene:not(:last-child)::after{content:"→"; position:absolute; right:-11px; top:50%; transform:translateY(-50%);
+    color:var(--ink-soft); font-weight:900; z-index:1}
+  .transfer-arrow{text-align:center; color:var(--sage-deep); font-size:1.3rem; font-weight:900; margin:8px 0 6px}
+  .transfer-band{background:#e9f3ec; border:1.5px solid var(--sage-deep); color:var(--sage-deep); border-radius:14px;
+    padding:12px 14px; text-align:center; font-weight:800; font-size:.9rem}
+  .audit{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:24px}
+  .audit h3{margin:0 0 10px; font-size:1.05rem}
+  .audit .yes h3{color:var(--sage-deep)} .audit .no h3{color:var(--rose-deep)}
+  .audit ul{list-style:none; margin:0; padding:0}
+  .audit li{position:relative; padding-left:24px; margin:8px 0; color:var(--ink-soft); font-weight:600; font-size:.93rem}
+  .audit li::before{position:absolute; left:2px; font-weight:900}
+  .audit .yes li::before{content:"✓"; color:var(--sage-deep)}
+  .audit .no li::before{content:"✕"; color:var(--rose-deep)}
+
+  /* entrance */
+  @keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
+  .hero .mascot{animation:rise .55s ease both}
+  .hero h1{animation:rise .55s .08s ease both}
+  .hero .sub{animation:rise .55s .16s ease both}
+  .hero .cta{animation:rise .55s .24s ease both}
+  .stats{animation:rise .55s .32s ease both}
+
   /* bark lab */
   .lab{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
     padding:30px; max-width:720px; margin:0 auto; text-align:center}
@@ -135,9 +175,14 @@
     .cards{grid-template-columns:1fr}
     .figs{grid-template-columns:1fr}
     .rung .stat{display:none}
+    .stats{grid-template-columns:1fr 1fr; row-gap:14px}
+    .stat-item:nth-child(3){border-left:0}
+    .genealogy{grid-template-columns:repeat(3,1fr)}
+    .gene:not(:last-child)::after{display:none}
+    .audit{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){
-    *{transition:none!important; scroll-behavior:auto!important}
+    *{transition:none!important; animation:none!important; scroll-behavior:auto!important}
   }
 </style>
 </head>
@@ -183,7 +228,7 @@
       stroke="#2B2B33" stroke-width="3.5" fill="none" stroke-linecap="round"/>
     <path d="M92 132 Q100 150 108 132 Q100 140 92 132 Z" fill="#E7A6B0"/>
   </svg>
-  <div class="kicker" data-i18n="kicker">An open survey · 46 pages · 222 refs</div>
+  <div class="kicker" data-i18n="kicker">An open survey · CS/AI-first</div>
   <h1>woof<span class="accent">2</span>word</h1>
   <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.</p>
   <div class="cta">
@@ -191,6 +236,16 @@
     <a class="btn ghost" href="https://github.com/mcxiaoxiao/woof2word" data-i18n="github">⭐ GitHub</a>
   </div>
   <p class="woof"><span data-i18n="woofA">woof</span> <b>→</b> <span data-i18n="woofB">words?</span> <span data-i18n="woofC">It's five questions, not one.</span></p>
+</div>
+
+<!-- STATS -->
+<div class="wrap">
+  <div class="stats" role="list" aria-label="Survey statistics" data-i18n-aria="statsAria">
+    <div class="stat-item" role="listitem"><div class="num n1">48</div><div class="lbl" data-i18n="stPages">pages</div></div>
+    <div class="stat-item" role="listitem"><div class="num n2">222</div><div class="lbl" data-i18n="stRefs">references</div></div>
+    <div class="stat-item" role="listitem"><div class="num n3">14</div><div class="lbl" data-i18n="stTables">comparison tables</div></div>
+    <div class="stat-item" role="listitem"><div class="num n4">3</div><div class="lbl" data-i18n="stFigs">figures</div></div>
+  </div>
 </div>
 
 <!-- LADDER -->
@@ -243,6 +298,47 @@
   </div>
 </section>
 
+<!-- STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="stackEye">The CS/AI core</div>
+      <h2 data-i18n="stackTitle">Human translation's toolbox, audited for transfer</h2>
+      <p data-i18n="stackSub">A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).</p>
+    </div>
+    <div class="stack-panel">
+      <div class="genealogy" role="list" aria-label="Human translation genealogy" data-i18n-aria="geneAria">
+        <div class="gene gA" role="listitem"><div class="yr">2014</div><div class="nm" data-i18n="g1n">seq2seq + attention</div></div>
+        <div class="gene gA" role="listitem"><div class="yr">2017</div><div class="nm" data-i18n="g2n">Transformer</div></div>
+        <div class="gene gB" role="listitem"><div class="yr">2019–20</div><div class="nm" data-i18n="g3n">BERT / GPT pretrain → LLM</div></div>
+        <div class="gene gB" role="listitem"><div class="yr">2022</div><div class="nm" data-i18n="g4n">NLLB multilingual</div></div>
+        <div class="gene gC" role="listitem"><div class="yr">2023</div><div class="nm" data-i18n="g5n">Whisper / Seamless</div></div>
+        <div class="gene gC" role="listitem"><div class="yr">2023–24</div><div class="nm" data-i18n="g6n">audio codecs + audio-LLM</div></div>
+      </div>
+      <div class="transfer-arrow" aria-hidden="true">↓</div>
+      <div class="transfer-band" data-i18n="transferBand">transfer to animal decoding: AVES · NatureLM-audio · Perch · BEANS · CETI / DolphinGemma</div>
+      <div class="audit">
+        <div class="audit-col yes">
+          <h3><span aria-hidden="true">✓</span> <span data-i18n="auditYes">Survives transfer</span></h3>
+          <ul>
+            <li data-i18n="ay1">Self-supervised encoders — measured fine-tuning gains on BEANS / BirdSet.</li>
+            <li data-i18n="ay2">Discretization recipes — codecs turn continuous barks into reusable units.</li>
+            <li data-i18n="ay3">Interaction grounding — soundboards &amp; CHAT tie symbols to consequences.</li>
+          </ul>
+        </div>
+        <div class="audit-col no">
+          <h3><span aria-hidden="true">✕</span> <span data-i18n="auditNo">Does not survive</span></h3>
+          <ul>
+            <li data-i18n="an1">Parallel corpora — no bark↔sentence Rosetta stone exists.</li>
+            <li data-i18n="an2">Recursive grammar — canine displays are graded, not combinatorial.</li>
+            <li data-i18n="an3">Fluency as fidelity — a rendered sentence is a story, not a measurement.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- BARK LAB -->
 <section id="lab">
   <div class="wrap">
@@ -272,11 +368,11 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="figEye">From the paper</div>
-      <h2 data-i18n="figTitle">The two hero figures</h2>
+      <h2 data-i18n="figTitle">The hero figures</h2>
     </div>
     <div class="figs">
-      <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs with a semantic gap between affect and intent"><figcaption data-i18n="fig1cap">Fig 1 · The translation ladder &amp; the semantic gap</figcaption></figure>
-      <figure class="fig"><img src="assets/fig2_roadmap.png" alt="Capability roadmap 2002 to 2035 with three tracks: affect, intent, and open translation"><figcaption data-i18n="fig2cap">Fig 2 · Capability roadmap, 2002–2035</figcaption></figure>
+      <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs with a semantic gap between affect and intent"><figcaption data-i18n="fig1cap">Fig 2 · The translation ladder &amp; the semantic gap</figcaption></figure>
+      <figure class="fig"><img src="assets/fig2_roadmap.png" alt="Capability roadmap 2002 to 2035 with three tracks: affect, intent, and open translation"><figcaption data-i18n="fig2cap">Fig 3 · Capability roadmap, 2002–2035</figcaption></figure>
     </div>
   </div>
 </section>
@@ -299,7 +395,8 @@
 <script>
 const I18N = {
   en:{
-    kicker:"An open survey · 46 pages · 222 refs",
+    kicker:"An open survey · CS/AI-first",
+    statsAria:"Survey statistics", stPages:"pages", stRefs:"references", stTables:"comparison tables", stFigs:"figures",
     heroSub:"How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.",
     readPaper:"📄 Read the paper", github:"⭐ GitHub",
     woofA:"woof", woofB:"words?", woofC:"It's five questions, not one.",
@@ -320,18 +417,31 @@ const I18N = {
     f1big:"Rungs 1–4", f1t:"Flight — hard but real", f1p:"Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.",
     f2big:"Rung 5", f2t:"Alchemy — a category error?", f2p:"Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.",
     f3big:"None", f3t:"Perpetual motion — ruled out?", f3p:"No conservation law forbids interspecies understanding. Nothing here is provably impossible.",
+    stackEye:"The CS/AI core", stackTitle:"Human translation's toolbox, audited for transfer",
+    stackSub:"A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).",
+    geneAria:"Human translation genealogy",
+    g1n:"seq2seq + attention", g2n:"Transformer", g3n:"BERT / GPT pretrain → LLM", g4n:"NLLB multilingual", g5n:"Whisper / Seamless", g6n:"audio codecs + audio-LLM",
+    transferBand:"transfer to animal decoding: AVES · NatureLM-audio · Perch · BEANS · CETI / DolphinGemma",
+    auditYes:"Survives transfer", auditNo:"Does not survive",
+    ay1:"Self-supervised encoders — measured fine-tuning gains on BEANS / BirdSet.",
+    ay2:"Discretization recipes — codecs turn continuous barks into reusable units.",
+    ay3:"Interaction grounding — soundboards & CHAT tie symbols to consequences.",
+    an1:"Parallel corpora — no bark↔sentence Rosetta stone exists.",
+    an2:"Recursive grammar — canine displays are graded, not combinatorial.",
+    an3:"Fluency as fidelity — a rendered sentence is a story, not a measurement.",
     labEye:"Try the thesis", labTitle:"The Bark Lab 🐾",
     labSub:"Pick a bark. Watch what a \"translator\" really does: classify affect, then add a story.",
     bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
     quoteInit:"“…”",
     disclaimer:"The meter is a (real) Rung-2 emotion estimate. The sentence is a story added afterwards — never measured against the dog. That gap is the whole paper.",
-    figEye:"From the paper", figTitle:"The two hero figures",
-    fig1cap:"Fig 1 · The translation ladder & the semantic gap", fig2cap:"Fig 2 · Capability roadmap, 2002–2035",
+    figEye:"From the paper", figTitle:"The hero figures",
+    fig1cap:"Fig 2 · The translation ladder & the semantic gap", fig2cap:"Fig 3 · Capability roadmap, 2002–2035",
     fPaper:"Paper (PDF)", fRepo:"Repository", fSearch:"Search log", fCite:"Cite",
     fNote:"Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026"
   },
   zh:{
-    kicker:"开放综述 · 46 页 · 222 篇引用",
+    kicker:"开放综述 · CS/AI 主视角",
+    statsAria:"综述统计", stPages:"页", stRefs:"篇引用", stTables:"张对照表", stFigs:"张图",
     heroSub:"我们距离翻译小狗说的话还有多远——以及，这究竟可行吗？我们做了一把尺子，而不是噱头数字。",
     readPaper:"📄 阅读论文", github:"⭐ GitHub",
     woofA:"汪", woofB:"→ 人话？", woofC:"这是五个问题，不是一个。",
@@ -352,13 +462,25 @@ const I18N = {
     f1big:"第 1–4 层", f1t:"飞机——难但真实", f1p:"曾被宣判不可能，却有坚实物理。存在性证明已在手：vervet 猴警报、蜜蜂舞蹈、海豚签名哨、犬类词语理解。",
     f2big:"第 5 层", f2t:"炼金术——范畴错误？", f2p:"把非语言信号翻译成开放句子。目标可能根本不存在；单靠努力与算力到不了。",
     f3big:"皆非", f3t:"永动机——被证明不可能？", f3p:"没有任何守恒律禁止跨物种理解。这里没有被证明不可能的事。",
+    stackEye:"计算机/AI 内核", stackTitle:"人类翻译的工具箱，迁移审计",
+    stackSub:"十年 Transformer 系机器翻译提供方法；我们逐层审计哪些能跳到非人类信号（论文 §2–5，图 1）。",
+    geneAria:"人类翻译谱系",
+    g1n:"seq2seq + 注意力", g2n:"Transformer", g3n:"BERT / GPT 预训练 → LLM", g4n:"NLLB 多语", g5n:"Whisper / Seamless", g6n:"音频 codec + audio-LLM",
+    transferBand:"迁移动物解码：AVES · NatureLM-audio · Perch · BEANS · CETI / DolphinGemma",
+    auditYes:"能迁移", auditNo:"不能迁移",
+    ay1:"自监督编码器——在 BEANS / BirdSet 上有实测微调增益。",
+    ay2:"离散化配方——codec 把连续叫声变成可复用单元。",
+    ay3:"交互接地——说话按钮与 CHAT 把符号绑定到后果。",
+    an1:"平行语料——不存在叫声↔句子的罗塞塔石碑。",
+    an2:"递归语法——犬类信号是渐变的，不是组合的。",
+    an3:"流畅即忠实——渲染出的句子是故事，不是测量。",
     labEye:"体验论点", labTitle:"汪汪实验室 🐾",
     labSub:"选一种叫声，看“翻译器”真正在做什么：先分类情绪，再补一个故事。",
     bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",
     quoteInit:"“……”",
     disclaimer:"仪表是（真实的）第 2 层情绪估计；句子是事后补上的故事——从未对照狗本身验证。这道鸿沟正是整篇论文的主题。",
     figEye:"来自论文", figTitle:"两张主图",
-    fig1cap:"图 1 · 翻译阶梯与语义鸿沟", fig2cap:"图 2 · 能力路线图，2002–2035",
+    fig1cap:"图 2 · 翻译阶梯与语义鸿沟", fig2cap:"图 3 · 能力路线图，2002–2035",
     fPaper:"论文 (PDF)", fRepo:"仓库", fSearch:"检索记录", fCite:"引用",
     fNote:"读懂狗，而非转写它。 · MIT / CC BY 4.0 · 2026"
   }
@@ -370,6 +492,9 @@ function setLang(l){
   document.getElementById("zh").setAttribute("aria-pressed", l==="zh");
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const k=el.getAttribute("data-i18n"); if(I18N[l][k]!=null) el.textContent=I18N[l][k];
+  });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el=>{
+    const k=el.getAttribute("data-i18n-aria"); if(I18N[l][k]!=null) el.setAttribute("aria-label", I18N[l][k]);
   });
   if(window.__lastBark) bark(window.__lastBark, window.__lastBtn, true);
 }

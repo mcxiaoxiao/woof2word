@@ -39,7 +39,8 @@ claim. It does not rule out an \emph{engineered} dialogue---structured
 human-to-dog input via trained symbols, with the dog responding through a
 soundboard---which is a Rung-3 artifact wearing Rung-5 clothing. But faithful
 translation of spontaneous canine ``speech'' into English sentences is, in
-the strong sense, ill-posed, and more compute will not fix a category error.
+the strong sense, possibly ill-posed, and more compute will not fix a
+category error.
 
 \subsection{Why ``more scale'' is not the answer}
 It is tempting to read the cross-species successes as evidence that scaling
@@ -59,18 +60,16 @@ start asking ``how well can we \emph{interpret} canine state, with calibrated
 uncertainty and animal-grounded validation?'' That question has answers,
 has metrics, and has welfare value. It also respects the animal: it treats
 the dog as a signaler with its own modalities, not as a defective human
-whose sentences we are waiting to recover. The Rosetta Stone metaphor that
-titles this survey is, in the end, a warning as much as a promise: the
-Rosetta Stone worked because the same decree existed in three scripts. For
-the dog, there may be no decree---only a rich, graded, affective life that
-we can learn to read, but not to transcribe.
+whose sentences we are waiting to recover. The Rosetta Stone that titles
+this survey is, in the end, a warning as much as a promise: there may be no
+decree to transcribe (Section~\ref{sec:conclusion}).
 
 \begin{table}[htbp]
 \centering
 \caption{Distance estimate by rung. Horizons are judgments from the
 evidence reviewed, not predictions; ``blocker'' names the dominant
-obstacle. Rungs 4--5 are marked ill-posed because the requisite generative
-symbolic system is not evidenced in natural canine communication.}
+obstacle. Rungs 4--5 are marked possibly ill-posed because the requisite
+generative symbolic system is not evidenced in natural canine communication.}
 \label{tab:distance}
 \small
 \begin{tabular}{@{}p{2.7cm}p{2.5cm}p{4.0cm}p{3.6cm}@{}}
@@ -82,7 +81,7 @@ symbolic system is not evidenced in natural canine communication.}
 Calibration, public benchmarks \\
 3 Intent & Foothold & $\sim$2030+ & Grounded, validated data \\
 4 Reference & Unproven & No credible timeline & No productive symbol system \\
-5 Dialogue & Ill-posed & Possibly never & No generative grammar in subject \\
+5 Dialogue & Possibly ill-posed & Possibly never & No evidenced generative grammar \\
 \bottomrule
 \end{tabular}
 \end{table}

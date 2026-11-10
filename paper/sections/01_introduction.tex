@@ -121,8 +121,9 @@ A dog's communicative repertoire is rich, multimodal, and genuinely
 informative---but it is, in the technical sense, a \emph{signaling system}
 rather than a \emph{language}. It encodes affect, arousal, motivational
 state, individual identity, and some referential content (a specific toy, a
-specific door), yet it lacks the open-ended, recursive, generative syntax
-that human language translation presupposes~\cite{hauser2002faculty,chomsky1957syntactic}.
+specific door), yet it shows no evidence of the open-ended, recursive,
+generative syntax that human language translation
+presupposes~\cite{hauser2002faculty,chomsky1957syntactic}.
 Consequently, ``translating
 what a dog says'' is, above the level of affect and intent, partly a
 \emph{category error}: there may be no sentence-shaped meaning in the signal
@@ -167,3 +168,46 @@ registers separate: what is \emph{measured} (peer-reviewed effect sizes,
 model metrics on defined tasks) and what is \emph{claimed} (vendor
 accuracies, press-release superlatives). The gap between those registers is,
 in a real sense, the subject of this paper.
+
+\subsection{Survey methodology and reference tiers}
+\label{sec:method}
+We state the method plainly so the reference base can be audited and
+extended. Sources were gathered in November 2026 through structured search of
+scholarly indexes (Google Scholar, Semantic Scholar), preprint servers
+(arXiv), publisher sites, and project reports, using query families derived
+from the ladder and the tech stack---e.g.\ ``dog bark emotion
+classification,'' ``canine soundboard word comprehension,''
+``self-supervised bioacoustic encoder,'' ``neural machine translation
+Transformer,'' and ``sperm whale combinatorial structure.'' Inclusion
+required a direct bearing on at least one rung, one pipeline stage, or one
+transfer lesson; vendor marketing without a methodological claim was excluded
+except as an object of audit. Every reference is assigned to one of four
+tiers (Table~\ref{tab:tiers}): \textbf{T1} peer-reviewed venue papers;
+\textbf{T2} preprints and technical reports not yet peer reviewed;
+\textbf{T3} vendor/commercial claims, reported \emph{as claims} and never as
+results; and \textbf{T4} journalism and industry statistics, used for scale
+and context only. The bibliography records venue/year/DOI or arXiv ID per
+entry, and the documented search log (\texttt{sources/search-log.md}) records
+queries and dates. Entries confirmed only via secondary indexes are flagged
+in the limitations (Section~\ref{sec:conclusion}) and should be checked
+against the primary record before reuse. This tiering is the survey's defense
+against citation inflation: a claim is only as strong as its tier.
+
+\begin{table}[htbp]
+\centering
+\caption{Reference tiers and their epistemic weight. The tier, not the count,
+determines how much load a citation may bear.}
+\label{tab:tiers}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{1.2cm}p{4.6cm}p{4.4cm}p{3.4cm}@{}}
+\toprule
+\textbf{Tier} & \textbf{What it includes} & \textbf{Epistemic weight} & \textbf{Examples} \\
+\midrule
+T1 & peer-reviewed venue paper & strongest; protocols \& effect sizes & \cite{pongracz2005barks,sharma2024whale,vaswani2017attention} \\
+T2 & preprint / technical report & provisional; labeled as such & \cite{robinson2024naturelm,wham2025,esp2026finch} \\
+T3 & vendor / commercial claim & object of audit, not evidence & \cite{traini2024,mengxiaoyi2026} \\
+T4 & journalism / industry stats & scale \& context only & \cite{dogster2026stats,avma2025} \\
+\bottomrule
+\end{tabular}
+\end{table}

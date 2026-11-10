@@ -82,6 +82,15 @@ behavior. These are the tools that could turn an unfalsifiable interpretation
 into a measured, closed-loop system (Section~\ref{sec:eval}). They transfer
 well; what they require is an error signal, which the field currently lacks.
 
+We stress that Table~\ref{tab:transfer} is an \emph{analytical framework}, not
+an experimental result. Where a row says ``transfers,'' the claim is backed
+by measured cross-species fine-tuning gains on BEANS and
+BirdSet~\cite{hagiwara2023beans,openbeats2025}; where it says ``fails,'' the
+claim rests on the absence of any reference corpus or shared lexicon
+(Sections~\ref{sec:eval} and~\ref{sec:lessons}). The framework's value is that
+it localizes \emph{where} the bottleneck sits, so effort is not spent scaling
+the layers that already transfer.
+
 \begin{table}[htbp]
 \centering
 \caption{Transfer-feasibility audit: what each layer of the human translation

@@ -109,7 +109,11 @@ model~\cite{robinson2024naturelm}, Google's Perch embeddings~\cite{ghani2023perc
 the BEANS benchmark~\cite{hagiwara2023beans}, and open general-purpose audio
 encoders such as OpenBEATs~\cite{openbeats2025} together show that the
 human speech recipe---pretrain on raw audio, transfer to many tasks---works
-across species. What none of them supplies is a \emph{reference translation}:
+across species. Crucially, this transfer is \emph{measured}, not assumed: on
+BEANS and BirdSet, fine-tuned animal-audio encoders report gains over
+from-scratch baselines, and OpenBEATs reaches state of the art on a majority
+of BEANS subtasks~\cite{hagiwara2023beans,openbeats2025}. What none of them
+supplies is a \emph{reference translation}:
 they classify, embed, and retrieve, but they do not, and cannot yet, render a
 bark as a sentence with measured fidelity. Table~\ref{tab:audio} condenses the
 toolkit and its transfer value.

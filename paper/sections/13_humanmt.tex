@@ -7,7 +7,19 @@ machine translation (MT) is not a single invention but a layered stack, and
 each layer supplies a tool that animal decoding either inherits or lacks.
 This section reads that stack from a computer-science standpoint;
 Section~\ref{sec:transfer} then audits which layers survive transfer to
-non-human signals.
+non-human signals. Figure~\ref{fig:genealogy} gives the timeline at a glance.
+
+\begin{figure}[htbp]
+\centering
+\input{figures/fig3_genealogy}
+\caption{\textbf{The human translation / Transformer genealogy, condensed.}
+Each layer supplies a tool that animal decoding inherits (acoustic encoding,
+discretization, sequence modeling, multilingual transfer) or lacks (a
+reference corpus, shared grounding). The lower band marks where the toolkit
+has already been pointed at animals. Detailed transfer value is given in
+Table~\ref{tab:genealogy}.}
+\label{fig:genealogy}
+\end{figure}
 
 \subsection{From symbolic phrase tables to neural sequence models}
 Statistical MT treated translation as noisy-channel decoding over
