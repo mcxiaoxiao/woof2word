@@ -7,7 +7,7 @@
   col/.style={draw=ink!20, line width=0.5pt, rounded corners=1.5pt},
   badge/.style={circle, draw=white, line width=0.7pt, minimum size=7mm, inner sep=0,
     text=white, font=\sffamily\bfseries\large},
-  sname/.style={font=\sffamily\bfseries\small, text=ink, align=center},
+  sname/.style={font=\sffamily\bfseries\footnotesize, text=ink, align=center},
   ssub/.style={font=\sffamily\scriptsize, text=ink!70, align=center},
   pill/.style={rounded corners=5pt, fill=cream, draw=rosedeep, line width=0.7pt,
     inner sep=4pt, font=\sffamily\scriptsize\bfseries, text=rosedeep, align=center},
@@ -44,7 +44,7 @@
   % --- in-step labels: badge, icon + name, gloss ---
   \node[badge, fill=skydeep]       at (0.5*\sw, \hA-0.55) {1};
   \node[sname] at (0.5*\sw, \hA-1.20) {{\color{skydeep}\faWaveSquare}\;Signal};
-  \node[ssub]  at (0.5*\sw, \hA-1.60) {detection \&\\ segmentation};
+  \node[ssub]  at (0.5*\sw, \hA-1.60) {detect + segment};
 
   \node[badge, fill=sagedeep]      at (1.5*\sw, \hB-0.55) {2};
   \node[sname] at (1.5*\sw, \hB-1.20) {{\color{sagedeep}\faHeart}\;Affect};
@@ -64,7 +64,7 @@
 
   % --- in-step foothold tags ---
   \node[tag] (youare) at (1.5*\sw, 0.72)
-    {{\footnotesize\faPaw}\;YOU ARE HERE\\[1pt]{\normalfont\tiny products + most ML}};
+    {{\footnotesize\faPaw}\;YOU ARE HERE};
   \node[snd] at (2.5*\sw, 1.20)
     {soundboards reach here\\ (with trained symbols)};
 
@@ -77,15 +77,15 @@
   \node[pill] at (-1.55, \gy)
     {THE SEMANTIC GAP\\[1pt]\mdseries no generative grammar\\ to translate};
 
-  % --- increasing capability arrow along the treads ---
-  \draw[->, ink!50, line width=0.9pt] (0.5*\sw, \hA+0.30)
-    -- (4.5*\sw, \hE+0.30)
-    node[sloped, above, font=\sffamily\scriptsize\itshape, text=ink!55, pos=0.62]
-    {increasing capability $\cdot$ difficulty};
+  % --- direction cue in the outer margin, clear of every step ---
+  \draw[->, ink!50, line width=0.8pt] (5*\sw+0.55, 0.15)
+    -- (5*\sw+0.55, \hE+0.38);
+  \node[rotate=90, font=\sffamily\scriptsize\itshape, text=ink!55]
+    at (5*\sw+0.82, 0.5*\hE) {increasing capability and difficulty};
 
   % --- region captions ---
   \node[font=\sffamily\scriptsize\bfseries, text=sagedeep, anchor=north]
     at (1.0*\sw, -0.50) {\faCheckCircle\ data-rich $\cdot$ falsifiable $\cdot$ achievable now};
-  \node[font=\sffamily\scriptsize\bfseries, text=rosedeep, anchor=south west]
-    at (3.35*\sw, \hE+0.48) {\faQuestionCircle\ data-poor $\cdot$ partly ill-posed $\cdot$ aspirational};
+  \node[font=\sffamily\scriptsize\bfseries, text=rosedeep, anchor=south, align=center]
+    at (3.5*\sw, \hE+0.48) {\faQuestionCircle\ data-poor $\cdot$ partly ill-posed $\cdot$ aspirational};
 \end{tikzpicture}

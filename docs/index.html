@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>woof2word · The Canine Rosetta Stone</title>
-<meta name="description" content="How far are we from translating what dogs say? A five-rung translation ladder, 36 pages, 257 references.">
+<meta name="description" content="A five-rung survey of canine communication decoding, its evidence, and how each claim can be tested. 37 pages, 260 references.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
@@ -72,8 +72,6 @@
   .btn:hover{transform:translateY(-2px); text-decoration:none; box-shadow:var(--shadow-lift)}
   .btn.primary{background:var(--paw); color:#fff}
   .btn.ghost{background:#fff; color:var(--ink); border:2px solid var(--line)}
-  .woof{margin-top:30px; font-weight:800; color:var(--ink-soft); font-size:.95rem}
-  .woof b{color:var(--paw-deep)}
   .trail{display:flex; justify-content:center; gap:clamp(10px,3vw,26px); margin-top:20px; font-size:1.15rem;
     opacity:.5; letter-spacing:0}
   .trail span{display:inline-block; animation:pawdown .5s ease both}
@@ -256,20 +254,19 @@
 <div class="hero wrap">
   <h1>woof<span class="accent">2</span>word</h1>
   <p class="stone" data-i18n="stone">The Canine Rosetta Stone</p>
-  <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.</p>
+  <p class="sub" data-i18n="heroSub">A five-rung survey of canine communication decoding: what current systems can infer, how those claims can be tested, and where the evidence ends.</p>
   <div class="cta">
     <a class="btn primary" href="assets/woof-to-word-survey.pdf" data-i18n="readPaper">📄 Read the paper</a>
     <a class="btn ghost" href="https://github.com/mcxiaoxiao/woof2word" data-i18n="github">⭐ GitHub</a>
   </div>
-  <p class="woof"><span data-i18n="woofA">woof</span> <b>→</b> <span data-i18n="woofB">words?</span> <span data-i18n="woofC">It's five questions, not one.</span></p>
   <div class="trail" aria-hidden="true"><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🦴</span></div>
 </div>
 
 <!-- STATS -->
 <div class="wrap">
   <div class="stats" role="list" aria-label="Survey statistics" data-i18n-aria="statsAria">
-    <div class="stat-item" role="listitem"><div class="num n1">36</div><div class="lbl" data-i18n="stPages">pages</div></div>
-    <div class="stat-item" role="listitem"><div class="num n2">257</div><div class="lbl" data-i18n="stRefs">references</div></div>
+    <div class="stat-item" role="listitem"><div class="num n1">37</div><div class="lbl" data-i18n="stPages">pages</div></div>
+    <div class="stat-item" role="listitem"><div class="num n2">260</div><div class="lbl" data-i18n="stRefs">references</div></div>
     <div class="stat-item" role="listitem"><div class="num n3">15</div><div class="lbl" data-i18n="stTables">comparison tables</div></div>
     <div class="stat-item" role="listitem"><div class="num n4">6</div><div class="lbl" data-i18n="stFigs">figures</div></div>
   </div>
@@ -300,9 +297,9 @@
       <h2 data-i18n="ansTitle">So… how far?</h2>
     </div>
     <div class="cards">
-      <div class="card c1"><span class="mark" aria-hidden="true">🐾</span><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
+      <div class="card c1"><span class="mark" aria-hidden="true">🐾</span><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress, pain, or welfare monitor is within reach and could support day-to-day care decisions.</p></div>
       <div class="card c2"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
-      <div class="card c3"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
+      <div class="card c3"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">Current evidence has yet to establish the compositional signal structure open dialogue would require. Model scale alone cannot settle this biological question.</p></div>
     </div>
   </div>
 </section>
@@ -330,11 +327,11 @@
       <p data-i18n="bmSub">A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.</p>
     </div>
     <div class="cards">
-      <div class="card f1"><span class="mark" aria-hidden="true">🐶</span><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Who, not what</h3><p data-i18n="bm1p">Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">🐶</span><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Individual identification</h3><p data-i18n="bm1p">Ground truth comes from session metadata and a video-verified sender. Compare with a transferred human speaker embedding, then report how scores change under a session-shuffle control to estimate recording-condition effects.</p></div>
       <div class="card f2"><span class="mark" aria-hidden="true">🐾</span><div class="big" data-i18n="bm2big">Rung 2 · Affect</div><h3 data-i18n="bm2t">Two anchors before the model sees anything</h3><p data-i18n="bm2p">A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.</p></div>
       <div class="card f3"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="bm3big">Rung 3 · Intent</div><h3 data-i18n="bm3t">The animal's own error signal</h3><p data-i18n="bm3p">Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.</p></div>
-      <div class="card f1"><span class="mark" aria-hidden="true">🧸</span><div class="big" data-i18n="bm4big">Rung 4 · Reference</div><h3 data-i18n="bm4t">Structure, not frequency</h3><p data-i18n="bm4p">Held-out combinations from a closed inventory, against a co-occurrence factorisation. The survey scores every published candidate against that test — vervet and prairie-dog alarms, the waggle dance, signature whistles, whale codas, tit calls, button-dog sequences — and none has been run this way. The tits and the button-trained dogs are one experiment from a verdict.</p></div>
-      <div class="card f2"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="bm5big">Rung 5 · Dialogue</div><h3 data-i18n="bm5t">Falsification only</h3><p data-i18n="bm5p">No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">🧸</span><div class="big" data-i18n="bm4big">Rung 4 · Reference</div><h3 data-i18n="bm4t">Generalization to unseen pairings</h3><p data-i18n="bm4p">Held-out combinations from a closed inventory, against a co-occurrence factorisation. The survey scores every published candidate against that test — vervet and prairie-dog alarms, the waggle dance, signature whistles, whale codas, tit calls, button-dog sequences — and none has been run this way. The tits and the button-trained dogs are one experiment from a verdict.</p></div>
+      <div class="card f2"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="bm5big">Rung 5 · Dialogue</div><h3 data-i18n="bm5t">Behavioural rejection test</h3><p data-i18n="bm5p">No independent record of an intended sentence exists, so this rung has no certification protocol. A behavioural-equivalence trial can test whether a rendered sentence changes human action beyond affect cues.</p></div>
       <div class="card f3"><div class="big" data-i18n="bm6big">0 of 10</div><h3 data-i18n="bm6t">The checklist, applied</h3><p data-i18n="bm6p">Scored against the field's own claims: consumer sentence apps 0 of 10, published Rung-2 classifiers 1 of 10, symbol-array studies 6 of 7, open bioacoustic benchmarks 5 of 8. The items: per-dog split, independent error signal, arousal baseline, blind raters, blinded handler, calibration, abstention, negative controls, pre-declared taxonomy, rung stated.</p></div>
     </div>
   </div>
@@ -371,8 +368,8 @@
           <h3><span aria-hidden="true">✕</span> <span data-i18n="auditNo">Does not survive</span></h3>
           <ul>
             <li data-i18n="an1">Parallel corpora — no bark↔sentence Rosetta stone exists.</li>
-            <li data-i18n="an2">Recursive grammar — canine displays are graded, not combinatorial.</li>
-            <li data-i18n="an3">Fluency as fidelity — a rendered sentence is a story, not a measurement.</li>
+            <li data-i18n="an2">Canine vocal displays vary continuously; evidence for productive combinatorial rules is lacking.</li>
+            <li data-i18n="an3">Assess the classifier's validated affect estimate and calibration before judging a generated sentence's faithfulness.</li>
           </ul>
         </div>
       </div>
@@ -410,7 +407,7 @@
       <h2 data-i18n="figTitle">Six figures from the survey</h2>
     </div>
     <div class="figs">
-      <figure class="fig"><img src="assets/fig5_corpus.png" alt="Left: bar chart of bibliography entries per year from 2002 to 2026 with a cumulative line reaching 257. Right: donut chart of the same 257 references split into seven thematic groups."><figcaption data-i18n="fig1cap">Fig 1 &middot; The corpus behind this survey</figcaption></figure>
+      <figure class="fig"><img src="assets/fig5_corpus.png" alt="Left: bar chart of bibliography entries per year from 2002 to 2026 with a cumulative line reaching 260. Right: donut chart of the same 260 references split into seven thematic groups."><figcaption data-i18n="fig1cap">Fig 1 &middot; The corpus behind this survey</figcaption></figure>
       <figure class="fig"><img src="assets/fig3_genealogy.png" alt="Timeline of the human machine-translation genealogy, 2014 seq2seq to 2023 audio-LLMs, with the transfer band to animal decoding."><figcaption data-i18n="fig2cap">Fig 2 &middot; The human translation / Transformer genealogy</figcaption></figure>
       <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs, shaded as a staircase, with the semantic gap drawn as a waterline just above Rung 2."><figcaption data-i18n="fig3cap">Fig 3 &middot; The translation ladder &amp; the semantic gap</figcaption></figure>
       <figure class="fig"><img src="assets/fig6_evidence.png" alt="Grouped bar chart of catalogued falsifiable canine studies and audited consumer products per rung, with the semantic gap shaded to the right."><figcaption data-i18n="fig4cap">Fig 4 &middot; Evidence and claims, rung by rung</figcaption></figure>
@@ -457,15 +454,14 @@ const I18N = {
     statsAria:"Survey statistics", stPages:"pages", stRefs:"references", stTables:"comparison tables", stFigs:"figures",
     bmTitle:"The Canine Ladder Benchmark",
     bmSub:"A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.",
-    bm1big:"Rung 1 · Signal", bm1t:"Who, not what", bm1p:"Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.",
+    bm1big:"Rung 1 · Signal", bm1t:"Individual identification", bm1p:"Ground truth comes from session metadata and a video-verified sender. Compare with a transferred human speaker embedding, then report how scores change under a session-shuffle control to estimate recording-condition effects.",
     bm2big:"Rung 2 · Affect", bm2t:"Two anchors before the model sees anything", bm2p:"A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.",
     bm3big:"Rung 3 · Intent", bm3t:"The animal's own error signal", bm3p:"Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.",
-    bm4big:"Rung 4 · Reference", bm4t:"Structure, not frequency", bm4p:"Held-out combinations from a closed inventory, against a co-occurrence factorisation. The survey scores every published candidate against that test — vervet and prairie-dog alarms, the waggle dance, signature whistles, whale codas, tit calls, button-dog sequences — and none has been run this way. The tits and the button-trained dogs are one experiment from a verdict.",
-    bm5big:"Rung 5 · Dialogue", bm5t:"Falsification only", bm5p:"No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.",
+    bm4big:"Rung 4 · Reference", bm4t:"Generalization to unseen pairings", bm4p:"Held-out combinations from a closed inventory, against a co-occurrence factorisation. The survey scores every published candidate against that test — vervet and prairie-dog alarms, the waggle dance, signature whistles, whale codas, tit calls, button-dog sequences — and none has been run this way. The tits and the button-trained dogs are one experiment from a verdict.",
+    bm5big:"Rung 5 · Dialogue", bm5t:"Behavioural rejection test", bm5p:"No independent record of an intended sentence exists, so this rung has no certification protocol. A behavioural-equivalence trial can test whether a rendered sentence changes human action beyond affect cues.",
     bm6big:"0 of 10", bm6t:"The checklist, applied", bm6p:"Scored against the field's own claims: consumer sentence apps 0 of 10, published Rung-2 classifiers 1 of 10, symbol-array studies 6 of 7, open bioacoustic benchmarks 5 of 8. The items: per-dog split, independent error signal, arousal baseline, blind raters, blinded handler, calibration, abstention, negative controls, pre-declared taxonomy, rung stated.",
-    heroSub:"How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.",
+    heroSub:"A five-rung survey of canine communication decoding: what current systems can infer, how those claims can be tested, and where the evidence ends.",
     readPaper:"📄 Read the paper", github:"⭐ GitHub",
-    woofA:"woof", woofB:"words?", woofC:"It's five questions, not one.",
     ladderTitle:"The Translation Ladder",
     ladderSub:"\"Translating a dog\" is five capabilities of increasing difficulty. Today we stand on Rung 2.",
     r1t:"Signal", r1s:"detection & segmentation", r1stat:"solved",
@@ -475,9 +471,9 @@ const I18N = {
     r5t:"Dialogue", r5s:"open-ended exchange", r5stat:"ill-posed?",
     gapTitle:"↑ THE SEMANTIC GAP ↑", gapSub:"above this line, the dog's natural signal has no generative grammar to translate",
     ansTitle:"So… how far?",
-    c1big:"2–4 yrs", c1t:"Affect, validated", c1p:"A calibrated stress/pain/welfare monitor is within reach. Useful — but not \"translation.\"",
+    c1big:"2–4 yrs", c1t:"Affect, validated", c1p:"A calibrated stress, pain, or welfare monitor is within reach and could support day-to-day care decisions.",
     c2big:"~2030+", c2t:"Intent, grounded", c2p:"Soundboards give a foothold. Validated natural-signal intent needs a decade of data & protocols.",
-    c3big:"maybe never", c3t:"Open dialogue", c3p:"There may be no language there to translate. More compute won't fix a category error.",
+    c3big:"maybe never", c3t:"Open dialogue", c3p:"Current evidence has yet to establish the compositional signal structure open dialogue would require. Model scale alone cannot settle this biological question.",
     feasTitle:"Alchemy, flight, or perpetual motion?",
     feasSub:"We don't assume the destination exists. Three historical templates adjudicate each rung.",
     f1big:"Rungs 1–4", f1t:"Flight — hard but real", f1p:"Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.",
@@ -493,8 +489,8 @@ const I18N = {
     ay2:"Discretization recipes — codecs turn continuous barks into reusable units.",
     ay3:"Interaction grounding — soundboards & CHAT tie symbols to consequences.",
     an1:"Parallel corpora — no bark↔sentence Rosetta stone exists.",
-    an2:"Recursive grammar — canine displays are graded, not combinatorial.",
-    an3:"Fluency as fidelity — a rendered sentence is a story, not a measurement.",
+    an2:"Canine vocal displays vary continuously; evidence for productive combinatorial rules is lacking.",
+    an3:"Assess the classifier's validated affect estimate and calibration before judging a generated sentence's faithfulness.",
     labTitle:"The Bark Lab 🐾",
     labSub:"Pick a bark. Watch what a \"translator\" really does: classify affect, then add a story.",
     bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
@@ -510,15 +506,14 @@ const I18N = {
     statsAria:"综述统计", stPages:"页", stRefs:"篇引用", stTables:"张对照表", stFigs:"张图",
     bmTitle:"犬类阶梯基准 Canine Ladder Benchmark",
     bmSub:"指出测量问题的综述，应当同时交出一把可测量的尺。论文第 9 章为每一级规定了任务、可核验的误差信号、必须超越的基线，以及判定「并未真正达到这一级」的条件。",
-    bm1big:"第 1 级 · 信号", bm1t:"是谁，而不是什么", bm1p:"误差信号：录音元数据与视频确认的发声个体；必须超越直接迁移的人类说话人嵌入。若打乱录音场次后精度仍在，说明模型认出的是麦克风，不是狗。",
+    bm1big:"第 1 级 · 信号", bm1t:"发声个体识别", bm1p:"以录音元数据和视频确认的发声个体作为真值；与迁移的人类说话人嵌入比较，并报告打乱场次后指标的变化，以估计录音条件的影响。",
     bm2big:"第 2 级 · 情绪", bm2t:"模型看数据之前先钉住两个锚", bm2p:"预先登记的实验操纵，加上来自动物自身的生理或延迟指标；人类评分只能作为第三锚且必须双盲。若单纯唤醒度基线就能追平模型，这一级就没有被跨过。",
     bm3big:"第 3 级 · 意图", bm3t:"用动物自己的误差信号", bm3p:"选项受物理约束的二选一，操作者盲态，并以序列置换基线计分。人离开房间后表现崩塌，就是 Clever Hans 效应。",
-    bm4big:"第 4 级 · 指称", bm4t:"要结构，不要频率", bm4p:"从封闭词表中留出未见组合，与共现分解模型对比。论文用这条判据复核了所有候选：长尾猴与草原犬鼠的警报、蜜蜂舞蹈、海豚签名哨、抹香鲸音段、山雀组合叫声、按钮犬序列——没有一项这样测过。山雀与按钮犬离结论只差一个实验。",
-    bm5big:"第 5 级 · 对话", bm5t:"只能否证，不能证明", bm5p:"不存在独立记录的「预期信息」，因此任何协议都无法为这一级发证；但行为等价实验可以否证宣称达到这一级的系统。",
+    bm4big:"第 4 级 · 指称", bm4t:"未见组合泛化", bm4p:"从封闭词表中留出未见组合，与共现分解模型对比。论文用这条判据复核了所有候选：长尾猴与草原犬鼠的警报、蜜蜂舞蹈、海豚签名哨、抹香鲸音段、山雀组合叫声、按钮犬序列——没有一项这样测过。山雀与按钮犬离结论只差一个实验。",
+    bm5big:"第 5 级 · 对话", bm5t:"行为拒绝检验", bm5p:"目前没有独立记录可作为预期句子的真值，因此尚无认证该级的协议。行为等价实验可检验渲染句子是否提供了超出情绪线索的信息。",
     bm6big:"0 / 10", bm6t:"清单已经用上了", bm6p:"按论文清单复核现有系统：消费级“翻译”应用 0/10，已发表的二阶情绪模型 1/10，按钮符号实验 6/7，开放生物声学基准 5/8。十项为：按犬划分数据、误差信号独立于标注者、唤醒基线、标注者盲法、操作者盲法、校准度、弃权率、阴性对照、预先声明类别体系、写明所处层级。",
-    heroSub:"我们距离翻译小狗说的话还有多远——以及，这究竟可行吗？我们做了一把尺子，而不是噱头数字。",
+    heroSub:"本综述以五级能力框架梳理犬类沟通解码：现有系统能推断什么、相关主张如何检验，以及证据目前止于何处。",
     readPaper:"📄 阅读论文", github:"⭐ GitHub",
-    woofA:"汪", woofB:"→ 人话？", woofC:"这是五个问题，不是一个。",
     ladderTitle:"翻译阶梯",
     ladderSub:"“翻译狗语”是五种难度递增的能力。今天我们站在第 2 层。",
     r1t:"信号", r1s:"检测与切分", r1stat:"已解决",
@@ -528,9 +523,9 @@ const I18N = {
     r5t:"对话", r5s:"开放式交流", r5stat:"伪命题？",
     gapTitle:"↑ 语义鸿沟 ↑", gapSub:"在这条线之上，狗的自然信号里没有可供翻译的生成语法",
     ansTitle:"那么……还有多远？",
-    c1big:"2–4 年", c1t:"情绪，经过验证", c1p:"经过校准的压力/疼痛/福利监测工具触手可及。有用——但不是“翻译”。",
+    c1big:"2–4 年", c1t:"情绪，经过验证", c1p:"经过校准的压力、疼痛或福利监测工具，有望为日常照护提供依据。",
     c2big:"约 2030+", c2t:"意图，有接地", c2p:"说话按钮提供了立足点。自然信号的意图验证还需十年的数据与协议。",
-    c3big:"也许永远", c3t:"开放对话", c3p:"那里也许根本没有语言可翻译。更多算力修不了一个范畴错误。",
+    c3big:"也许永远", c3t:"开放对话", c3p:"现有证据尚未证实犬类信号具备开放对话所需的组合结构。单纯扩大模型规模无法回答这一生物学问题。",
     feasTitle:"炼金术、飞机，还是永动机？",
     feasSub:"我们不预设终点存在。用三种历史模板裁决每一层。",
     f1big:"第 1–4 层", f1t:"飞机——难但真实", f1p:"曾被宣判不可能，却有坚实物理。存在性证明已在手：vervet 猴警报、蜜蜂舞蹈、海豚签名哨、犬类词语理解。",
@@ -546,8 +541,8 @@ const I18N = {
     ay2:"离散化配方——codec 把连续叫声变成可复用单元。",
     ay3:"交互接地——说话按钮与 CHAT 把符号绑定到后果。",
     an1:"平行语料——不存在叫声↔句子的罗塞塔石碑。",
-    an2:"递归语法——犬类信号是渐变的，不是组合的。",
-    an3:"流畅即忠实——渲染出的句子是故事，不是测量。",
+    an2:"犬类叫声呈连续变化；可产出的组合规则仍缺少证据。",
+    an3:"先评估情绪分类结果及其校准度，再判断生成句子的忠实性。",
     labTitle:"汪汪实验室 🐾",
     labSub:"选一种叫声，看“翻译器”真正在做什么：先分类情绪，再补一个故事。",
     bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",

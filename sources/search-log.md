@@ -31,14 +31,14 @@ every corpus number printed in the paper. Run:
 
 Current output (2026-11-12):
 
-- **256** `ibitem` entries, all cited, zero orphans, zero dangling keys.
+- **260** `\bibitem` entries, all cited, zero orphans, zero dangling keys.
 - Year of an entry = the latest four-digit year stated in it; **23** entries
-  predate 2001, **177** (70%) fall in 2016 onward, **89** in 2020–2023.
+  predate 2001, **182** (70%) fall in 2016 onward, **90** in 2020–2023.
 - Thematic groups, assigned by bibliography block (the unlabelled front block
   is assigned entry by entry in `KEY_GROUP`): canine communication, cognition
   & products **48**; speech/audio/codecs **39**; transfer, evaluation & ML
-  methods **38**; machine translation & the Transformer **36**; cross-species
-  decoding & bioacoustics **33**; LLMs & multimodality **32**; enrichment,
+  methods **43**; machine translation & the Transformer **36**; cross-species
+  decoding & bioacoustics **35**; LLMs & multimodality **32**; enrichment,
   ethics & population statistics **27**.
 - The script asserts that the group totals sum to the entry count, so a new
   bibliography block without a mapping fails loudly instead of silently.
@@ -101,3 +101,13 @@ No new product or vendor claims entered the paper in this revision.
 - Some citations confirmed via secondary indexes, not full-text retrieval;
   a production version should verify each against the primary record.
 - Single-reviewer screening; no independent second eligibility decision.
+
+## BCI transfer literature added 2026-11-12
+
+Three sources extend the transfer audit to EEG-based brain-computer interfaces:
+Wu, Xu, and Lu review cross-subject/session/device/task transfer; Apicella et al.
+systematically review cross-subject and cross-session EEG emotion recognition;
+and Nagarajan et al. report a clinical motor-imagery transfer study across 71
+stroke patients. Bibliographic details were checked against publisher or
+primary article records. The reported accuracy is treated as task-specific and
+is not compared with canine inference.

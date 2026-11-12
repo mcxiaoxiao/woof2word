@@ -108,10 +108,14 @@ column is the observation that shows the rung was not actually reached.}
 
 \subsection{Rules that apply to every rung}
 
-Four cross-cutting requirements do most of the work, and none of them is
-novel --- the point is that this field has not adopted them. Splits are per dog
-and per session, never per clip; a benchmark whose test set contains another
-recording of the same animal in the same room will be solved by the room.
+Four cross-cutting requirements do most of the work. Evaluation must declare
+its target regime: an unseen dog, a later session from a known dog, or a new
+household, site, or device. Report leave-dog-out results separately from
+adaptation to later sessions; keep all clips from each recording session in
+one partition, and keep households together where identifiers permit. State
+whether target data are absent, unlabeled, or labeled, and report the
+calibration budget. These tracks answer different transfer questions, so
+their scores should remain separate.
 Taxonomies are pre-registered, so that a class set cannot be edited until the
 confusion matrix looks good. Reporting follows the artifact discipline the
 ML side of this survey already has vocabulary for: datasets ship with

@@ -7,8 +7,8 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-36%20pages-E8A87C?style=flat-square)](paper/main.pdf)
-[![References](https://img.shields.io/badge/references-257%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
+[![Paper](https://img.shields.io/badge/paper-37%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![References](https://img.shields.io/badge/references-260%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-E7A6B0?style=flat-square)](#contributing--参与)
@@ -25,11 +25,11 @@
 > ">80% accuracy." Landmark projects decode whales, dolphins, and finches.
 > So — **how far are we, really, from translating what a dog says?**
 
-This repo holds the survey. It answers with a **ruler**, not a single number.
+This repository presents a five-rung account of canine communication decoding, with evidence and evaluation criteria for each capability.
 
 ## The translation ladder · 翻译阶梯
 
-"Translating a dog" is not one capability but five. Our central finding:
+The survey examines five capabilities: signal detection, affect classification, intent and context inference, referential semantics, and open-ended dialogue. Its central finding:
 **today's systems live on Rung 2, with a foothold on Rung 3.** Everything
 above is aspirational or — in the strong sense — *ill-posed*.
 
@@ -50,7 +50,7 @@ fix a category error.
 </p>
 
 <p align="center">
-  <img src="paper/figures/fig5_corpus.png" alt="Bar chart of references per year with a cumulative line, next to a donut of the 257 references by theme" width="48%">
+  <img src="paper/figures/fig5_corpus.png" alt="Bar chart of references per year with a cumulative line, next to a donut of the 260 references by theme" width="48%">
   <img src="paper/figures/fig6_evidence.png" alt="Grouped bars of falsifiable studies and audited products per rung, with the semantic gap shaded" width="48%">
 </p>
 
@@ -60,7 +60,7 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 36 pages, 257 cited references
+│   ├── main.pdf            # compiled, 37 pages, 260 cited references
 │   ├── sections/           # 12 sections + bibliography (15 comparison tables)
 │   └── figures/            # 6 TikZ figures + charts (PNG previews)
 ├── docs/
@@ -199,7 +199,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（35 页，引用 257 篇文献，含 15 张大型对照表与 6 幅图），以
+开放、证据有界的**综述**（37 页，引用 260 篇文献，含 15 张大型对照表与 6 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个

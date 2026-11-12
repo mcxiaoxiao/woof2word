@@ -174,10 +174,25 @@ survey, not a PRISMA systematic review; entries confirmed only via
 secondary indexes should be checked against the primary record before
 reuse.
 
+\subsection{Artifact availability}
+Every number this survey reports about its own corpus is regenerable from the
+repository (\url{https://github.com/mcxiaoxiao/woof2word}): the \LaTeX{}
+sources, the six figures as TikZ with PNG previews,
+\texttt{sources/corpus\_stats.py}, which recomputes the year and thematic
+accounting of Figure~\ref{fig:corpus} from the bibliography file itself and
+writes \texttt{sources/corpus\_stats.csv}, and
+\texttt{sources/search-log.md}, which records the query families and dates
+behind the reference pool. The project page carries the compiled survey and the
+same tables. The repository is under the MIT licence and ships a
+\texttt{CITATION.cff} record, and every audit row in the survey names the
+source it was scored against, so a reader can re-audit Table~\ref{tab:products}
+or Table~\ref{tab:checklist} from the primary literature without asking the
+authors for anything.
+
 \subsection{The shape of the corpus}
-Figure~\ref{fig:corpus} adds up the 257 entries, and the shape carries a
+Figure~\ref{fig:corpus} adds up the 260 entries, and the shape carries a
 message of its own. Seven in ten arrive after 2015; the 2020--2023 block alone
-holds 89, which is the foundation-model era in one breath --- self-supervised
+holds 90, which is the foundation-model era in one breath --- self-supervised
 audio encoders, whale and dolphin codas, the soundboard dogs, and the first
 consumer translators all land there. The thematic split is more diagnostic
 still. The human language-technology stack (machine translation and the
@@ -185,7 +200,7 @@ Transformer 36, speech, audio and neural codecs 39, large language models and
 multimodality 32: 107 entries between them) outweighs everything canine
 (48) by more than two to one, and the largest single block is canine
 communication itself, closely followed by the methods that would have to
-transfer to it (transfer learning and evaluation, 40) and by cross-species
+transfer to it (transfer learning and evaluation, 43) and by cross-species
 decoding (35), because that is where these methods have been tested on
 non-human signals at all. This
 survey is accordingly engineered rather than ethologically centred: the tools
@@ -197,9 +212,9 @@ come from human language technology, and the dog supplies the signal.
 \caption{The corpus behind this survey. (a) Bibliography entries per year,
 taking the latest year stated in each entry; the 23 entries predating 2001
 (Shannon, Chomsky, early machine learning) are counted in the cumulative line
-but not drawn as bars, and 2026 is partial. (b) The same 257 entries in seven
+but not drawn as bars, and 2026 is partial. (b) The same 260 entries in seven
 thematic groups: canine communication, cognition and products, 48; transfer,
-evaluation and ML methods, 40; speech, audio self-supervision and neural
+evaluation and ML methods, 43; speech, audio self-supervision and neural
 codecs, 39; machine translation and the Transformer, 36; cross-species decoding
 and bioacoustics, 35; large language models and multimodality, 32; enrichment,
 ethics and population statistics, 27. Both panels are produced by

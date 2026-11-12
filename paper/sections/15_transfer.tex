@@ -23,6 +23,22 @@ the animal target domain carries no such thing. Feature transfer succeeds
 precisely where the task is classification; it cannot manufacture a
 reference translation the source never had.
 
+EEG-based brain--computer interfaces offer a useful comparator because their
+transfer literature names the shift being tested: a new participant, session,
+device, or task. Reviews of EEG-BCI transfer and cross-subject EEG emotion
+recognition treat these as separate evaluation settings and describe the
+calibration assumptions each one makes~\cite{wu2022bci,apicella2024eegemotion}.
+A clinical motor-imagery study pretrained on healthy participants and adapted
+to stroke patients reported mean detection accuracy of 71.15\% ($\pm12.46\%$)
+across
+71 patients~\cite{nagarajan2024stroke}. That figure belongs to its task,
+population, and adaptation protocol; canine semantic inference has different
+labels and error signals, so the values cannot be compared. The transferable
+lesson is how to report the evaluation: name the source and target populations,
+state whether target data and labels are available, give the calibration
+budget, and report performance separately for unseen animals and later
+sessions from known animals.
+
 The break is sharpest at grounding. Human translation is grounded because
 source and target symbols refer to a shared world of objects, actions, and
 states~\cite{harnad1990grounding}; even text-only models inherit this
