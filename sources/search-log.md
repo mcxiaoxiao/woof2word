@@ -1,7 +1,7 @@
 # Search log · 检索记录
 
 Survey: *The Canine Rosetta Stone: How Far Are We from Translating What Dogs Say?*
-Method: narrative, evidence-bounded review (not PRISMA). Search window: **2026-11-09 → 2026-11-10**.
+Method: narrative, evidence-bounded review (not PRISMA). Search window: **2026-11-09 → 2026-11-12**.
 Tooling: structured web search + secondary-index citation verification.
 Commercial accuracies are logged **as vendor claims**, not verified results.
 
@@ -20,6 +20,55 @@ Commercial accuracies are logged **as vendor claims**, not verified results.
 | 2026-11-09 | Earth Species Project AVES NatureLM-audio BEANS benchmark | bioacoustic foundation models |
 | 2026-11-10 | Bastos Rossano 2024 soundboard dogs PLoS ONE / Sci Rep title | verify button-study DOIs |
 | 2026-11-10 | Sharma 2024 contextual combinatorial sperm whale Nat Commun | verify CETI DOI |
+
+
+## Corpus accounting (reproducible)
+
+`sources/corpus_stats.py` reads `paper/sections/12_bibliography.tex` and derives
+every corpus number printed in the paper. Run:
+
+    python3 sources/corpus_stats.py --csv sources/corpus_stats.csv
+
+Current output (2026-11-12):
+
+- **256** `ibitem` entries, all cited, zero orphans, zero dangling keys.
+- Year of an entry = the latest four-digit year stated in it; **23** entries
+  predate 2001, **177** (70%) fall in 2016 onward, **89** in 2020–2023.
+- Thematic groups, assigned by bibliography block (the unlabelled front block
+  is assigned entry by entry in `KEY_GROUP`): canine communication, cognition
+  & products **48**; speech/audio/codecs **39**; transfer, evaluation & ML
+  methods **38**; machine translation & the Transformer **36**; cross-species
+  decoding & bioacoustics **33**; LLMs & multimodality **32**; enrichment,
+  ethics & population statistics **27**.
+- The script asserts that the group totals sum to the entry count, so a new
+  bibliography block without a mapping fails loudly instead of silently.
+- `corpus_stats.csv` is the per-entry audit trail (key, year, block, group).
+
+## Provenance of the protocol section (Section 9)
+
+The benchmark specification was assembled from methodological sources already in
+the bibliography (datasheets, model cards, stochastic-parrots, the button-array
+combination analysis, the object-choice literature) plus three canonical
+measurement references added on 2026-11-12 for the parts the corpus did not
+cover: calibration reporting, a transferred speaker-verification baseline, and
+an experimental design that removes the human observer. Their bibliographic
+details were checked against the primary record:
+
+- Guo, Pleiss, Sun & Weinberger, *On calibration of modern neural networks*,
+  ICML 2017 — arXiv **1706.04599**.
+- Snyder, Garcia-Romero, Sell, Povey & Khudanpur, *X-vectors: robust DNN
+  embeddings for speaker recognition*, Proc. ICASSP 2018, pp. 5329–5333
+  (author list and pagination corrected after checking citing records; the
+  DOI was left out because it could not be confirmed directly).
+- Proops, McComb & Reby, *Cross-modal individual recognition in domestic
+  horses*, PNAS 106(4):947–951 (2009) — DOI **10.1073/pnas.0809127105**; and
+  Proops & McComb, *... extends to familiar humans*, Proc. R. Soc. B
+  279:3131–3138 (2012) — DOI **10.1098/rspb.2012.0626**.
+  An initial draft cited a 2018 Biology Letters horse paper that checking
+  against citing records failed to confirm; it was replaced by the two studies
+  above rather than left in the manuscript.
+
+No new product or vendor claims entered the paper in this revision.
 
 ## Citations verified to venue/year/DOI (via secondary indexes)
 

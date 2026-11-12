@@ -1,0 +1,258 @@
+key,year,bibliography_block,reporting_group
+pongracz2005barks,2005,FRONT,"Canine communication, cognition & products"
+pongracz2006acoustic,2006,FRONT,"Canine communication, cognition & products"
+molnar2006discriminate,2006,FRONT,"Canine communication, cognition & products"
+farago2017growls,2017,FRONT,"Canine communication, cognition & products"
+icassp2018dogbark,2018,FRONT,"Canine communication, cognition & products"
+waller2013dogfacs,2013,FRONT,"Canine communication, cognition & products"
+kaminski2017attention,2017,FRONT,"Canine communication, cognition & products"
+sci2024domestication,2024,FRONT,"Canine communication, cognition & products"
+sci2022explainable,2022,FRONT,"Canine communication, cognition & products"
+sci2023cnnewoa,2023,FRONT,"Canine communication, cognition & products"
+sci2025automated,2025,FRONT,"Canine communication, cognition & products"
+sci2025landmarks,2025,FRONT,"Canine communication, cognition & products"
+kaminski2004rico,2004,FRONT,"Canine communication, cognition & products"
+pilley2011chaser,2011,FRONT,"Canine communication, cognition & products"
+bastos2024plos,2024,FRONT,"Canine communication, cognition & products"
+bastos2024scirep,2024,FRONT,"Canine communication, cognition & products"
+animalcog2025review,2025,FRONT,"Canine communication, cognition & products"
+bastos2023interact,2023,FRONT,"Canine communication, cognition & products"
+sharma2024whale,2024,FRONT,Cross-species decoding & bioacoustics
+andreas2022ceti,2022,FRONT,Cross-species decoding & bioacoustics
+google2025dolphingemma,2025,FRONT,Cross-species decoding & bioacoustics
+wham2025,2025,FRONT,Cross-species decoding & bioacoustics
+arxiv2025whaletrans,2025,FRONT,Cross-species decoding & bioacoustics
+hagiwara2023aves,2023,FRONT,Cross-species decoding & bioacoustics
+robinson2024naturelm,2024,FRONT,Cross-species decoding & bioacoustics
+ghani2023perch,2023,FRONT,Cross-species decoding & bioacoustics
+hagiwara2023beans,2023,FRONT,Cross-species decoding & bioacoustics
+openbeats2025,2025,FRONT,Cross-species decoding & bioacoustics
+esp2026finch,2026,FRONT,Cross-species decoding & bioacoustics
+yovel2025critique,2026,FRONT,Cross-species decoding & bioacoustics
+traini2024,2026,FRONT,"Canine communication, cognition & products"
+bowlingual2002,2002,FRONT,"Canine communication, cognition & products"
+meowtalk2020,2020,FRONT,"Canine communication, cognition & products"
+mengxiaoyi2026,2026,FRONT,"Canine communication, cognition & products"
+petpuls2021,2021,FRONT,"Canine communication, cognition & products"
+quaranta2007tail,2007,FRONT,"Canine communication, cognition & products"
+andics2014voice,2014,FRONT,"Canine communication, cognition & products"
+kassis2026skills,2026,FRONT,"Canine communication, cognition & products"
+sutskever2014seq2seq,2014,Human MT & the Transformer genealogy,Machine translation & the Transformer
+cho2014rnn,2014,Human MT & the Transformer genealogy,Machine translation & the Transformer
+bahdanau2015attention,2015,Human MT & the Transformer genealogy,Machine translation & the Transformer
+luong2015effective,2015,Human MT & the Transformer genealogy,Machine translation & the Transformer
+gehring2017conv,2017,Human MT & the Transformer genealogy,Machine translation & the Transformer
+vaswani2017attention,2017,Human MT & the Transformer genealogy,Machine translation & the Transformer
+wu2016gnmt,2016,Human MT & the Transformer genealogy,Machine translation & the Transformer
+johnson2017multilingual,2017,Human MT & the Transformer genealogy,Machine translation & the Transformer
+firat2016multiway,2016,Human MT & the Transformer genealogy,Machine translation & the Transformer
+ott2018scaling,2018,Human MT & the Transformer genealogy,Machine translation & the Transformer
+edunov2018backtrans,2018,Human MT & the Transformer genealogy,Machine translation & the Transformer
+sennrich2016bpe,2016,Human MT & the Transformer genealogy,Machine translation & the Transformer
+sennrich2016improving,2016,Human MT & the Transformer genealogy,Machine translation & the Transformer
+koehn2005moses,2005,Human MT & the Transformer genealogy,Machine translation & the Transformer
+koehn2004europarl,2005,Human MT & the Transformer genealogy,Machine translation & the Transformer
+tiedemann2012opus,2012,Human MT & the Transformer genealogy,Machine translation & the Transformer
+papineni2002bleu,2002,Human MT & the Transformer genealogy,Machine translation & the Transformer
+denkowski2014meteor,2014,Human MT & the Transformer genealogy,Machine translation & the Transformer
+rei2020comet,2020,Human MT & the Transformer genealogy,Machine translation & the Transformer
+freitag2021experts,2021,Human MT & the Transformer genealogy,Machine translation & the Transformer
+bojar2018wmt,2018,Human MT & the Transformer genealogy,Machine translation & the Transformer
+barrault2019wmt,2019,Human MT & the Transformer genealogy,Machine translation & the Transformer
+kocmi2022wmt,2022,Human MT & the Transformer genealogy,Machine translation & the Transformer
+costajussa2022nllb,2022,Human MT & the Transformer genealogy,Machine translation & the Transformer
+nllb2024scaling,2024,Human MT & the Transformer genealogy,Machine translation & the Transformer
+fan2021beyond,2021,Human MT & the Transformer genealogy,Machine translation & the Transformer
+artetxe2018unsupervised,2018,Human MT & the Transformer genealogy,Machine translation & the Transformer
+lample2018unsupervised,2018,Human MT & the Transformer genealogy,Machine translation & the Transformer
+schwenk2021wikimatrix,2021,Human MT & the Transformer genealogy,Machine translation & the Transformer
+elkishky2020ccaligned,2020,Human MT & the Transformer genealogy,Machine translation & the Transformer
+berard2016listen,2016,Human MT & the Transformer genealogy,Machine translation & the Transformer
+weiss2017speech,2017,Human MT & the Transformer genealogy,Machine translation & the Transformer
+jia2019direct,2019,Human MT & the Transformer genealogy,Machine translation & the Transformer
+seamless2023m4t,2023,Human MT & the Transformer genealogy,Machine translation & the Transformer
+seamless2024streaming,2023,Human MT & the Transformer genealogy,Machine translation & the Transformer
+liu2020mbart,2020,Human MT & the Transformer genealogy,Machine translation & the Transformer
+mikolov2013word2vec,2013,"Pretraining, LLMs, multimodality",Large language models & multimodality
+pennington2014glove,2014,"Pretraining, LLMs, multimodality",Large language models & multimodality
+peters2018elmo,2018,"Pretraining, LLMs, multimodality",Large language models & multimodality
+howard2018ulmfit,2018,"Pretraining, LLMs, multimodality",Large language models & multimodality
+devlin2019bert,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+radford2018gpt,2018,"Pretraining, LLMs, multimodality",Large language models & multimodality
+radford2019gpt2,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+brown2020gpt3,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+raffel2020t5,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+lewis2020bart,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+liu2019roberta,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+yang2019xlnet,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+clark2020electra,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+he2021deberta,2021,"Pretraining, LLMs, multimodality",Large language models & multimodality
+conneau2020xlmr,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+pires2019mbert,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+conneau2019xlm,2019,"Pretraining, LLMs, multimodality",Large language models & multimodality
+touvron2023llama,2023,"Pretraining, LLMs, multimodality",Large language models & multimodality
+touvron2023llama2,2023,"Pretraining, LLMs, multimodality",Large language models & multimodality
+openai2023gpt4,2023,"Pretraining, LLMs, multimodality",Large language models & multimodality
+gemini2024,2024,"Pretraining, LLMs, multimodality",Large language models & multimodality
+anthropic2024claude,2024,"Pretraining, LLMs, multimodality",Large language models & multimodality
+gemma2024,2024,"Pretraining, LLMs, multimodality",Large language models & multimodality
+ouyang2022instruct,2022,"Pretraining, LLMs, multimodality",Large language models & multimodality
+wei2022chain,2022,"Pretraining, LLMs, multimodality",Large language models & multimodality
+bommasani2021foundation,2021,"Pretraining, LLMs, multimodality",Large language models & multimodality
+kaplan2020scaling,2020,"Pretraining, LLMs, multimodality",Large language models & multimodality
+hoffmann2022chinchilla,2022,"Pretraining, LLMs, multimodality",Large language models & multimodality
+radford2021clip,2021,"Pretraining, LLMs, multimodality",Large language models & multimodality
+alayrac2022flamingo,2022,"Pretraining, LLMs, multimodality",Large language models & multimodality
+liu2023llava,2023,"Pretraining, LLMs, multimodality",Large language models & multimodality
+li2023blip2,2023,"Pretraining, LLMs, multimodality",Large language models & multimodality
+vandenoord2018cpc,2018,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+schneider2019wav2vec,2019,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+baevski2020wav2vec2,2020,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+hsu2021hubert,2021,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+chen2022wavlm,2022,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+baevski2022data2vec,2022,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+baevski2023data2vec2,2023,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+radford2023whisper,2023,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+graves2006ctc,2006,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+graves2013speech,2013,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+amodei2016deepspeech2,2016,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+chan2016las,2016,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+gulati2020conformer,2020,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+panayotov2015librispeech,2015,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+ardila2020commonvoice,2020,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+pratap2020mls,2020,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+garofolo1993timit,1993,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+godfrey1992switchboard,1992,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+yang2021superb,2021,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+baevski2021wav2vecu,2021,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+babu2022xlsr,2022,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+pratap2023mms,2023,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+zhang2023usm,2023,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+wang2020covost,2020,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+wang2021covost2,2021,"Speech SSL, ASR, speech translation","Speech, audio self-supervision & neural codecs"
+vandenoord2016wavenet,2016,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+vandenoord2017vqvae,2017,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+dhariwal2020jukebox,2020,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+zeghidour2021soundstream,2021,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+defossez2022encodec,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+borsos2023audiolm,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+agostinelli2023musiclm,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+copet2023musicgen,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+kreuk2023audiogen,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+wang2023valle,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+yang2024uniaudio,2024,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+rubenstein2023audiopalm,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+tang2024salmonn,2024,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+chu2024qwenaudio,2023,Neural audio codecs & generative audio,"Speech, audio self-supervision & neural codecs"
+pan2010transfer,2010,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+zhuang2021transfer,2021,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+yosinski2014transferable,2014,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+bender2020climbing,2020,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+bender2021parrots,2021,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+gebru2021datasheets,2021,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+mitchell2019modelcards,2019,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+liang2023helm,2023,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+srivastava2023bigbench,2023,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+hendrycks2021mmlu,2021,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+lin2022truthfulqa,2022,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+ji2023hallucination,2023,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+maynez2020faithfulness,2020,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+harnad1990grounding,1990,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+bisk2020experience,2020,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+hupkes2020compositionality,2020,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+lake2023systematic,2023,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+lake2018scan,2018,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+conneau2018cram,2018,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+rogers2020bertology,2020,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+guo2017calibration,2017,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+snyder2018xvector,2018,"Transfer, evaluation, grounding","Transfer, evaluation & ML methods"
+proops2009horses,2009,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+proops2012familiar,2012,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+kahl2021birdnet,2021,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+stowell2022review,2022,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+stowell2014automatic,2014,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+janik1998whistles,1998,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+king2013labels,2013,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+seyfarth1980vervet,1980,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+cheney1990monkeys,1990,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+vonfrisch1967dance,1967,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+crockford2012inform,2012,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+suzuki2016compositional,2016,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+schlenker2016formal,2016,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+slobodchikoff2009prairie,2009,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+evans1993alarm,1993,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+hauser1996evolution,1996,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+tomasello2008origins,2008,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+kirby2008cumulative,2008,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+smith2003iterated,2003,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+hauser2002faculty,2002,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+pinker1994instinct,1994,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+chomsky1957syntactic,1957,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+zipf1949human,1949,Bioacoustics & animal communication,Cross-species decoding & bioacoustics
+hare2002domestication,2002,Canine cognition (additional),"Canine communication, cognition & products"
+miklosi2003lookback,2003,Canine cognition (additional),"Canine communication, cognition & products"
+soproni2001comprehension,2001,Canine cognition (additional),"Canine communication, cognition & products"
+berns2012fmri,2012,Canine cognition (additional),"Canine communication, cognition & products"
+frantz2016genomic,2016,Canine cognition (additional),"Canine communication, cognition & products"
+jobin2019global,2019,Ethics & governance,"Enrichment, ethics & population statistics"
+mittelstadt2019principles,2019,Ethics & governance,"Enrichment, ethics & population statistics"
+floridi2018ai4people,2018,Ethics & governance,"Enrichment, ethics & population statistics"
+crawford2021atlas,2021,Ethics & governance,"Enrichment, ethics & population statistics"
+european2024aiact,2024,Ethics & governance,"Enrichment, ethics & population statistics"
+birch2024edge,2024,Ethics & governance,"Enrichment, ethics & population statistics"
+birch2017precaution,2017,Ethics & governance,"Enrichment, ethics & population statistics"
+kingma2015adam,2015,ML methods & foundations,"Transfer, evaluation & ML methods"
+srivastava2014dropout,2014,ML methods & foundations,"Transfer, evaluation & ML methods"
+he2016resnet,2016,ML methods & foundations,"Transfer, evaluation & ML methods"
+dosovitskiy2021vit,2021,ML methods & foundations,"Transfer, evaluation & ML methods"
+goodfellow2014gan,2014,ML methods & foundations,"Transfer, evaluation & ML methods"
+ho2020ddpm,2020,ML methods & foundations,"Transfer, evaluation & ML methods"
+rombach2022ldm,2022,ML methods & foundations,"Transfer, evaluation & ML methods"
+schulman2017ppo,2017,ML methods & foundations,"Transfer, evaluation & ML methods"
+mnih2015dqn,2015,ML methods & foundations,"Transfer, evaluation & ML methods"
+silver2016alphago,2016,ML methods & foundations,"Transfer, evaluation & ML methods"
+lecun2015deep,2015,ML methods & foundations,"Transfer, evaluation & ML methods"
+bengio2013representation,2013,ML methods & foundations,"Transfer, evaluation & ML methods"
+goodfellow2016deep,2016,ML methods & foundations,"Transfer, evaluation & ML methods"
+rumelhart1986backprop,1986,ML methods & foundations,"Transfer, evaluation & ML methods"
+hochreiter1997lstm,1997,ML methods & foundations,"Transfer, evaluation & ML methods"
+krizhevsky2012alexnet,2012,ML methods & foundations,"Transfer, evaluation & ML methods"
+deng2009imagenet,2009,ML methods & foundations,"Transfer, evaluation & ML methods"
+russakovsky2015imagenet,2015,ML methods & foundations,"Transfer, evaluation & ML methods"
+dogster2026stats,2026,Population & ownership statistics,"Enrichment, ethics & population statistics"
+sustainablediets2025,2025,Population & ownership statistics,"Enrichment, ethics & population statistics"
+fediaf2025,2025,Population & ownership statistics,"Enrichment, ethics & population statistics"
+avma2025,2025,Population & ownership statistics,"Enrichment, ethics & population statistics"
+budgetdirect2024,2024,Population & ownership statistics,"Enrichment, ethics & population statistics"
+worldanimalfoundation2026,2026,Population & ownership statistics,"Enrichment, ethics & population statistics"
+skinner1953science,1953,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+pryor1999dont,1999,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+scott1965genetics,1965,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+freedman1961critical,1961,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+serpell1995early,1995,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+topal2009differential,2009,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+bray2021early,2021,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+mancini2011aci,2011,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+knox2009tamer,2009,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+christiano2017preferences,2017,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+lewis1969convention,1969,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+steels2003evolving,2003,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+lazaridou2017emergence,2017,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+foerster2016communicate,2016,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+gardner1969teaching,1969,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+savage1994kanzi,1994,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+terrace1979ape,1979,Developmental closed-loop route (Section 9),"Canine communication, cognition & products"
+britz2017massive,2017,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+ott2019fairseq,2019,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+wolf2020transformers,2020,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+chowdhery2023palm,2023,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+wei2022emergent,2022,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+schaeffer2023mirage,2023,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+kong2020hifigan,2020,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+ren2019fastspeech,2019,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+miklosi2007dog,2007,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+udell2010what,2010,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+horowitz2009disambiguate,2009,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+barocas2016bigdata,2016,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+russell2019human,2019,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"
+amodei2016concrete,2016,"Enrichment: MT stack, audio, dog cognition, ethics","Enrichment, ethics & population statistics"

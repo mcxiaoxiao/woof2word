@@ -1,7 +1,7 @@
 % Figure - The corpus behind this survey: annual flow + thematic mix.
-% Data: the 253 \bibitem entries of sections/12_bibliography.tex. Year = the
+% Data: the 257 \bibitem entries of sections/12_bibliography.tex. Year = the
 % latest year recorded in the entry (23 entries fall before 2001). The seven
-% thematic groups are defined in the caption; counts sum to 253.
+% thematic groups are defined in the caption; counts sum to 257.
 \begin{tikzpicture}[font=\sffamily]
   % --------------- panel (a): per-year bars + cumulative line -------------
   \begin{axis}[
@@ -21,8 +21,8 @@
     \addplot[ybar, bar width=0.40, fill=sky!75, draw=skydeep, line width=0.3pt]
       coordinates {
         (2001,1) (2002,4) (2003,3) (2004,1) (2005,3) (2006,3) (2007,2) (2008,2)
-        (2009,5) (2010,2) (2011,2) (2012,4) (2013,5) (2014,9) (2015,7) (2016,17)
-        (2017,12) (2018,13) (2019,15) (2020,24) (2021,20) (2022,15) (2023,30)
+        (2009,6) (2010,2) (2011,2) (2012,5) (2013,5) (2014,9) (2015,7) (2016,17)
+        (2017,13) (2018,14) (2019,15) (2020,24) (2021,20) (2022,15) (2023,30)
         (2024,14) (2025,10) (2026,7)
       };
     \node[font=\sffamily\scriptsize, text=ink!62, align=left, anchor=south west]
@@ -35,8 +35,8 @@
   \begin{axis}[
       at={(flow.south west)}, anchor=south west,
       width=8.6cm, height=5.5cm,
-      xmin=2000.2, xmax=2026.8, ymin=0, ymax=282,
-      ytick={100,200,253},
+      xmin=2000.2, xmax=2026.8, ymin=0, ymax=286,
+      ytick={100,200,257},
       tick label style={font=\scriptsize, text=pawdeep},
       axis lines*=right, line width=0.6pt, draw=ink!30,
       xtick=\empty, grid=none,
@@ -44,9 +44,9 @@
     \addplot[no marks, pawdeep, densely dashed, line width=1.1pt]
       coordinates {
         (2001,24) (2002,28) (2003,31) (2004,32) (2005,35) (2006,38) (2007,40)
-        (2008,42) (2009,47) (2010,49) (2011,51) (2012,55) (2013,60) (2014,69)
-        (2015,76) (2016,93) (2017,105) (2018,118) (2019,133) (2020,157)
-        (2021,177) (2022,192) (2023,222) (2024,236) (2025,246) (2026,253)
+        (2008,42) (2009,48) (2010,50) (2011,52) (2012,57) (2013,62) (2014,71)
+        (2015,78) (2016,95) (2017,108) (2018,122) (2019,137) (2020,161)
+        (2021,181) (2022,196) (2023,226) (2024,240) (2025,250) (2026,257)
       };
   \end{axis}
 
@@ -59,15 +59,15 @@
       at (0,2.86) {(b) what they are about};
     \def\R{1.60}\def\ri{0.98}\def\angl{90}
     \foreach \n/\col/\lab in {
-      50/skydeep/{cross-species\\\& bioacoustics},
-      39/pawdeep/{speech, audio\\\& codecs},
-      39/sagedeep/{transfer,\\ eval \& ML},
+      48/pawdeep/{canine comm.\\\& products},
+      40/sagedeep/{transfer,\\ eval \& ML},
+      39/sky!80!black/{speech, audio\\\& codecs},
       36/rosedeep/{machine\\ translation},
-      32/sky!80!black/{LLMs \&\\\ multimodal},
-      30/gold!80!black/{canine \&\\ products},
+      35/skydeep/{cross-species\\\& bioacoustics},
+      32/gold!80!black/{LLMs \&\\\ multimodal},
       27/paw!90!black/{ethics \&\\ statistics}}
     {
-      \pgfmathsetmacro{\delta}{\n/253*360}
+      \pgfmathsetmacro{\delta}{\n/257*360}
       \pgfmathsetmacro{\next}{\angl-\delta}
       \pgfmathsetmacro{\mid}{\angl-\delta/2}
       \draw[fill=\col, draw=cream, line width=1pt]
@@ -85,7 +85,7 @@
       \fi
       \xdef\angl{\next}
     }
-    \node[font=\sffamily\bfseries\LARGE, text=ink, anchor=south] at (0,-0.10) {253};
+    \node[font=\sffamily\bfseries\LARGE, text=ink, anchor=south] at (0,-0.10) {257};
     \node[font=\sffamily\tiny, text=ink!65, anchor=north] at (0,-0.14) {references};
   \end{scope}
 \end{tikzpicture}

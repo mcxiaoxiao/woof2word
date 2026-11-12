@@ -1,0 +1,150 @@
+\section{A Protocol That Could Settle It: the Canine Ladder Benchmark}
+\label{sec:protocol}
+
+The complaint running through Sections~\ref{sec:products}--\ref{sec:eval} is
+methodological, not skeptical: this field reports accuracies against labels
+that no independent process can check. A survey that diagnoses a measurement
+problem owes the field a measurement, so this section specifies one. The
+design rule is single and severe. \textbf{Each rung may be scored only against
+an error signal the model cannot see and the experimenter cannot leak.}
+Everything below follows from that rule, and each rung gets a task, the ground
+truth that makes the task checkable, a primary metric, a baseline the system
+must beat, and the observation that would show the rung was not actually
+reached.
+
+\subsection{The five tasks}
+
+\textbf{Rung 1: signal and sender.} Separate vocalisation from non-vocal sound,
+then identify the individual. The error signal is objective: session metadata
+and a video-verified sender, the trick that made the individual-identification
+studies convincing~\cite{molnar2006discriminate}. Score equal-error rate on
+splits taken per dog and per recording session, so that microphone and room
+cannot carry identity. The baseline that must be beaten is a human
+speaker-verification embedding transferred without fine-tuning, because that
+tests whether canine vocal anatomy contributes anything a human-speaker model
+does not already supply~\cite{snyder2018xvector}. A system has not reached
+rung 1 if its accuracy survives a session shuffle: that means it found the
+recording equipment, not the dog.
+
+\textbf{Rung 2: affect.} Classify the animal's affective state over a
+pre-registered taxonomy. Human consensus alone is not ground truth here --- it
+is a proxy, and treating it as a readout is the field's most common
+substitution. A scored submission needs at least two anchors fixed before any
+model sees the data: a manipulation the experimenter controls and records in
+advance (isolation, food barrier, territorial stranger, play; the design
+Pongr\'acz and Farag\'o used~\cite{pongracz2005barks,farago2017growls}), and an
+animal-side readout that does not depend on anyone's judgement --- heart-rate
+variability, latency to approach or withdraw, latency to settle. Human ratings
+are admitted as a third anchor only if collected blind to the manipulation and
+never used for training. Report balanced accuracy together with calibration,
+because an over-confident affect classifier in a consumer app is worse than a
+honest one that abstains~\cite{guo2017calibration}, and report an abstention
+curve. The baseline that must be beaten is an arousal-only regressor built from
+energy and fundamental-frequency statistics. If it ties the model, the model
+measured arousal, not affect, and the paper must say so in those words.
+
+\textbf{Rung 3: intent and reference.} Predict what the animal is acting on.
+The only clean error signal is the animal's own behaviour inside a forced-choice
+design whose alternatives are physically constrained: an object-choice task with
+the olfactory route eliminated, which is exactly the control that made the word
+- comprehension results defensible~\cite{kaminski2004rico,pilley2011chaser}, or a
+button array recorded while the handler is blind to the target. Score accuracy
+against a permutation baseline over the observed sequences, as the
+combination-analysis study did~\cite{bastos2024scirep}, and require
+generalisation across dogs. The rung is not reached if performance collapses
+when the human leaves the room; that collapse is the Clever Hans signature, and
+a benchmark that never tests it will keep mistaking cueing for competence.
+The alternative is already standard practice in animal cognition: cross-modal
+matching experiments score what the animal does --- which of two people a
+horse looks at after hearing one of them speak --- rather than what a human
+judge says the recording
+means~\cite{proops2009horses,proops2012familiar}. That swap is the difference
+between a measurement and a performance, and it is the single most important
+change this benchmark asks of canine work.
+
+\textbf{Rung 4: composition.} Map multi-element signals or sequences onto
+multi-element states. The error signal is a closed inventory of objects and
+actions with combinations held out of training, and the metric is accuracy on
+unseen combinations against a co-occurrence factorisation that has seen the same
+elements but not the same pairings. A model that matches the factorisation has
+learned frequencies, not structure. This is the rung where
+Figure~\ref{fig:evidence} shows the validated column empty, so a single
+surviving entry here would be the most informative result the benchmark could
+produce in its first year.
+
+\textbf{Rung 5: open-ended message.} There is no protocol that can certify this
+rung, and the survey will not pretend otherwise: certifying it would require an
+independent record of an intended sentence, and no such record exists for a
+species without observable language. What can be built is the other half of
+science --- a test that can reject. Run a behavioural-equivalence trial: give
+naive human participants a rendered sentence and a control sentence matched for
+affect, polarity and length, then measure what the participants subsequently do
+for the dog. If the two conditions are indistinguishable, the rendering carries
+no information beyond rung 2 and the word ``translation'' is refuted for that
+system. The test is one-sided by construction. It can close claims down; it
+cannot open a rung up, and a benchmark report should state which of the two it
+is doing.
+
+\begin{table}[htbp]
+\centering
+\caption{The Canine Ladder Benchmark: one task per rung, with the error signal
+that makes it checkable and the baseline a submission must beat. The final
+column is the observation that shows the rung was not actually reached.}
+\label{tab:protocol}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}p{1.5cm}p{3.1cm}p{3.5cm}p{3.4cm}p{3.4cm}@{}}
+\toprule
+\textbf{Rung} & \textbf{Task} & \textbf{Error signal} & \textbf{Must beat} & \textbf{Not reached if} \\
+\midrule
+1 Signal & vocal vs.\ non-vocal; identify the dog & session metadata, video-verified sender & transferred human speaker-verification embedding & accuracy survives a session shuffle \\
+2 Affect & $n$-class state over a pre-registered taxonomy & controlled pre-recorded manipulation $+$ animal-side physiological or latency readout & arousal-only energy/$f_0$ regressor & the arousal baseline ties the model \\
+3 Intent & what the animal is acting on & forced-choice behaviour with alternatives physically constrained; handler blind & permutation baseline over sequences & performance collapses when the human leaves \\
+4 Composition & multi-element signal $\rightarrow$ multi-element state & held-out combinations from a closed inventory & co-occurrence factorisation & factorisation matches the model \\
+5 Message & render an intended sentence & none available; use a rejection test & --- & see the text: this rung is scored by falsification only \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Rules that apply to every rung}
+
+Four cross-cutting requirements do most of the work, and none of them is
+novel --- the point is that this field has not adopted them. Splits are per dog
+and per session, never per clip; a benchmark whose test set contains another
+recording of the same animal in the same room will be solved by the room.
+Taxonomies are pre-registered, so that a class set cannot be edited until the
+confusion matrix looks good. Reporting follows the artifact discipline the
+ML side of this survey already has vocabulary for: datasets ship with
+datasheets~\cite{gebru2021datasheets}, models with model
+cards~\cite{mitchell2019modelcards}, and a claim about capability is written at
+the rung the evidence reaches, which is the discipline whose absence produced
+the sentences in Table~\ref{tab:products}. And abstention is legal and scored:
+a system that says ``insufficient signal'' on half of a home recording and is
+right about the other half is more useful than one that always guesses.
+
+A submission is then judged on a short checklist, and the checklist is the
+contribution as much as the tasks are: per-dog split declared; error signal
+named and independent of the annotator; arousal baseline reported; human
+raters blind; handler absent or blinded; calibration reported; abstention
+reported; negative controls included; taxonomy declared before training;
+rung stated in the abstract. Ten items, answerable in a page, and every one of
+them corresponds to a way a current published or marketed claim has already
+failed.
+
+\subsection{What adoption would buy}
+
+A shared benchmark changes the incentive structure, which is what the
+evaluation crisis actually is. Today the cheapest way to look good is to move
+the label, since labels are cheap and error signals are not; under this
+protocol the only way up the ladder is to acquire a better error signal, which
+means better experiments with dogs. The first version does not require new
+animal work: the existing falsifiable datasets --- bark-context recordings,
+growl corpora, the button-array logs, the object-choice archives --- already
+cover rungs 1--3, and a community release could stand them up in months. The
+hard part is institutional rather than technical, and it is the recommendation
+of this survey: a small consortium of the psychophysics groups
+that produced those corpora, a cross-species decoding lab, and one independent
+auditor should own the split, the taxonomies and the leaderboard, and vendor
+systems should be invited to submit to it rather than report numbers about
+themselves. Whether any of that happens is the real test of whether the field
+wants to know what it has built.

@@ -7,8 +7,8 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-31%20pages-E8A87C?style=flat-square)](paper/main.pdf)
-[![References](https://img.shields.io/badge/references-253%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
+[![Paper](https://img.shields.io/badge/paper-34%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![References](https://img.shields.io/badge/references-257%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-E7A6B0?style=flat-square)](#contributing--参与)
@@ -51,7 +51,7 @@ fix a category error.
 </p>
 
 <p align="center">
-  <img src="paper/figures/fig5_corpus.png" alt="Bar chart of references per year with a cumulative line, next to a donut of the 253 references by theme" width="48%">
+  <img src="paper/figures/fig5_corpus.png" alt="Bar chart of references per year with a cumulative line, next to a donut of the 257 references by theme" width="48%">
   <img src="paper/figures/fig6_evidence.png" alt="Grouped bars of falsifiable studies and audited products per rung, with the semantic gap shaded" width="48%">
 </p>
 
@@ -61,13 +61,15 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 31 pages, 253 cited references
-│   ├── sections/           # 11 sections + bibliography (11 comparison tables)
+│   ├── main.pdf            # compiled, 34 pages, 257 cited references
+│   ├── sections/           # 12 sections + bibliography (12 comparison tables)
 │   └── figures/            # 6 TikZ figures + charts (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
 ├── sources/
-│   └── search-log.md       # documented searches & dates
+│   ├── search-log.md       # documented searches, dates, verification notes
+│   ├── corpus_stats.py     # regenerates every Figure-1 count from the .bib
+│   └── corpus_stats.csv    # per-entry year / block / thematic group
 ├── README.md
 ├── CITATION.cff
 └── LICENSE
@@ -110,6 +112,33 @@ reward responses, and soundboard word use. So *something* genuine is achievable.
 The honest claim is layered: **affect-and-intent decoding is flight; open-ended
 sentence translation of a non-linguistic signal is alchemy-like — possibly
 ill-posed, not provably impossible.**
+
+## The benchmark proposal · 可证伪的评测协议
+
+Diagnosis is cheap, so Section 9 of the paper ships an instrument instead: the
+**Canine Ladder Benchmark**. For each rung it fixes the error signal that makes
+the task checkable, the metric, the baseline a system must beat, and the
+observation that would show the rung was never reached.
+
+| Rung | Task | Error signal | Must beat | Not reached if |
+|---|---|---|---|---|
+| 1 Signal | vocal vs non-vocal; identify the dog | session metadata, video-verified sender | transferred human speaker-verification embedding | accuracy survives a session shuffle |
+| 2 Affect | n-class state, pre-registered taxonomy | pre-recorded manipulation + animal-side readout | arousal-only energy/f0 regressor | the arousal baseline ties the model |
+| 3 Intent | what the animal is acting on | forced choice, handler blind | permutation baseline | performance collapses when the human leaves |
+| 4 Composition | multi-element signal → state | held-out combinations | co-occurrence factorisation | the factorisation matches |
+| 5 Message | render an intended sentence | none exists | — | falsification only: behavioural-equivalence test |
+
+Plus a ten-item reporting checklist — per-dog split declared, error signal
+independent of the annotator, arousal baseline reported, raters blind, handler
+blinded, calibration reported, abstention reported, negative controls included,
+taxonomy pre-declared, rung stated in the abstract. Every item corresponds to a
+claim already made in public.
+
+论文的第九章给出了一个可以直接执行的**犬类阶梯基准（Canine Ladder Benchmark）**：
+每一级都规定了可核验的误差信号、指标、必须超越的基线，以及"没真正达到这一级"的判据；
+第 5 级只能做单侧否证检验（行为等价实验），这一点文中也如实说明。配套的十条报告清单
+（按犬划分数据、误差信号独立于标注者、报告唤醒基线、标注者盲法、校准度、弃权率等）
+逐条对应现实中已经出现过的失当宣称。
 
 ## The honest answer · 诚实的回答
 
@@ -158,7 +187,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（31 页，引用 253 篇文献，含 11 张大型对照表与 6 幅图），以
+开放、证据有界的**综述**（34 页，引用 257 篇文献，含 12 张大型对照表与 6 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个

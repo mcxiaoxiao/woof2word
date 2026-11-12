@@ -38,7 +38,8 @@ they are, at best, Rung-2 emotion-classification
 numbers~\cite{icassp2018dogbark}. The market demonstrates Rung 2 and sells
 Rung 5, and the gap between those is the subject of this survey.
 
-The way forward is better infrastructure and protocols: a public grounded
+The way forward is better infrastructure and protocols, and Section~\ref{sec:protocol}
+specifies one in enough detail to run: a public grounded
 canine corpus, calibrated multimodal affect models, closed-loop blind
 validation, and an ethics framework that keeps welfare as the terminal
 criterion. The achievable goal is interpretation with calibrated
@@ -57,7 +58,12 @@ not independently verified. Some citations were confirmed to venue, year,
 and DOI via secondary indexes and should be checked against the primary
 record before reuse. The distance estimates are expert judgments, not
 forecasts, and Section~\ref{sec:future} states what would falsify them.
-These limitations bound the central claim, which is the point.
+The Canine Ladder Benchmark of Section~\ref{sec:protocol} is a proposal
+specified from the published record rather than a leaderboard that has been
+run; its baselines become numbers only once someone executes them, and the
+rung-5 rejection test in particular is an argument about what could count as
+evidence, not a result. These limitations bound the central claim, which is
+the point.
 
 \subsection*{Acknowledgments and tools}
 This survey was prepared with the assistance of open research-agent
@@ -68,6 +74,8 @@ figures are original TikZ constructions released with the repository.
 
 \subsection*{Data and code availability}
 The \LaTeX\ source, figures, bibliography, and project page are openly
-available in the \texttt{woof-to-word} repository:
+available in the \texttt{woof-to-word} repository, together with the search
+log, the script that regenerates the corpus statistics of
+Figure~\ref{fig:corpus}, and its per-entry CSV output:
 \url{https://github.com/mcxiaoxiao/woof2word}. Corrections and falsification
 attempts are welcome.
