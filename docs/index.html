@@ -90,9 +90,6 @@
   .sec-head h2{font-size:clamp(1.85rem,4.2vw,2.5rem); font-weight:700; letter-spacing:-.02em; margin:.14em 0;
     font-variation-settings:"opsz" 90}
   .sec-head p{color:var(--ink-soft); font-weight:600; margin:.45em 0 0; text-wrap:pretty}
-  .eyebrow{font-weight:800; letter-spacing:.22em; text-transform:uppercase; font-size:.74rem; color:var(--paw-deep)}
-  .eyebrow::before,.eyebrow::after{content:"🐾"; font-size:.66rem; letter-spacing:0; opacity:.5; margin:0 .6em;
-    vertical-align:.12em}
 
   /* ladder */
   .ladder{display:flex; flex-direction:column-reverse; gap:12px; max-width:720px; margin:0 auto; position:relative}
@@ -203,9 +200,9 @@
 
   /* figures */
   .figs{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-  .fig{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column}
-  .fig img{width:100%; height:auto; border-radius:12px; display:block}
-  .fig figcaption{font-weight:700; color:var(--ink-soft); font-size:.9rem; text-align:center; margin-top:auto; padding-top:12px}
+  .fig{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:center}
+  .fig img{width:100%; max-height:56vh; height:auto; object-fit:contain; border-radius:12px; display:block; margin-block:auto}
+  .fig figcaption{font-weight:700; color:var(--ink-soft); font-size:.9rem; text-align:center; padding-top:12px}
 
   footer{border-top:1px solid var(--line); padding:40px 0 60px; text-align:center; color:var(--ink-soft);
     position:relative; overflow:hidden}
@@ -282,13 +279,12 @@
 <section id="ladder">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="ladderEye">The framework</div>
       <h2 data-i18n="ladderTitle">The Translation Ladder</h2>
       <p data-i18n="ladderSub">"Translating a dog" is five capabilities of increasing difficulty. Today we stand on Rung 2.</p>
     </div>
     <div class="ladder">
-      <div class="rung r1"><div class="n">1</div><div class="txt"><b data-i18n="r1t">Signal</b><span data-i18n="r1s">detection &amp; segmentation</span></div><span class="mark" aria-hidden="true">🔊</span><div class="stat" data-i18n="r1stat">solved</div></div>
-      <div class="rung r2 here"><span class="here-tag" data-i18n="here">YOU ARE HERE 🐾</span><div class="n">2</div><div class="txt"><b data-i18n="r2t">Affect</b><span data-i18n="r2s">emotion / arousal class</span></div><span class="mark" aria-hidden="true">💗</span><div class="stat" data-i18n="r2stat">shipping</div></div>
+      <div class="rung r1"><div class="n">1</div><div class="txt"><b data-i18n="r1t">Signal</b><span data-i18n="r1s">detection &amp; segmentation</span></div><span class="mark" aria-hidden="true">🐶</span><div class="stat" data-i18n="r1stat">solved</div></div>
+      <div class="rung r2 here"><span class="here-tag" data-i18n="here">YOU ARE HERE 🐾</span><div class="n">2</div><div class="txt"><b data-i18n="r2t">Affect</b><span data-i18n="r2s">emotion / arousal class</span></div><span class="mark" aria-hidden="true">🐾</span><div class="stat" data-i18n="r2stat">shipping</div></div>
       <div class="rung r3"><div class="n">3</div><div class="txt"><b data-i18n="r3t">Intent</b><span data-i18n="r3s">goal + context inference</span></div><span class="mark" aria-hidden="true">🦴</span><div class="stat" data-i18n="r3stat">emerging</div></div>
       <div class="rung r4"><div class="n">4</div><div class="txt"><b data-i18n="r4t">Reference</b><span data-i18n="r4s">symbol → object</span></div><span class="mark" aria-hidden="true">🧸</span><div class="stat" data-i18n="r4stat">unproven</div></div>
       <div class="rung r5"><div class="n">5</div><div class="txt"><b data-i18n="r5t">Dialogue</b><span data-i18n="r5s">open-ended exchange</span></div><span class="mark" aria-hidden="true">💬</span><div class="stat" data-i18n="r5stat">ill-posed?</div></div>
@@ -301,11 +297,10 @@
 <section id="answer">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="ansEye">The honest answer</div>
       <h2 data-i18n="ansTitle">So… how far?</h2>
     </div>
     <div class="cards">
-      <div class="card c1"><span class="mark" aria-hidden="true">💗</span><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
+      <div class="card c1"><span class="mark" aria-hidden="true">🐾</span><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
       <div class="card c2"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
       <div class="card c3"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
     </div>
@@ -316,14 +311,13 @@
 <section id="feasibility">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="feasEye">The feasibility question</div>
       <h2 data-i18n="feasTitle">Alchemy, flight, or perpetual motion?</h2>
       <p data-i18n="feasSub">We don't assume the destination exists. Three historical templates adjudicate each rung.</p>
     </div>
     <div class="cards">
-      <div class="card f1"><span class="mark" aria-hidden="true">✈️</span><div class="big" data-i18n="f1big">Rungs 1–4</div><h3 data-i18n="f1t">Flight — hard but real</h3><p data-i18n="f1p">Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.</p></div>
-      <div class="card f2"><span class="mark" aria-hidden="true">⚗️</span><div class="big" data-i18n="f2big">Rung 5</div><h3 data-i18n="f2t">Alchemy — a category error?</h3><p data-i18n="f2p">Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.</p></div>
-      <div class="card f3"><span class="mark" aria-hidden="true">🌀</span><div class="big" data-i18n="f3big">None</div><h3 data-i18n="f3t">Perpetual motion — ruled out?</h3><p data-i18n="f3p">No conservation law forbids interspecies understanding. Nothing here is provably impossible.</p></div>
+      <div class="card f1"><div class="big" data-i18n="f1big">Rungs 1–4</div><h3 data-i18n="f1t">Flight — hard but real</h3><p data-i18n="f1p">Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.</p></div>
+      <div class="card f2"><div class="big" data-i18n="f2big">Rung 5</div><h3 data-i18n="f2t">Alchemy — a category error?</h3><p data-i18n="f2p">Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.</p></div>
+      <div class="card f3"><div class="big" data-i18n="f3big">None</div><h3 data-i18n="f3t">Perpetual motion — ruled out?</h3><p data-i18n="f3p">No conservation law forbids interspecies understanding. Nothing here is provably impossible.</p></div>
     </div>
   </div>
 </section>
@@ -332,17 +326,16 @@
 <section id="benchmark">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="bmEye">Beyond diagnosis</div>
       <h2 data-i18n="bmTitle">The Canine Ladder Benchmark</h2>
       <p data-i18n="bmSub">A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.</p>
     </div>
     <div class="cards">
-      <div class="card f1"><span class="mark" aria-hidden="true">🔊</span><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Who, not what</h3><p data-i18n="bm1p">Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.</p></div>
-      <div class="card f2"><span class="mark" aria-hidden="true">💗</span><div class="big" data-i18n="bm2big">Rung 2 · Affect</div><h3 data-i18n="bm2t">Two anchors before the model sees anything</h3><p data-i18n="bm2p">A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">🐶</span><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Who, not what</h3><p data-i18n="bm1p">Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.</p></div>
+      <div class="card f2"><span class="mark" aria-hidden="true">🐾</span><div class="big" data-i18n="bm2big">Rung 2 · Affect</div><h3 data-i18n="bm2t">Two anchors before the model sees anything</h3><p data-i18n="bm2p">A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.</p></div>
       <div class="card f3"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="bm3big">Rung 3 · Intent</div><h3 data-i18n="bm3t">The animal's own error signal</h3><p data-i18n="bm3p">Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.</p></div>
       <div class="card f1"><span class="mark" aria-hidden="true">🧸</span><div class="big" data-i18n="bm4big">Rung 4 · Reference</div><h3 data-i18n="bm4t">Structure, not frequency</h3><p data-i18n="bm4p">Held-out combinations from a closed inventory, against a co-occurrence factorisation. One surviving entry here would be the most informative result the benchmark could produce.</p></div>
       <div class="card f2"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="bm5big">Rung 5 · Dialogue</div><h3 data-i18n="bm5t">Falsification only</h3><p data-i18n="bm5p">No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.</p></div>
-      <div class="card f3"><span class="mark" aria-hidden="true">📋</span><div class="big" data-i18n="bm6big">0 of 10</div><h3 data-i18n="bm6t">The checklist, applied</h3><p data-i18n="bm6p">Scored against the field's own claims: consumer sentence apps 0 of 10, published Rung-2 classifiers 1 of 10, symbol-array studies 6 of 7, open bioacoustic benchmarks 5 of 8. The items: per-dog split, independent error signal, arousal baseline, blind raters, blinded handler, calibration, abstention, negative controls, pre-declared taxonomy, rung stated.</p></div>
+      <div class="card f3"><div class="big" data-i18n="bm6big">0 of 10</div><h3 data-i18n="bm6t">The checklist, applied</h3><p data-i18n="bm6p">Scored against the field's own claims: consumer sentence apps 0 of 10, published Rung-2 classifiers 1 of 10, symbol-array studies 6 of 7, open bioacoustic benchmarks 5 of 8. The items: per-dog split, independent error signal, arousal baseline, blind raters, blinded handler, calibration, abstention, negative controls, pre-declared taxonomy, rung stated.</p></div>
     </div>
   </div>
 </section>
@@ -351,7 +344,6 @@
 <section id="stack">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="stackEye">Machine translation lineage</div>
       <h2 data-i18n="stackTitle">Human translation's toolbox, audited for transfer</h2>
       <p data-i18n="stackSub">A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).</p>
     </div>
@@ -392,7 +384,6 @@
 <section id="lab">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="labEye">Try the thesis</div>
       <h2 data-i18n="labTitle">The Bark Lab 🐾</h2>
       <p data-i18n="labSub">Pick a bark. Watch what a "translator" really does: classify affect, then add a story.</p>
     </div>
@@ -416,7 +407,6 @@
 <section id="figures">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="figEye">From the paper</div>
       <h2 data-i18n="figTitle">Six figures from the survey</h2>
     </div>
     <div class="figs">
@@ -465,7 +455,7 @@ const I18N = {
   en:{
     stone:"The Canine Rosetta Stone",
     statsAria:"Survey statistics", stPages:"pages", stRefs:"references", stTables:"comparison tables", stFigs:"figures",
-    bmEye:"Beyond diagnosis", bmTitle:"The Canine Ladder Benchmark",
+    bmTitle:"The Canine Ladder Benchmark",
     bmSub:"A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.",
     bm1big:"Rung 1 · Signal", bm1t:"Who, not what", bm1p:"Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.",
     bm2big:"Rung 2 · Affect", bm2t:"Two anchors before the model sees anything", bm2p:"A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.",
@@ -476,7 +466,7 @@ const I18N = {
     heroSub:"How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.",
     readPaper:"📄 Read the paper", github:"⭐ GitHub",
     woofA:"woof", woofB:"words?", woofC:"It's five questions, not one.",
-    ladderEye:"The framework", ladderTitle:"The Translation Ladder",
+    ladderTitle:"The Translation Ladder",
     ladderSub:"\"Translating a dog\" is five capabilities of increasing difficulty. Today we stand on Rung 2.",
     r1t:"Signal", r1s:"detection & segmentation", r1stat:"solved",
     r2t:"Affect", r2s:"emotion / arousal class", r2stat:"shipping", here:"YOU ARE HERE 🐾",
@@ -484,16 +474,16 @@ const I18N = {
     r4t:"Reference", r4s:"symbol → object", r4stat:"unproven",
     r5t:"Dialogue", r5s:"open-ended exchange", r5stat:"ill-posed?",
     gapTitle:"↑ THE SEMANTIC GAP ↑", gapSub:"above this line, the dog's natural signal has no generative grammar to translate",
-    ansEye:"The honest answer", ansTitle:"So… how far?",
+    ansTitle:"So… how far?",
     c1big:"2–4 yrs", c1t:"Affect, validated", c1p:"A calibrated stress/pain/welfare monitor is within reach. Useful — but not \"translation.\"",
     c2big:"~2030+", c2t:"Intent, grounded", c2p:"Soundboards give a foothold. Validated natural-signal intent needs a decade of data & protocols.",
     c3big:"maybe never", c3t:"Open dialogue", c3p:"There may be no language there to translate. More compute won't fix a category error.",
-    feasEye:"The feasibility question", feasTitle:"Alchemy, flight, or perpetual motion?",
+    feasTitle:"Alchemy, flight, or perpetual motion?",
     feasSub:"We don't assume the destination exists. Three historical templates adjudicate each rung.",
     f1big:"Rungs 1–4", f1t:"Flight — hard but real", f1p:"Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.",
     f2big:"Rung 5", f2t:"Alchemy — a category error?", f2p:"Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.",
     f3big:"None", f3t:"Perpetual motion — ruled out?", f3p:"No conservation law forbids interspecies understanding. Nothing here is provably impossible.",
-    stackEye:"Machine translation lineage", stackTitle:"Human translation's toolbox, audited for transfer",
+    stackTitle:"Human translation's toolbox, audited for transfer",
     stackSub:"A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).",
     geneAria:"Human translation genealogy",
     g1n:"seq2seq + attention", g2n:"Transformer", g3n:"BERT / GPT pretrain → LLM", g4n:"NLLB multilingual", g5n:"Whisper / Seamless", g6n:"audio codecs + audio-LLM",
@@ -505,12 +495,12 @@ const I18N = {
     an1:"Parallel corpora — no bark↔sentence Rosetta stone exists.",
     an2:"Recursive grammar — canine displays are graded, not combinatorial.",
     an3:"Fluency as fidelity — a rendered sentence is a story, not a measurement.",
-    labEye:"Try the thesis", labTitle:"The Bark Lab 🐾",
+    labTitle:"The Bark Lab 🐾",
     labSub:"Pick a bark. Watch what a \"translator\" really does: classify affect, then add a story.",
     bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
     quoteInit:"“…”",
     disclaimer:"The meter is a (real) Rung-2 emotion estimate. The sentence is a story added afterwards — never measured against the dog. That gap is the whole paper.",
-    figEye:"From the paper", figTitle:"Six figures from the survey",
+    figTitle:"Six figures from the survey",
     fig1cap:"Fig 1 · The corpus behind this survey", fig2cap:"Fig 2 · The human translation / Transformer genealogy", fig3cap:"Fig 3 · The translation ladder & the semantic gap", fig4cap:"Fig 4 · Evidence and claims, rung by rung", fig5cap:"Fig 5 · Capability roadmap, 2002–2035", fig6cap:"Fig 6 · The developmental closed loop",
     fPaper:"Paper (PDF)", fRepo:"Repository", fSearch:"Search log", fCite:"Cite",
     fNote:"Read the dog, don't transcribe it. 🦴 · MIT / CC BY 4.0 · 2026"
@@ -518,7 +508,7 @@ const I18N = {
   zh:{
     stone:"犬类罗塞塔石碑",
     statsAria:"综述统计", stPages:"页", stRefs:"篇引用", stTables:"张对照表", stFigs:"张图",
-    bmEye:"不止于诊断", bmTitle:"犬类阶梯基准 Canine Ladder Benchmark",
+    bmTitle:"犬类阶梯基准 Canine Ladder Benchmark",
     bmSub:"指出测量问题的综述，应当同时交出一把可测量的尺。论文第 9 章为每一级规定了任务、可核验的误差信号、必须超越的基线，以及判定「并未真正达到这一级」的条件。",
     bm1big:"第 1 级 · 信号", bm1t:"是谁，而不是什么", bm1p:"误差信号：录音元数据与视频确认的发声个体；必须超越直接迁移的人类说话人嵌入。若打乱录音场次后精度仍在，说明模型认出的是麦克风，不是狗。",
     bm2big:"第 2 级 · 情绪", bm2t:"模型看数据之前先钉住两个锚", bm2p:"预先登记的实验操纵，加上来自动物自身的生理或延迟指标；人类评分只能作为第三锚且必须双盲。若单纯唤醒度基线就能追平模型，这一级就没有被跨过。",
@@ -529,7 +519,7 @@ const I18N = {
     heroSub:"我们距离翻译小狗说的话还有多远——以及，这究竟可行吗？我们做了一把尺子，而不是噱头数字。",
     readPaper:"📄 阅读论文", github:"⭐ GitHub",
     woofA:"汪", woofB:"→ 人话？", woofC:"这是五个问题，不是一个。",
-    ladderEye:"分析框架", ladderTitle:"翻译阶梯",
+    ladderTitle:"翻译阶梯",
     ladderSub:"“翻译狗语”是五种难度递增的能力。今天我们站在第 2 层。",
     r1t:"信号", r1s:"检测与切分", r1stat:"已解决",
     r2t:"情绪", r2s:"情感 / 唤醒度分类", r2stat:"已上线", here:"我们在这 🐾",
@@ -537,16 +527,16 @@ const I18N = {
     r4t:"指称", r4s:"符号 → 对象", r4stat:"未证实",
     r5t:"对话", r5s:"开放式交流", r5stat:"伪命题？",
     gapTitle:"↑ 语义鸿沟 ↑", gapSub:"在这条线之上，狗的自然信号里没有可供翻译的生成语法",
-    ansEye:"诚实的回答", ansTitle:"那么……还有多远？",
+    ansTitle:"那么……还有多远？",
     c1big:"2–4 年", c1t:"情绪，经过验证", c1p:"经过校准的压力/疼痛/福利监测工具触手可及。有用——但不是“翻译”。",
     c2big:"约 2030+", c2t:"意图，有接地", c2p:"说话按钮提供了立足点。自然信号的意图验证还需十年的数据与协议。",
     c3big:"也许永远", c3t:"开放对话", c3p:"那里也许根本没有语言可翻译。更多算力修不了一个范畴错误。",
-    feasEye:"可行性之问", feasTitle:"炼金术、飞机，还是永动机？",
+    feasTitle:"炼金术、飞机，还是永动机？",
     feasSub:"我们不预设终点存在。用三种历史模板裁决每一层。",
     f1big:"第 1–4 层", f1t:"飞机——难但真实", f1p:"曾被宣判不可能，却有坚实物理。存在性证明已在手：vervet 猴警报、蜜蜂舞蹈、海豚签名哨、犬类词语理解。",
     f2big:"第 5 层", f2t:"炼金术——范畴错误？", f2p:"把非语言信号翻译成开放句子。目标可能根本不存在；单靠努力与算力到不了。",
     f3big:"皆非", f3t:"永动机——被证明不可能？", f3p:"没有任何守恒律禁止跨物种理解。这里没有被证明不可能的事。",
-    stackEye:"机器翻译谱系", stackTitle:"人类翻译的工具箱，迁移审计",
+    stackTitle:"人类翻译的工具箱，迁移审计",
     stackSub:"十年 Transformer 系机器翻译提供方法；我们逐层审计哪些能跳到非人类信号（论文 §2–5，图 1）。",
     geneAria:"人类翻译谱系",
     g1n:"seq2seq + 注意力", g2n:"Transformer", g3n:"BERT / GPT 预训练 → LLM", g4n:"NLLB 多语", g5n:"Whisper / Seamless", g6n:"音频 codec + audio-LLM",
@@ -558,12 +548,12 @@ const I18N = {
     an1:"平行语料——不存在叫声↔句子的罗塞塔石碑。",
     an2:"递归语法——犬类信号是渐变的，不是组合的。",
     an3:"流畅即忠实——渲染出的句子是故事，不是测量。",
-    labEye:"体验论点", labTitle:"汪汪实验室 🐾",
+    labTitle:"汪汪实验室 🐾",
     labSub:"选一种叫声，看“翻译器”真正在做什么：先分类情绪，再补一个故事。",
     bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",
     quoteInit:"“……”",
     disclaimer:"仪表是（真实的）第 2 层情绪估计；句子是事后补上的故事——从未对照狗本身验证。这道鸿沟正是整篇论文的主题。",
-    figEye:"来自论文", figTitle:"论文六图",
+    figTitle:"论文六图",
     fig1cap:"图 1 · 本综述的文献底盘", fig2cap:"图 2 · 人类机器翻译 / Transformer 的家谱", fig3cap:"图 3 · 翻译阶梯与语义鸿沟", fig4cap:"图 4 · 逐级的证据与宣称", fig5cap:"图 5 · 能力路线图，2002–2035", fig6cap:"图 6 · 发育性闭环",
     fPaper:"论文 (PDF)", fRepo:"仓库", fSearch:"检索记录", fCite:"引用",
     fNote:"读懂狗，而非转写它。 🦴 · MIT / CC BY 4.0 · 2026"
