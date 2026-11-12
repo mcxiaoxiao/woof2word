@@ -25,8 +25,7 @@
 > ">80% accuracy." Landmark projects decode whales, dolphins, and finches.
 > So — **how far are we, really, from translating what a dog says?**
 
-This repo holds an open, evidence-bounded **survey** that refuses to answer
-with a single number. Instead it gives you a **ruler**.
+This repo holds the survey. It answers with a **ruler**, not a single number.
 
 ## The translation ladder · 翻译阶梯
 
@@ -75,7 +74,7 @@ woof-to-word/
 └── LICENSE
 ```
 
-## The CS/AI core · 计算机视角
+## What computer science brings · 计算机视角
 
 The survey is written **from a computer-science and AI standpoint**, with
 biology, linguistics, and ethics as supporting witnesses. Eleven comparison

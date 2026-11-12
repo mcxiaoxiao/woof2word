@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>woof2word · The Canine Rosetta Stone</title>
-<meta name="description" content="How far are we from translating what dogs say? An open, evidence-bounded survey with a five-rung translation ladder.">
+<meta name="description" content="How far are we from translating what dogs say? A five-rung translation ladder, 34 pages, 257 references.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..900&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --cream:#FBF7F0; --ink:#2B2B33; --ink-soft:#5b5b66;
@@ -17,17 +17,21 @@
     --rose:#E7A6B0; --rose-deep:#B05C6A;
     --gold:#E9C46A; --card:#FFFFFF; --line:#efe6d8;
     --shadow:0 10px 30px rgba(80,60,40,.10);
+    --shadow-lift:0 16px 38px rgba(80,60,40,.16);
     --radius:22px;
+    --display:"Fraunces","Iowan Old Style",Georgia,serif;
+    --body:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
     margin:0; background:var(--cream); color:var(--ink);
-    font-family:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+    font-family:var(--body);
     line-height:1.6; -webkit-font-smoothing:antialiased;
     background-image:radial-gradient(#f0e7d8 1px,transparent 1px);
     background-size:26px 26px;
   }
+  h1,h2,h3{font-family:var(--display); font-variation-settings:"opsz" 100; text-wrap:balance}
   a{color:var(--paw-deep); text-decoration:none; font-weight:700}
   a:hover{text-decoration:underline}
   .wrap{max-width:1040px; margin:0 auto; padding:0 22px}
@@ -37,7 +41,8 @@
   header.top{position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
     background:rgba(251,247,240,.82); border-bottom:1px solid var(--line)}
   .top .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
-  .brand{display:flex; align-items:center; gap:10px; font-weight:900; font-size:1.15rem; letter-spacing:-.5px}
+  .brand{display:flex; align-items:center; gap:10px; font-family:var(--display); font-weight:800;
+    font-size:1.2rem; letter-spacing:-.02em}
   .brand .paw{width:26px;height:26px; color:var(--paw-deep)}
   .lang{display:flex; gap:4px; background:#fff; border:1px solid var(--line);
     border-radius:999px; padding:4px}
@@ -46,32 +51,60 @@
   .lang button[aria-pressed="true"]{background:var(--paw); color:#fff}
 
   /* hero */
-  .hero{padding:64px 0 40px; text-align:center; position:relative}
-  .hero h1{font-size:clamp(2.4rem,6vw,3.6rem); margin:.2em 0 .1em; font-weight:900; letter-spacing:-1.5px}
-  .hero h1 .accent{color:var(--paw-deep)}
-  .hero .kicker{font-weight:800; color:var(--sage-deep); letter-spacing:2px; text-transform:uppercase; font-size:.8rem}
-  .hero .sub{font-size:clamp(1.05rem,2.5vw,1.35rem); color:var(--ink-soft); max-width:620px; margin:.4em auto 0; font-weight:600}
-  .cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:30px}
+  .hero{padding:84px 0 44px; text-align:center; position:relative}
+  .hero::before{content:""; position:absolute; left:50%; transform:translateX(-50%); top:-140px;
+    width:100vw; height:560px; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(36% 42% at 20% 26%, rgba(232,168,124,.38), transparent 70%),
+      radial-gradient(32% 38% at 80% 16%, rgba(156,197,232,.34), transparent 72%),
+      radial-gradient(30% 40% at 58% 78%, rgba(143,185,150,.26), transparent 70%),
+      radial-gradient(22% 30% at 8% 82%, rgba(231,166,176,.24), transparent 70%)}
+  .hero h1{font-size:clamp(3.1rem,9vw,5.2rem); margin:0; font-weight:900; letter-spacing:-.035em;
+    line-height:1; font-variation-settings:"opsz" 144}
+  .hero h1 .accent{color:var(--paw-deep); font-style:italic; font-weight:700}
+  .hero .stone{font-family:var(--display); font-size:clamp(1.15rem,2.8vw,1.5rem); font-weight:600;
+    font-style:italic; color:var(--ink-soft); margin:.55em 0 0; letter-spacing:.01em}
+  .hero .sub{font-size:clamp(1.05rem,2.5vw,1.3rem); color:var(--ink-soft); max-width:640px;
+    margin:1.1em auto 0; font-weight:600; text-wrap:pretty}
+  .cta{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px}
   .btn{display:inline-flex; align-items:center; gap:9px; padding:13px 24px; border-radius:999px;
-    font-weight:800; font-size:1rem; box-shadow:var(--shadow); transition:transform .15s ease}
-  .btn:hover{transform:translateY(-2px); text-decoration:none}
+    font-weight:800; font-size:1rem; box-shadow:var(--shadow); transition:transform .15s ease, box-shadow .15s ease}
+  .btn:hover{transform:translateY(-2px); text-decoration:none; box-shadow:var(--shadow-lift)}
   .btn.primary{background:var(--paw); color:#fff}
   .btn.ghost{background:#fff; color:var(--ink); border:2px solid var(--line)}
-  .woof{margin-top:26px; font-weight:800; color:var(--ink-soft); font-size:.95rem}
+  .woof{margin-top:30px; font-weight:800; color:var(--ink-soft); font-size:.95rem}
   .woof b{color:var(--paw-deep)}
+  .trail{display:flex; justify-content:center; gap:clamp(10px,3vw,26px); margin-top:20px; font-size:1.15rem;
+    opacity:.5; letter-spacing:0}
+  .trail span{display:inline-block; animation:pawdown .5s ease both}
+  .trail span:nth-child(odd){transform:translateY(-7px) rotate(-14deg)}
+  .trail span:nth-child(even){transform:translateY(3px) rotate(10deg)}
+  .trail span:nth-child(1){animation-delay:.34s} .trail span:nth-child(2){animation-delay:.42s}
+  .trail span:nth-child(3){animation-delay:.50s} .trail span:nth-child(4){animation-delay:.58s}
+  .trail span:nth-child(5){animation-delay:.66s} .trail span:nth-child(6){animation-delay:.74s}
+  .trail span:nth-child(7){animation-delay:.82s}
+  @keyframes pawdown{from{opacity:0; transform:translateY(-14px) scale(.7)} to{opacity:1}}
 
-  section{padding:46px 0}
-  .sec-head{text-align:center; max-width:640px; margin:0 auto 34px}
-  .sec-head h2{font-size:clamp(1.7rem,4vw,2.3rem); font-weight:900; letter-spacing:-1px; margin:.1em 0}
-  .sec-head p{color:var(--ink-soft); font-weight:600; margin:.3em 0 0}
-  .eyebrow{font-weight:800; letter-spacing:2px; text-transform:uppercase; font-size:.75rem; color:var(--paw-deep)}
+  section{padding:52px 0}
+  .sec-head{text-align:center; max-width:660px; margin:0 auto 36px}
+  .sec-head h2{font-size:clamp(1.85rem,4.2vw,2.5rem); font-weight:700; letter-spacing:-.02em; margin:.14em 0;
+    font-variation-settings:"opsz" 90}
+  .sec-head p{color:var(--ink-soft); font-weight:600; margin:.45em 0 0; text-wrap:pretty}
+  .eyebrow{font-weight:800; letter-spacing:.22em; text-transform:uppercase; font-size:.74rem; color:var(--paw-deep)}
+  .eyebrow::before,.eyebrow::after{content:"🐾"; font-size:.66rem; letter-spacing:0; opacity:.5; margin:0 .6em;
+    vertical-align:.12em}
 
   /* ladder */
-  .ladder{display:flex; flex-direction:column-reverse; gap:12px; max-width:720px; margin:0 auto}
+  .ladder{display:flex; flex-direction:column-reverse; gap:12px; max-width:720px; margin:0 auto; position:relative}
+  .ladder::before{content:""; position:absolute; left:42px; top:16px; bottom:16px; width:3px; z-index:0;
+    background:repeating-linear-gradient(180deg,var(--paw) 0 7px,transparent 7px 15px); opacity:.45; border-radius:3px}
   .rung{display:flex; align-items:center; gap:16px; background:var(--card); border:1px solid var(--line);
-    border-radius:var(--radius); padding:16px 20px; box-shadow:var(--shadow); position:relative}
+    border-radius:var(--radius); padding:16px 20px; box-shadow:var(--shadow); position:relative; z-index:1;
+    transition:transform .15s ease, box-shadow .15s ease}
+  .rung:hover{transform:translateX(3px); box-shadow:var(--shadow-lift)}
   .rung .n{flex:0 0 46px; height:46px; border-radius:14px; display:grid; place-items:center;
     font-weight:900; font-size:1.3rem; color:#fff}
+  .rung .mark{flex:0 0 auto; font-size:1.35rem; line-height:1; opacity:.9}
   .rung .txt{flex:1}
   .rung .txt b{font-size:1.1rem}
   .rung .txt span{display:block; color:var(--ink-soft); font-weight:600; font-size:.92rem}
@@ -83,20 +116,28 @@
   .r5 .n{background:var(--rose-deep)} .r5 .stat{background:#fbe7ea; color:var(--rose-deep)}
   .rung.here{border:2px solid var(--sage-deep)}
   .here-tag{position:absolute; top:-12px; right:18px; background:var(--sage-deep); color:#fff;
-    font-weight:800; font-size:.72rem; padding:3px 12px; border-radius:999px; letter-spacing:.5px}
+    font-weight:800; font-size:.7rem; padding:4px 13px; border-radius:999px; letter-spacing:.06em;
+    box-shadow:0 4px 12px rgba(78,124,89,.28)}
   .gap{max-width:720px; margin:14px auto; text-align:center; border-top:2px dashed var(--rose-deep);
     position:relative; padding-top:12px}
   .gap span{display:inline-block; background:var(--cream); padding:0 14px; color:var(--rose-deep);
     font-weight:800; font-size:.9rem; transform:translateY(-26px)}
   .gap small{display:block; color:var(--ink-soft); font-weight:600; margin-top:-14px}
+  .gap::after{content:"🦴"; position:absolute; top:-27px; right:7%; font-size:1.25rem; opacity:.9;
+    animation:bob 3.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-8deg)} 50%{transform:translateY(-7px) rotate(6deg)}}
 
   /* answer cards */
   .cards{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
   .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-    padding:26px 24px; box-shadow:var(--shadow)}
-  .card .big{font-size:2rem; font-weight:900; letter-spacing:-1px}
-  .card h3{margin:.2em 0 .4em; font-size:1.15rem}
-  .card p{color:var(--ink-soft); font-weight:600; margin:0; font-size:.95rem}
+    padding:26px 24px; box-shadow:var(--shadow); position:relative; transition:transform .15s ease, box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px); box-shadow:var(--shadow-lift)}
+  .card .mark{position:absolute; top:18px; right:20px; font-size:1.3rem; line-height:1; opacity:.9}
+  .card .big{font-family:var(--display); font-size:1.9rem; font-weight:800; letter-spacing:-.02em;
+    font-variation-settings:"opsz" 90; padding-right:1.7em; line-height:1.22}
+  .card h3{font-family:var(--body); margin:.4em 0 .5em; font-size:1.05rem; font-weight:800;
+    padding-right:1.6em; letter-spacing:-.01em; color:var(--ink)}
+  .card p{color:var(--ink-soft); font-weight:600; margin:0; font-size:.95rem; text-wrap:pretty}
   .card.c1 .big{color:var(--sage-deep)} .card.c2 .big{color:#caa53d} .card.c3 .big{color:var(--rose-deep)}
   .card.f1 .big{color:var(--sage-deep)} .card.f2 .big{color:var(--rose-deep)} .card.f3 .big{color:var(--sky-deep)}
 
@@ -105,9 +146,10 @@
     border-radius:var(--radius); box-shadow:var(--shadow); padding:20px 8px; margin-top:6px}
   .stat-item{text-align:center; padding:4px 10px}
   .stat-item + .stat-item{border-left:2px dashed var(--line)}
-  .stat-item .num{font-size:2.1rem; font-weight:900; letter-spacing:-1px; line-height:1.1}
+  .stat-item .num{font-family:var(--display); font-size:2.4rem; font-weight:800; letter-spacing:-.03em;
+    line-height:1.05; font-variant-numeric:tabular-nums; font-variation-settings:"opsz" 144}
   .num.n1{color:var(--paw-deep)} .num.n2{color:var(--sage-deep)} .num.n3{color:var(--sky-deep)} .num.n4{color:var(--rose-deep)}
-  .stat-item .lbl{font-size:.75rem; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--ink-soft)}
+  .stat-item .lbl{font-size:.72rem; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:var(--ink-soft)}
 
   /* CS/AI stack */
   .stack-panel{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow); padding:30px}
@@ -124,7 +166,7 @@
   .transfer-band{background:#e9f3ec; border:1.5px solid var(--sage-deep); color:var(--sage-deep); border-radius:14px;
     padding:12px 14px; text-align:center; font-weight:800; font-size:.9rem}
   .audit{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:24px}
-  .audit h3{margin:0 0 10px; font-size:1.05rem}
+  .audit h3{margin:0 0 10px; font-family:var(--body); font-size:1.02rem; font-weight:800; letter-spacing:-.01em}
   .audit .yes h3{color:var(--sage-deep)} .audit .no h3{color:var(--rose-deep)}
   .audit ul{list-style:none; margin:0; padding:0}
   .audit li{position:relative; padding-left:24px; margin:8px 0; color:var(--ink-soft); font-weight:600; font-size:.93rem}
@@ -135,9 +177,10 @@
   /* entrance */
   @keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
   .hero h1{animation:rise .55s .08s ease both}
-  .hero .sub{animation:rise .55s .16s ease both}
-  .hero .cta{animation:rise .55s .24s ease both}
-  .stats{animation:rise .55s .32s ease both}
+  .hero .stone{animation:rise .55s .16s ease both}
+  .hero .sub{animation:rise .55s .24s ease both}
+  .hero .cta{animation:rise .55s .32s ease both}
+  .stats{animation:rise .55s .40s ease both}
 
   /* bark lab */
   .lab{background:var(--card); border:1px solid var(--line); border-radius:28px; box-shadow:var(--shadow);
@@ -154,7 +197,8 @@
   .meter .label{font-weight:800; color:var(--sage-deep)}
   .bar{width:200px; height:12px; background:#eee2d0; border-radius:999px; overflow:hidden}
   .bar i{display:block; height:100%; background:linear-gradient(90deg,var(--sage),var(--paw)); width:0; transition:width .6s ease}
-  .quote{font-size:1.3rem; font-weight:800; color:var(--ink); margin:6px 0}
+  .quote{font-family:var(--display); font-size:1.4rem; font-weight:700; color:var(--ink); margin:6px 0;
+    letter-spacing:-.01em; min-height:1.4em}
   .disclaimer{font-size:.82rem; color:var(--ink-soft); font-weight:600; margin-top:12px; font-style:italic}
 
   /* figures */
@@ -168,13 +212,18 @@
   footer .coat{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
   footer .wrap{position:relative}
   footer .paw{width:44px;height:44px; margin-bottom:8px; color:var(--paw-deep)}
+  footer .wordmark{font-family:var(--display); font-weight:800; font-size:1.35rem; color:var(--ink);
+    letter-spacing:-.02em}
+  footer .pawtrail{display:flex; justify-content:center; gap:22px; font-size:1rem; opacity:.38; margin-top:20px}
   footer .links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:14px 0; font-weight:700}
   footer small{font-weight:600}
 
   @media (max-width:760px){
+    .hero{padding:60px 0 36px}
     .cards{grid-template-columns:1fr}
     .figs{grid-template-columns:1fr}
     .rung .stat{display:none}
+    .gap::after{display:none}
     .stats{grid-template-columns:1fr 1fr; row-gap:14px}
     .stat-item:nth-child(3){border-left:0}
     .genealogy{grid-template-columns:repeat(3,1fr)}
@@ -208,14 +257,15 @@
 <main>
 <!-- HERO -->
 <div class="hero wrap">
-  <div class="kicker" data-i18n="kicker">An open survey · CS/AI-first</div>
   <h1>woof<span class="accent">2</span>word</h1>
+  <p class="stone" data-i18n="stone">The Canine Rosetta Stone</p>
   <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.</p>
   <div class="cta">
     <a class="btn primary" href="assets/woof-to-word-survey.pdf" data-i18n="readPaper">📄 Read the paper</a>
     <a class="btn ghost" href="https://github.com/mcxiaoxiao/woof2word" data-i18n="github">⭐ GitHub</a>
   </div>
   <p class="woof"><span data-i18n="woofA">woof</span> <b>→</b> <span data-i18n="woofB">words?</span> <span data-i18n="woofC">It's five questions, not one.</span></p>
+  <div class="trail" aria-hidden="true"><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🐾</span><span>🦴</span></div>
 </div>
 
 <!-- STATS -->
@@ -237,11 +287,11 @@
       <p data-i18n="ladderSub">"Translating a dog" is five capabilities of increasing difficulty. Today we stand on Rung 2.</p>
     </div>
     <div class="ladder">
-      <div class="rung r1"><div class="n">1</div><div class="txt"><b data-i18n="r1t">Signal</b><span data-i18n="r1s">detection &amp; segmentation</span></div><div class="stat" data-i18n="r1stat">solved</div></div>
-      <div class="rung r2 here"><span class="here-tag" data-i18n="here">YOU ARE HERE</span><div class="n">2</div><div class="txt"><b data-i18n="r2t">Affect</b><span data-i18n="r2s">emotion / arousal class</span></div><div class="stat" data-i18n="r2stat">shipping</div></div>
-      <div class="rung r3"><div class="n">3</div><div class="txt"><b data-i18n="r3t">Intent</b><span data-i18n="r3s">goal + context inference</span></div><div class="stat" data-i18n="r3stat">emerging</div></div>
-      <div class="rung r4"><div class="n">4</div><div class="txt"><b data-i18n="r4t">Reference</b><span data-i18n="r4s">symbol → object</span></div><div class="stat" data-i18n="r4stat">unproven</div></div>
-      <div class="rung r5"><div class="n">5</div><div class="txt"><b data-i18n="r5t">Dialogue</b><span data-i18n="r5s">open-ended exchange</span></div><div class="stat" data-i18n="r5stat">ill-posed?</div></div>
+      <div class="rung r1"><div class="n">1</div><div class="txt"><b data-i18n="r1t">Signal</b><span data-i18n="r1s">detection &amp; segmentation</span></div><span class="mark" aria-hidden="true">🔊</span><div class="stat" data-i18n="r1stat">solved</div></div>
+      <div class="rung r2 here"><span class="here-tag" data-i18n="here">YOU ARE HERE 🐾</span><div class="n">2</div><div class="txt"><b data-i18n="r2t">Affect</b><span data-i18n="r2s">emotion / arousal class</span></div><span class="mark" aria-hidden="true">💗</span><div class="stat" data-i18n="r2stat">shipping</div></div>
+      <div class="rung r3"><div class="n">3</div><div class="txt"><b data-i18n="r3t">Intent</b><span data-i18n="r3s">goal + context inference</span></div><span class="mark" aria-hidden="true">🦴</span><div class="stat" data-i18n="r3stat">emerging</div></div>
+      <div class="rung r4"><div class="n">4</div><div class="txt"><b data-i18n="r4t">Reference</b><span data-i18n="r4s">symbol → object</span></div><span class="mark" aria-hidden="true">🧸</span><div class="stat" data-i18n="r4stat">unproven</div></div>
+      <div class="rung r5"><div class="n">5</div><div class="txt"><b data-i18n="r5t">Dialogue</b><span data-i18n="r5s">open-ended exchange</span></div><span class="mark" aria-hidden="true">💬</span><div class="stat" data-i18n="r5stat">ill-posed?</div></div>
     </div>
     <div class="gap"><span data-i18n="gapTitle">↑ THE SEMANTIC GAP ↑</span><small data-i18n="gapSub">above this line, the dog's natural signal has no generative grammar to translate</small></div>
   </div>
@@ -255,9 +305,9 @@
       <h2 data-i18n="ansTitle">So… how far?</h2>
     </div>
     <div class="cards">
-      <div class="card c1"><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
-      <div class="card c2"><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
-      <div class="card c3"><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
+      <div class="card c1"><span class="mark" aria-hidden="true">💗</span><div class="big" data-i18n="c1big">2–4 yrs</div><h3 data-i18n="c1t">Affect, validated</h3><p data-i18n="c1p">A calibrated stress/pain/welfare monitor is within reach. Useful — but not "translation."</p></div>
+      <div class="card c2"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="c2big">~2030+</div><h3 data-i18n="c2t">Intent, grounded</h3><p data-i18n="c2p">Soundboards give a foothold. Validated natural-signal intent needs a decade of data &amp; protocols.</p></div>
+      <div class="card c3"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="c3big">maybe never</div><h3 data-i18n="c3t">Open dialogue</h3><p data-i18n="c3p">There may be no language there to translate. More compute won't fix a category error.</p></div>
     </div>
   </div>
 </section>
@@ -271,9 +321,9 @@
       <p data-i18n="feasSub">We don't assume the destination exists. Three historical templates adjudicate each rung.</p>
     </div>
     <div class="cards">
-      <div class="card f1"><div class="big" data-i18n="f1big">Rungs 1–4</div><h3 data-i18n="f1t">Flight — hard but real</h3><p data-i18n="f1p">Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.</p></div>
-      <div class="card f2"><div class="big" data-i18n="f2big">Rung 5</div><h3 data-i18n="f2t">Alchemy — a category error?</h3><p data-i18n="f2p">Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.</p></div>
-      <div class="card f3"><div class="big" data-i18n="f3big">None</div><h3 data-i18n="f3t">Perpetual motion — ruled out?</h3><p data-i18n="f3p">No conservation law forbids interspecies understanding. Nothing here is provably impossible.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">✈️</span><div class="big" data-i18n="f1big">Rungs 1–4</div><h3 data-i18n="f1t">Flight — hard but real</h3><p data-i18n="f1p">Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.</p></div>
+      <div class="card f2"><span class="mark" aria-hidden="true">⚗️</span><div class="big" data-i18n="f2big">Rung 5</div><h3 data-i18n="f2t">Alchemy — a category error?</h3><p data-i18n="f2p">Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.</p></div>
+      <div class="card f3"><span class="mark" aria-hidden="true">🌀</span><div class="big" data-i18n="f3big">None</div><h3 data-i18n="f3t">Perpetual motion — ruled out?</h3><p data-i18n="f3p">No conservation law forbids interspecies understanding. Nothing here is provably impossible.</p></div>
     </div>
   </div>
 </section>
@@ -287,12 +337,12 @@
       <p data-i18n="bmSub">A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.</p>
     </div>
     <div class="cards">
-      <div class="card f1"><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Who, not what</h3><p data-i18n="bm1p">Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.</p></div>
-      <div class="card f2"><div class="big" data-i18n="bm2big">Rung 2 · Affect</div><h3 data-i18n="bm2t">Two anchors before the model sees anything</h3><p data-i18n="bm2p">A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.</p></div>
-      <div class="card f3"><div class="big" data-i18n="bm3big">Rung 3 · Intent</div><h3 data-i18n="bm3t">The animal's own error signal</h3><p data-i18n="bm3p">Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.</p></div>
-      <div class="card f1"><div class="big" data-i18n="bm4big">Rung 4 · Composition</div><h3 data-i18n="bm4t">Structure, not frequency</h3><p data-i18n="bm4p">Held-out combinations from a closed inventory, against a co-occurrence factorisation. One surviving entry here would be the most informative result the benchmark could produce.</p></div>
-      <div class="card f2"><div class="big" data-i18n="bm5big">Rung 5 · Message</div><h3 data-i18n="bm5t">Falsification only</h3><p data-i18n="bm5p">No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.</p></div>
-      <div class="card f3"><div class="big" data-i18n="bm6big">10 items</div><h3 data-i18n="bm6t">Reporting checklist</h3><p data-i18n="bm6p">Per-dog split declared; error signal independent of the annotator; arousal baseline reported; raters blind; handler blinded; calibration reported; abstention reported; negative controls included; taxonomy pre-declared; rung stated in the abstract.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">🔊</span><div class="big" data-i18n="bm1big">Rung 1 · Signal</div><h3 data-i18n="bm1t">Who, not what</h3><p data-i18n="bm1p">Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.</p></div>
+      <div class="card f2"><span class="mark" aria-hidden="true">💗</span><div class="big" data-i18n="bm2big">Rung 2 · Affect</div><h3 data-i18n="bm2t">Two anchors before the model sees anything</h3><p data-i18n="bm2p">A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.</p></div>
+      <div class="card f3"><span class="mark" aria-hidden="true">🦴</span><div class="big" data-i18n="bm3big">Rung 3 · Intent</div><h3 data-i18n="bm3t">The animal's own error signal</h3><p data-i18n="bm3p">Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.</p></div>
+      <div class="card f1"><span class="mark" aria-hidden="true">🧸</span><div class="big" data-i18n="bm4big">Rung 4 · Reference</div><h3 data-i18n="bm4t">Structure, not frequency</h3><p data-i18n="bm4p">Held-out combinations from a closed inventory, against a co-occurrence factorisation. One surviving entry here would be the most informative result the benchmark could produce.</p></div>
+      <div class="card f2"><span class="mark" aria-hidden="true">💬</span><div class="big" data-i18n="bm5big">Rung 5 · Dialogue</div><h3 data-i18n="bm5t">Falsification only</h3><p data-i18n="bm5p">No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.</p></div>
+      <div class="card f3"><span class="mark" aria-hidden="true">📋</span><div class="big" data-i18n="bm6big">10 items</div><h3 data-i18n="bm6t">Reporting checklist</h3><p data-i18n="bm6p">Per-dog split declared; error signal independent of the annotator; arousal baseline reported; raters blind; handler blinded; calibration reported; abstention reported; negative controls included; taxonomy pre-declared; rung stated in the abstract.</p></div>
     </div>
   </div>
 </section>
@@ -301,7 +351,7 @@
 <section id="stack">
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow" data-i18n="stackEye">The CS/AI core</div>
+      <div class="eyebrow" data-i18n="stackEye">Machine translation lineage</div>
       <h2 data-i18n="stackTitle">Human translation's toolbox, audited for transfer</h2>
       <p data-i18n="stackSub">A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).</p>
     </div>
@@ -314,7 +364,7 @@
         <div class="gene gC" role="listitem"><div class="yr">2023</div><div class="nm" data-i18n="g5n">Whisper / Seamless</div></div>
         <div class="gene gC" role="listitem"><div class="yr">2023–24</div><div class="nm" data-i18n="g6n">audio codecs + audio-LLM</div></div>
       </div>
-      <div class="transfer-arrow" aria-hidden="true">↓</div>
+      <div class="transfer-arrow" aria-hidden="true">↓ 🐾</div>
       <div class="transfer-band" data-i18n="transferBand">transfer to animal decoding: AVES · NatureLM-audio · Perch · BEANS · CETI / DolphinGemma</div>
       <div class="audit">
         <div class="audit-col yes">
@@ -398,30 +448,30 @@
   </svg>
   <div class="wrap">
     <svg class="paw" aria-hidden="true"><use href="#pup"/></svg>
-    <div style="font-weight:900; font-size:1.2rem; color:var(--ink)">woof2word · The Canine Rosetta Stone</div>
+    <div class="wordmark">woof2word · The Canine Rosetta Stone</div>
     <div class="links">
       <a href="assets/woof-to-word-survey.pdf" data-i18n="fPaper">Paper (PDF)</a>
       <a href="https://github.com/mcxiaoxiao/woof2word" data-i18n="fRepo">Repository</a>
       <a href="https://github.com/mcxiaoxiao/woof2word/blob/main/sources/search-log.md" data-i18n="fSearch">Search log</a>
       <a href="https://github.com/mcxiaoxiao/woof2word/blob/main/CITATION.cff" data-i18n="fCite">Cite</a>
     </div>
-    <small data-i18n="fNote">Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026</small>
+    <small data-i18n="fNote">Read the dog, don't transcribe it. 🦴 · MIT / CC BY 4.0 · 2026</small>
+    <div class="pawtrail" aria-hidden="true"><span>🐾</span><span>🐾</span><span>🐾</span></div>
   </div>
 </footer>
 
 <script>
 const I18N = {
   en:{
-    kicker:"An open survey · CS/AI-first",
+    stone:"The Canine Rosetta Stone",
     statsAria:"Survey statistics", stPages:"pages", stRefs:"references", stTables:"comparison tables", stFigs:"figures",
-    mascotAria:"A cute spotted cartoon puppy",
     bmEye:"Beyond diagnosis", bmTitle:"The Canine Ladder Benchmark",
     bmSub:"A survey that finds a measurement problem should hand over a measurement. Section 9 specifies one task per rung, the error signal that makes it checkable, the baseline a system must beat, and the result that would show the rung was never reached.",
     bm1big:"Rung 1 · Signal", bm1t:"Who, not what", bm1p:"Ground truth: session metadata and a video-verified sender. Must beat a transferred human speaker-embedding. It fails if accuracy survives a session shuffle — that is the microphone, not the dog.",
     bm2big:"Rung 2 · Affect", bm2t:"Two anchors before the model sees anything", bm2p:"A pre-registered manipulation plus an animal-side readout; blind human ratings only as a third anchor. It fails if an arousal-only energy/f&#8320; baseline ties the model.",
     bm3big:"Rung 3 · Intent", bm3t:"The animal's own error signal", bm3p:"Forced choice with the alternatives physically constrained and the handler blind, scored against a permutation baseline. It fails if performance collapses when the human leaves the room.",
-    bm4big:"Rung 4 · Composition", bm4t:"Structure, not frequency", bm4p:"Held-out combinations from a closed inventory, against a co-occurrence factorisation. One surviving entry here would be the most informative result the benchmark could produce.",
-    bm5big:"Rung 5 · Message", bm5t:"Falsification only", bm5p:"No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.",
+    bm4big:"Rung 4 · Reference", bm4t:"Structure, not frequency", bm4p:"Held-out combinations from a closed inventory, against a co-occurrence factorisation. One surviving entry here would be the most informative result the benchmark could produce.",
+    bm5big:"Rung 5 · Dialogue", bm5t:"Falsification only", bm5p:"No protocol can certify this rung, because no independent record of an intended sentence exists. A behavioural-equivalence trial can still refute a system that claims it.",
     bm6big:"10 items", bm6t:"Reporting checklist", bm6p:"Per-dog split declared; error signal independent of the annotator; arousal baseline reported; raters blind; handler blinded; calibration reported; abstention reported; negative controls included; taxonomy pre-declared; rung stated in the abstract.",
     heroSub:"How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.",
     readPaper:"📄 Read the paper", github:"⭐ GitHub",
@@ -429,7 +479,7 @@ const I18N = {
     ladderEye:"The framework", ladderTitle:"The Translation Ladder",
     ladderSub:"\"Translating a dog\" is five capabilities of increasing difficulty. Today we stand on Rung 2.",
     r1t:"Signal", r1s:"detection & segmentation", r1stat:"solved",
-    r2t:"Affect", r2s:"emotion / arousal class", r2stat:"shipping", here:"YOU ARE HERE",
+    r2t:"Affect", r2s:"emotion / arousal class", r2stat:"shipping", here:"YOU ARE HERE 🐾",
     r3t:"Intent", r3s:"goal + context inference", r3stat:"emerging",
     r4t:"Reference", r4s:"symbol → object", r4stat:"unproven",
     r5t:"Dialogue", r5s:"open-ended exchange", r5stat:"ill-posed?",
@@ -443,7 +493,7 @@ const I18N = {
     f1big:"Rungs 1–4", f1t:"Flight — hard but real", f1p:"Declared impossible, yet sound physics. Existence proofs already in hand: vervet alarms, bee dances, dolphin whistles, canine word use.",
     f2big:"Rung 5", f2t:"Alchemy — a category error?", f2p:"Open-ended sentence translation of a non-linguistic signal. The target may not exist; effort and scale alone won't reach it.",
     f3big:"None", f3t:"Perpetual motion — ruled out?", f3p:"No conservation law forbids interspecies understanding. Nothing here is provably impossible.",
-    stackEye:"The CS/AI core", stackTitle:"Human translation's toolbox, audited for transfer",
+    stackEye:"Machine translation lineage", stackTitle:"Human translation's toolbox, audited for transfer",
     stackSub:"A decade of Transformer-lineage MT supplies the methods. We check which layers survive the jump to non-human signals (paper §2–5, Fig 1).",
     geneAria:"Human translation genealogy",
     g1n:"seq2seq + attention", g2n:"Transformer", g3n:"BERT / GPT pretrain → LLM", g4n:"NLLB multilingual", g5n:"Whisper / Seamless", g6n:"audio codecs + audio-LLM",
@@ -463,19 +513,18 @@ const I18N = {
     figEye:"From the paper", figTitle:"Six figures from the survey",
     fig1cap:"Fig 1 · The corpus behind this survey", fig2cap:"Fig 2 · The human translation / Transformer genealogy", fig3cap:"Fig 3 · The translation ladder & the semantic gap", fig4cap:"Fig 4 · Evidence and claims, rung by rung", fig5cap:"Fig 5 · Capability roadmap, 2002–2035", fig6cap:"Fig 6 · The developmental closed loop",
     fPaper:"Paper (PDF)", fRepo:"Repository", fSearch:"Search log", fCite:"Cite",
-    fNote:"Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026"
+    fNote:"Read the dog, don't transcribe it. 🦴 · MIT / CC BY 4.0 · 2026"
   },
   zh:{
-    kicker:"开放综述 · CS/AI 主视角",
+    stone:"犬类罗塞塔石碑",
     statsAria:"综述统计", stPages:"页", stRefs:"篇引用", stTables:"张对照表", stFigs:"张图",
-    mascotAria:"可爱的斑点卡通小狗",
     bmEye:"不止于诊断", bmTitle:"犬类阶梯基准 Canine Ladder Benchmark",
     bmSub:"指出测量问题的综述，应当同时交出一把可测量的尺。论文第 9 章为每一级规定了任务、可核验的误差信号、必须超越的基线，以及判定「并未真正达到这一级」的条件。",
     bm1big:"第 1 级 · 信号", bm1t:"是谁，而不是什么", bm1p:"误差信号：录音元数据与视频确认的发声个体；必须超越直接迁移的人类说话人嵌入。若打乱录音场次后精度仍在，说明模型认出的是麦克风，不是狗。",
     bm2big:"第 2 级 · 情绪", bm2t:"模型看数据之前先钉住两个锚", bm2p:"预先登记的实验操纵，加上来自动物自身的生理或延迟指标；人类评分只能作为第三锚且必须双盲。若单纯唤醒度基线就能追平模型，这一级就没有被跨过。",
     bm3big:"第 3 级 · 意图", bm3t:"用动物自己的误差信号", bm3p:"选项受物理约束的二选一，操作者盲态，并以序列置换基线计分。人离开房间后表现崩塌，就是 Clever Hans 效应。",
-    bm4big:"第 4 级 · 组合", bm4t:"要结构，不要频率", bm4p:"从封闭词表中留出未见组合，与共现分解模型对比。只要有一项结果站稳，就是这个基准第一年最有价值的发现。",
-    bm5big:"第 5 级 · 语句", bm5t:"只能否证，不能证明", bm5p:"不存在独立记录的「预期信息」，因此任何协议都无法为这一级发证；但行为等价实验可以否证宣称达到这一级的系统。",
+    bm4big:"第 4 级 · 指称", bm4t:"要结构，不要频率", bm4p:"从封闭词表中留出未见组合，与共现分解模型对比。只要有一项结果站稳，就是这个基准第一年最有价值的发现。",
+    bm5big:"第 5 级 · 对话", bm5t:"只能否证，不能证明", bm5p:"不存在独立记录的「预期信息」，因此任何协议都无法为这一级发证；但行为等价实验可以否证宣称达到这一级的系统。",
     bm6big:"十条清单", bm6t:"报告规范", bm6p:"按犬划分数据；误差信号独立于标注者；报告唤醒基线；标注者盲法；操作者盲法；报告校准度；报告弃权率；纳入阴性对照；预先声明类别体系；在摘要中写明所处层级。",
     heroSub:"我们距离翻译小狗说的话还有多远——以及，这究竟可行吗？我们做了一把尺子，而不是噱头数字。",
     readPaper:"📄 阅读论文", github:"⭐ GitHub",
@@ -483,7 +532,7 @@ const I18N = {
     ladderEye:"分析框架", ladderTitle:"翻译阶梯",
     ladderSub:"“翻译狗语”是五种难度递增的能力。今天我们站在第 2 层。",
     r1t:"信号", r1s:"检测与切分", r1stat:"已解决",
-    r2t:"情绪", r2s:"情感 / 唤醒度分类", r2stat:"已上线", here:"我们在这",
+    r2t:"情绪", r2s:"情感 / 唤醒度分类", r2stat:"已上线", here:"我们在这 🐾",
     r3t:"意图", r3s:"目标 + 情境推断", r3stat:"萌芽中",
     r4t:"指称", r4s:"符号 → 对象", r4stat:"未证实",
     r5t:"对话", r5s:"开放式交流", r5stat:"伪命题？",
@@ -497,7 +546,7 @@ const I18N = {
     f1big:"第 1–4 层", f1t:"飞机——难但真实", f1p:"曾被宣判不可能，却有坚实物理。存在性证明已在手：vervet 猴警报、蜜蜂舞蹈、海豚签名哨、犬类词语理解。",
     f2big:"第 5 层", f2t:"炼金术——范畴错误？", f2p:"把非语言信号翻译成开放句子。目标可能根本不存在；单靠努力与算力到不了。",
     f3big:"皆非", f3t:"永动机——被证明不可能？", f3p:"没有任何守恒律禁止跨物种理解。这里没有被证明不可能的事。",
-    stackEye:"计算机/AI 内核", stackTitle:"人类翻译的工具箱，迁移审计",
+    stackEye:"机器翻译谱系", stackTitle:"人类翻译的工具箱，迁移审计",
     stackSub:"十年 Transformer 系机器翻译提供方法；我们逐层审计哪些能跳到非人类信号（论文 §2–5，图 1）。",
     geneAria:"人类翻译谱系",
     g1n:"seq2seq + 注意力", g2n:"Transformer", g3n:"BERT / GPT 预训练 → LLM", g4n:"NLLB 多语", g5n:"Whisper / Seamless", g6n:"音频 codec + audio-LLM",
@@ -517,7 +566,7 @@ const I18N = {
     figEye:"来自论文", figTitle:"论文六图",
     fig1cap:"图 1 · 本综述的文献底盘", fig2cap:"图 2 · 人类机器翻译 / Transformer 的家谱", fig3cap:"图 3 · 翻译阶梯与语义鸿沟", fig4cap:"图 4 · 逐级的证据与宣称", fig5cap:"图 5 · 能力路线图，2002–2035", fig6cap:"图 6 · 发育性闭环",
     fPaper:"论文 (PDF)", fRepo:"仓库", fSearch:"检索记录", fCite:"引用",
-    fNote:"读懂狗，而非转写它。 · MIT / CC BY 4.0 · 2026"
+    fNote:"读懂狗，而非转写它。 🦴 · MIT / CC BY 4.0 · 2026"
   }
 };
 let LANG="en";
@@ -548,6 +597,19 @@ function bark(key, btn, keep){
   document.getElementById("emoBar").style.width=d.p+"%";
   document.getElementById("emoPct").textContent=d.p+"%";
   document.getElementById("quote").textContent=t.q;
+}
+/* reveal each block once, in a short stagger, as it enters view */
+if("IntersectionObserver" in window){
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{
+    if(!e.isIntersecting) return;
+    const el=e.target;
+    el.style.animation="rise .5s ease both";
+    el.style.animationDelay=(+el.dataset.d||0)+"ms";
+    io.unobserve(el);
+  })},{threshold:.12, rootMargin:"0px 0px -40px 0px"});
+  document.querySelectorAll(".rung,.card,.fig,.stack-panel,.lab").forEach((el,i)=>{
+    el.dataset.d=(i%3)*80; io.observe(el);
+  });
 }
 </script>
 </body>
