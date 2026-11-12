@@ -61,7 +61,7 @@ woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
 │   ├── main.pdf            # compiled, 35 pages, 257 cited references
-│   ├── sections/           # 12 sections + bibliography (13 comparison tables)
+│   ├── sections/           # 12 sections + bibliography (14 comparison tables)
 │   └── figures/            # 6 TikZ figures + charts (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
@@ -77,7 +77,7 @@ woof-to-word/
 ## What computer science brings · 计算机视角
 
 The survey is written **from a computer-science and AI standpoint**, with
-biology, linguistics, and ethics as supporting witnesses. Thirteen comparison
+biology, linguistics, and ethics as supporting witnesses. Fourteen comparison
 tables carry the argument; the CS/AI core includes:
 
 - **The human translation genealogy** — seq2seq → attention → Transformer →
@@ -199,7 +199,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（35 页，引用 257 篇文献，含 13 张大型对照表与 6 幅图），以
+开放、证据有界的**综述**（35 页，引用 257 篇文献，含 14 张大型对照表与 6 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个
