@@ -7,7 +7,7 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-34%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![Paper](https://img.shields.io/badge/paper-35%20pages-E8A87C?style=flat-square)](paper/main.pdf)
 [![References](https://img.shields.io/badge/references-257%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
@@ -60,8 +60,8 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 34 pages, 257 cited references
-│   ├── sections/           # 12 sections + bibliography (12 comparison tables)
+│   ├── main.pdf            # compiled, 35 pages, 257 cited references
+│   ├── sections/           # 12 sections + bibliography (13 comparison tables)
 │   └── figures/            # 6 TikZ figures + charts (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
@@ -77,7 +77,7 @@ woof-to-word/
 ## What computer science brings · 计算机视角
 
 The survey is written **from a computer-science and AI standpoint**, with
-biology, linguistics, and ethics as supporting witnesses. Eleven comparison
+biology, linguistics, and ethics as supporting witnesses. Thirteen comparison
 tables carry the argument; the CS/AI core includes:
 
 - **The human translation genealogy** — seq2seq → attention → Transformer →
@@ -124,20 +124,33 @@ observation that would show the rung was never reached.
 | 1 Signal | vocal vs non-vocal; identify the dog | session metadata, video-verified sender | transferred human speaker-verification embedding | accuracy survives a session shuffle |
 | 2 Affect | n-class state, pre-registered taxonomy | pre-recorded manipulation + animal-side readout | arousal-only energy/f0 regressor | the arousal baseline ties the model |
 | 3 Intent | what the animal is acting on | forced choice, handler blind | permutation baseline | performance collapses when the human leaves |
-| 4 Composition | multi-element signal → state | held-out combinations | co-occurrence factorisation | the factorisation matches |
-| 5 Message | render an intended sentence | none exists | — | falsification only: behavioural-equivalence test |
+| 4 Reference | multi-element signal → state | held-out combinations | co-occurrence factorisation | the factorisation matches |
+| 5 Dialogue | render an intended sentence | none exists | — | falsification only: behavioural-equivalence test |
 
 Plus a ten-item reporting checklist — per-dog split declared, error signal
 independent of the annotator, arousal baseline reported, raters blind, handler
 blinded, calibration reported, abstention reported, negative controls included,
-taxonomy pre-declared, rung stated in the abstract. Every item corresponds to a
-claim already made in public.
+taxonomy pre-declared, rung stated in the abstract. The paper then applies the
+list to the systems it audited, scoring ✓ documented / ~ partial / × absent or
+unreported:
+
+| Class of system | Documented / applicable |
+|---|---|
+| Consumer sentence apps | **0 / 10** |
+| Published Rung-2 classifiers | **1 / 10** (4 partial) |
+| Symbol-array (button / object-choice) studies | **6 / 7** |
+| Open bioacoustic benchmarks (BEANS, BirdSet) | **5 / 8** |
+
+Calibration is the one item every class fails. The two classes that score best
+are the two never built to sell a sentence.
 
 论文的第九章给出了一个可以直接执行的**犬类阶梯基准（Canine Ladder Benchmark）**：
 每一级都规定了可核验的误差信号、指标、必须超越的基线，以及"没真正达到这一级"的判据；
 第 5 级只能做单侧否证检验（行为等价实验），这一点文中也如实说明。配套的十条报告清单
 （按犬划分数据、误差信号独立于标注者、报告唤醒基线、标注者盲法、校准度、弃权率等）
-逐条对应现实中已经出现过的失当宣称。
+并且论文已经把它用于复核现有系统：消费级"翻译"应用 **0/10**，已发表的二阶情绪模型
+**1/10**（另有 4 项部分达标），按钮/物体选择实验 **6/7**，开放生物声学基准 **5/8**。
+"校准度"是唯一所有类别都失守的一项；得分最高的两类，恰好都不是为了卖一句话而建的。
 
 ## The honest answer · 诚实的回答
 
@@ -186,7 +199,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（34 页，引用 257 篇文献，含 12 张大型对照表与 6 幅图），以
+开放、证据有界的**综述**（35 页，引用 257 篇文献，含 13 张大型对照表与 6 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个

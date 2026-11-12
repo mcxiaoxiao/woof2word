@@ -127,9 +127,63 @@ contribution as much as the tasks are: per-dog split declared; error signal
 named and independent of the annotator; arousal baseline reported; human
 raters blind; handler absent or blinded; calibration reported; abstention
 reported; negative controls included; taxonomy declared before training;
-rung stated in the abstract. Ten items, answerable in a page, and every one of
-them corresponds to a way a current published or marketed claim has already
-failed.
+rung stated in the abstract. Ten items, answerable in a page.
+
+Table~\ref{tab:checklist} answers them for the four classes of system this
+survey has already audited, using only what those sources disclose. The audit
+cannot tell an absent practice from an undisclosed one, and in this literature
+the distinction has no consequence: a missing control and an unreported control
+both leave a claim unchecked. Two numbers carry the section's argument. The
+systems marketed as translators satisfy none of the ten items outright. The two
+bodies of work that score well --- the symbol-array studies of
+animal cognition and the open bioacoustic benchmarks --- are the two that were
+never built to sell a sentence, which is the strongest available evidence that
+the protocol asks for ordinary experimental hygiene rather than a new and
+expensive kind of animal work.
+
+\begin{table}[htbp]
+\centering
+\caption{The ten reporting items applied to the four system classes audited in
+this survey. $\checkmark$~documented in the audited source; $\sim$~documented
+for some entries in the class; $\times$~absent or not reported; n/a~the item
+does not bear on that class's claim. The final row counts $\checkmark$ over the
+items that apply.}
+\label{tab:checklist}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{4.7cm}
+  >{\centering\arraybackslash}p{2.35cm}
+  >{\centering\arraybackslash}p{2.15cm}
+  >{\centering\arraybackslash}p{2.35cm}
+  >{\centering\arraybackslash}p{2.15cm}@{}}
+\toprule
+\textbf{Reporting item} & \textbf{Consumer sentence apps} & \textbf{Rung-2 classifiers} & \textbf{Symbol-array studies} & \textbf{Open bioacoustic suites} \\
+\midrule
+Split per dog and session declared & $\times$ & $\sim$ & n/a & $\checkmark$ \\
+Error signal independent of the annotator & $\times$ & $\sim$ & $\checkmark$ & $\checkmark$ \\
+Arousal baseline reported & $\times$ & $\times$ & n/a & n/a \\
+Human raters blind to the label & $\times$ & $\sim$ & $\checkmark$ & n/a \\
+Handler absent or blinded & $\times$ & $\times$ & $\checkmark$ & n/a \\
+Calibration reported & $\times$ & $\times$ & $\times$ & $\times$ \\
+Abstention reported & $\times$ & $\times$ & n/a & $\times$ \\
+Negative controls included & $\times$ & $\times$ & $\checkmark$ & $\sim$ \\
+Taxonomy declared before training & $\sim$ & $\sim$ & $\checkmark$ & $\checkmark$ \\
+Claim written at the rung the evidence reaches & $\times$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\midrule
+\textbf{Documented / applicable} & $\mathbf{0/10}$ & $\mathbf{1/10}$ & $\mathbf{6/7}$ & $\mathbf{5/8}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The distribution of the $\times$ marks is as informative as the totals.
+Calibration is the only item every class fails: not one of the audited
+canine systems reports probabilities that match observed frequencies, which
+is precisely the quantity a welfare or pain monitor has to threshold before it
+can act. Conversely the two items the symbol-array studies clear most
+comfortably --- handler blinding and a physically constrained alternative set
+--- are the two that consumer products invert by design, since an app sold to a
+devoted owner in an uncontrolled home recruits the owner's expectation rather
+than removing it.
 
 \subsection{What adoption would buy}
 
