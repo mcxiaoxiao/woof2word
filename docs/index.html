@@ -38,7 +38,7 @@
     background:rgba(251,247,240,.82); border-bottom:1px solid var(--line)}
   .top .wrap{display:flex; align-items:center; justify-content:space-between; height:62px}
   .brand{display:flex; align-items:center; gap:10px; font-weight:900; font-size:1.15rem; letter-spacing:-.5px}
-  .brand .paw{width:26px;height:26px}
+  .brand .paw{width:26px;height:26px; color:var(--paw-deep)}
   .lang{display:flex; gap:4px; background:#fff; border:1px solid var(--line);
     border-radius:999px; padding:4px}
   .lang button{border:0; background:transparent; cursor:pointer; font:inherit; font-weight:800;
@@ -47,8 +47,6 @@
 
   /* hero */
   .hero{padding:64px 0 40px; text-align:center; position:relative}
-  .mascot{width:150px; height:150px; margin:0 auto 8px; display:block;
-    filter:drop-shadow(0 12px 18px rgba(120,80,50,.18))}
   .hero h1{font-size:clamp(2.4rem,6vw,3.6rem); margin:.2em 0 .1em; font-weight:900; letter-spacing:-1.5px}
   .hero h1 .accent{color:var(--paw-deep)}
   .hero .kicker{font-weight:800; color:var(--sage-deep); letter-spacing:2px; text-transform:uppercase; font-size:.8rem}
@@ -136,7 +134,6 @@
 
   /* entrance */
   @keyframes rise{from{opacity:0; transform:translateY(14px)} to{opacity:1; transform:none}}
-  .hero .mascot{animation:rise .55s ease both}
   .hero h1{animation:rise .55s .08s ease both}
   .hero .sub{animation:rise .55s .16s ease both}
   .hero .cta{animation:rise .55s .24s ease both}
@@ -162,15 +159,15 @@
 
   /* figures */
   .figs{display:grid; grid-template-columns:1fr 1fr; gap:20px}
-  .fig{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow)}
+  .fig{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); display:flex; flex-direction:column}
   .fig img{width:100%; height:auto; border-radius:12px; display:block}
-  .fig figcaption{font-weight:700; color:var(--ink-soft); font-size:.9rem; text-align:center; margin-top:10px}
+  .fig figcaption{font-weight:700; color:var(--ink-soft); font-size:.9rem; text-align:center; margin-top:auto; padding-top:12px}
 
   footer{border-top:1px solid var(--line); padding:40px 0 60px; text-align:center; color:var(--ink-soft);
     position:relative; overflow:hidden}
   footer .coat{position:absolute; inset:0; width:100%; height:100%; pointer-events:none}
   footer .wrap{position:relative}
-  footer .paw{width:44px;height:44px; margin-bottom:8px}
+  footer .paw{width:44px;height:44px; margin-bottom:8px; color:var(--paw-deep)}
   footer .links{display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin:14px 0; font-weight:700}
   footer small{font-weight:600}
 
@@ -191,18 +188,10 @@
 </head>
 <body>
 
-<!-- puppy symbol -->
+<!-- paw symbol · Font Awesome Free 6.7.2 "paw" (solid), CC BY 4.0 -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="pup" viewBox="0 0 64 64">
-    <path d="M14 16 Q6 26 10 40 Q13 48 20 44 Q24 40 23 28 Q22 20 19 16 Z" fill="#C97B4A"/>
-    <path d="M50 16 Q58 26 54 40 Q51 48 44 44 Q40 40 41 28 Q42 20 45 16 Z" fill="#C97B4A"/>
-    <path d="M32 10 Q48 10 53 26 Q56 38 49 47 Q42 55 32 55 Q22 55 15 47 Q8 38 11 26 Q16 10 32 10 Z"
-      fill="#FFF6E8" stroke="#E4D7C2" stroke-width="1"/>
-    <path d="M36 18 Q46 16 50 26 Q52 34 45 38 Q38 40 35 32 Q33 24 36 18 Z" fill="#E8A87C"/>
-    <circle cx="25" cy="30" r="2.6" fill="#2B2B33"/>
-    <circle cx="40" cy="30" r="2.6" fill="#2B2B33"/>
-    <ellipse cx="32.5" cy="38" rx="3.2" ry="2.4" fill="#2B2B33"/>
-    <path d="M32.5 40.5 Q32.5 44 28.5 44 M32.5 40.5 Q32.5 44 36.5 44" stroke="#2B2B33" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+  <symbol id="pup" viewBox="0 0 512 512">
+    <path fill="currentColor" d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5l0 1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3l0-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"/>
   </symbol>
 </svg>
 
@@ -219,29 +208,6 @@
 <main>
 <!-- HERO -->
 <div class="hero wrap">
-  <svg class="mascot" viewBox="0 0 200 200" role="img" aria-label="A cute spotted cartoon puppy" data-i18n-aria="mascotAria">
-    <ellipse cx="100" cy="184" rx="56" ry="9" fill="#e9dcc8"/>
-    <path d="M48 62 Q28 78 34 116 Q38 138 54 132 Q64 126 62 96 Q61 74 58 64 Z" fill="#C97B4A"/>
-    <path d="M152 62 Q172 78 166 116 Q162 138 146 132 Q136 126 138 96 Q139 74 142 64 Z" fill="#C97B4A"/>
-    <path d="M100 42 Q146 42 158 82 Q166 112 148 138 Q130 160 100 160 Q70 160 52 138 Q34 112 42 82 Q54 42 100 42 Z" fill="#FFF6E8"/>
-    <path d="M108 66 Q136 60 146 84 Q152 102 138 112 Q120 120 110 104 Q100 84 108 66 Z" fill="#E8A87C"/>
-    <path d="M70 58 Q82 52 88 62 Q92 72 80 76 Q68 78 66 68 Q66 62 70 58 Z" fill="#C97B4A" opacity=".85"/>
-    <circle cx="78" cy="96" r="8" fill="#2B2B33"/>
-    <circle cx="124" cy="96" r="8" fill="#2B2B33"/>
-    <circle cx="80.5" cy="93.5" r="2.6" fill="#fff"/>
-    <circle cx="126.5" cy="93.5" r="2.6" fill="#fff"/>
-    <ellipse cx="64" cy="112" rx="9" ry="6" fill="#E7A6B0" opacity=".7"/>
-    <ellipse cx="136" cy="112" rx="9" ry="6" fill="#E7A6B0" opacity=".7"/>
-    <ellipse cx="100" cy="122" rx="26" ry="19" fill="#FBF7F0"/>
-    <path d="M92 114 Q100 110 108 114 Q108 122 100 124 Q92 122 92 114 Z" fill="#2B2B33"/>
-    <path d="M100 124 L100 132 M100 132 Q90 140 83 133 M100 132 Q110 140 117 133"
-      stroke="#2B2B33" stroke-width="3.2" fill="none" stroke-linecap="round"/>
-    <path d="M93 136 Q100 150 107 136 Q100 142 93 136 Z" fill="#E7A6B0"/>
-    <circle cx="86" cy="120" r="1.3" fill="#c9b79d"/>
-    <circle cx="82" cy="125" r="1.3" fill="#c9b79d"/>
-    <circle cx="114" cy="120" r="1.3" fill="#c9b79d"/>
-    <circle cx="118" cy="125" r="1.3" fill="#c9b79d"/>
-  </svg>
   <div class="kicker" data-i18n="kicker">An open survey · CS/AI-first</div>
   <h1>woof<span class="accent">2</span>word</h1>
   <p class="sub" data-i18n="heroSub">How far are we from translating what dogs say — and is it even possible? We built a ruler, not a hype number.</p>
@@ -255,10 +221,10 @@
 <!-- STATS -->
 <div class="wrap">
   <div class="stats" role="list" aria-label="Survey statistics" data-i18n-aria="statsAria">
-    <div class="stat-item" role="listitem"><div class="num n1">29</div><div class="lbl" data-i18n="stPages">pages</div></div>
-    <div class="stat-item" role="listitem"><div class="num n2">222</div><div class="lbl" data-i18n="stRefs">references</div></div>
+    <div class="stat-item" role="listitem"><div class="num n1">31</div><div class="lbl" data-i18n="stPages">pages</div></div>
+    <div class="stat-item" role="listitem"><div class="num n2">253</div><div class="lbl" data-i18n="stRefs">references</div></div>
     <div class="stat-item" role="listitem"><div class="num n3">11</div><div class="lbl" data-i18n="stTables">comparison tables</div></div>
-    <div class="stat-item" role="listitem"><div class="num n4">3</div><div class="lbl" data-i18n="stFigs">figures</div></div>
+    <div class="stat-item" role="listitem"><div class="num n4">6</div><div class="lbl" data-i18n="stFigs">figures</div></div>
   </div>
 </div>
 
@@ -382,11 +348,15 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow" data-i18n="figEye">From the paper</div>
-      <h2 data-i18n="figTitle">The hero figures</h2>
+      <h2 data-i18n="figTitle">Six figures from the survey</h2>
     </div>
     <div class="figs">
-      <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs with a semantic gap between affect and intent"><figcaption data-i18n="fig1cap">Fig 2 · The translation ladder &amp; the semantic gap</figcaption></figure>
-      <figure class="fig"><img src="assets/fig2_roadmap.png" alt="Capability roadmap 2002 to 2035 with three tracks: affect, intent, and open translation"><figcaption data-i18n="fig2cap">Fig 3 · Capability roadmap, 2002–2035</figcaption></figure>
+      <figure class="fig"><img src="assets/fig5_corpus.png" alt="Left: bar chart of bibliography entries per year from 2002 to 2026 with a cumulative line reaching 253. Right: donut chart of the same 253 references split into seven thematic groups."><figcaption data-i18n="fig1cap">Fig 1 &middot; The corpus behind this survey</figcaption></figure>
+      <figure class="fig"><img src="assets/fig3_genealogy.png" alt="Timeline of the human machine-translation genealogy, 2014 seq2seq to 2023 audio-LLMs, with the transfer band to animal decoding."><figcaption data-i18n="fig2cap">Fig 2 &middot; The human translation / Transformer genealogy</figcaption></figure>
+      <figure class="fig"><img src="assets/fig1_ladder.png" alt="The translation ladder: five ascending rungs, shaded as a staircase, with the semantic gap drawn as a waterline just above Rung 2."><figcaption data-i18n="fig3cap">Fig 3 &middot; The translation ladder &amp; the semantic gap</figcaption></figure>
+      <figure class="fig"><img src="assets/fig6_evidence.png" alt="Grouped bar chart of catalogued falsifiable canine studies and audited consumer products per rung, with the semantic gap shaded to the right."><figcaption data-i18n="fig4cap">Fig 4 &middot; Evidence and claims, rung by rung</figcaption></figure>
+      <figure class="fig"><img src="assets/fig2_roadmap.png" alt="Capability roadmap 2002 to 2035 with three tracks: affect, intent, and open translation."><figcaption data-i18n="fig5cap">Fig 5 &middot; Capability roadmap, 2002&ndash;2035</figcaption></figure>
+      <figure class="fig"><img src="assets/fig4_loop.png" alt="The developmental three-way closed loop between dog, human and model."><figcaption data-i18n="fig6cap">Fig 6 &middot; The developmental closed loop</figcaption></figure>
     </div>
   </div>
 </section>
@@ -463,8 +433,8 @@ const I18N = {
     bPlay:"playful", bAlert:"alert", bDistress:"distressed", bRelax:"relaxed",
     quoteInit:"“…”",
     disclaimer:"The meter is a (real) Rung-2 emotion estimate. The sentence is a story added afterwards — never measured against the dog. That gap is the whole paper.",
-    figEye:"From the paper", figTitle:"The hero figures",
-    fig1cap:"Fig 2 · The translation ladder & the semantic gap", fig2cap:"Fig 3 · Capability roadmap, 2002–2035",
+    figEye:"From the paper", figTitle:"Six figures from the survey",
+    fig1cap:"Fig 1 · The corpus behind this survey", fig2cap:"Fig 2 · The human translation / Transformer genealogy", fig3cap:"Fig 3 · The translation ladder & the semantic gap", fig4cap:"Fig 4 · Evidence and claims, rung by rung", fig5cap:"Fig 5 · Capability roadmap, 2002–2035", fig6cap:"Fig 6 · The developmental closed loop",
     fPaper:"Paper (PDF)", fRepo:"Repository", fSearch:"Search log", fCite:"Cite",
     fNote:"Read the dog, don't transcribe it. · MIT / CC BY 4.0 · 2026"
   },
@@ -509,8 +479,8 @@ const I18N = {
     bPlay:"玩耍", bAlert:"警觉", bDistress:"不安", bRelax:"放松",
     quoteInit:"“……”",
     disclaimer:"仪表是（真实的）第 2 层情绪估计；句子是事后补上的故事——从未对照狗本身验证。这道鸿沟正是整篇论文的主题。",
-    figEye:"来自论文", figTitle:"两张主图",
-    fig1cap:"图 2 · 翻译阶梯与语义鸿沟", fig2cap:"图 3 · 能力路线图，2002–2035",
+    figEye:"来自论文", figTitle:"论文六图",
+    fig1cap:"图 1 · 本综述的文献底盘", fig2cap:"图 2 · 人类机器翻译 / Transformer 的家谱", fig3cap:"图 3 · 翻译阶梯与语义鸿沟", fig4cap:"图 4 · 逐级的证据与宣称", fig5cap:"图 5 · 能力路线图，2002–2035", fig6cap:"图 6 · 发育性闭环",
     fPaper:"论文 (PDF)", fRepo:"仓库", fSearch:"检索记录", fCite:"引用",
     fNote:"读懂狗，而非转写它。 · MIT / CC BY 4.0 · 2026"
   }

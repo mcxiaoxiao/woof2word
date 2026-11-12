@@ -7,8 +7,8 @@
 
 *A survey of cross-species communication decoding in the age of foundation models.*
 
-[![Paper](https://img.shields.io/badge/paper-29%20pages-E8A87C?style=flat-square)](paper/main.pdf)
-[![References](https://img.shields.io/badge/references-222%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
+[![Paper](https://img.shields.io/badge/paper-31%20pages-E8A87C?style=flat-square)](paper/main.pdf)
+[![References](https://img.shields.io/badge/references-253%20cited-8FB996?style=flat-square)](paper/sections/12_bibliography.tex)
 [![License](https://img.shields.io/badge/license-MIT-8FB996?style=flat-square)](LICENSE)
 [![Page](https://img.shields.io/badge/site-cute%20%F0%9F%90%B6-9CC5E8?style=flat-square)](https://mcxiaoxiao.github.io/woof2word/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-E7A6B0?style=flat-square)](#contributing--参与)
@@ -47,7 +47,12 @@ signal has no recursive, generative grammar to translate. More compute won't
 fix a category error.
 
 <p align="center">
-  <img src="paper/figures/fig1_ladder.png" alt="The translation ladder" width="80%">
+  <img src="paper/figures/fig1_ladder.png" alt="The translation ladder: five shaded rungs with the semantic gap drawn as a waterline" width="80%">
+</p>
+
+<p align="center">
+  <img src="paper/figures/fig5_corpus.png" alt="Bar chart of references per year with a cumulative line, next to a donut of the 253 references by theme" width="48%">
+  <img src="paper/figures/fig6_evidence.png" alt="Grouped bars of falsifiable studies and audited products per rung, with the semantic gap shaded" width="48%">
 </p>
 
 ## What's inside · 内容
@@ -56,9 +61,9 @@ fix a category error.
 woof-to-word/
 ├── paper/
 │   ├── main.tex            # the survey (LaTeX, TikZ figures)
-│   ├── main.pdf            # compiled, 29 pages, 222 cited references
+│   ├── main.pdf            # compiled, 31 pages, 253 cited references
 │   ├── sections/           # 11 sections + bibliography (11 comparison tables)
-│   └── figures/            # 3 TikZ figures (PNG previews)
+│   └── figures/            # 6 TikZ figures + charts (PNG previews)
 ├── docs/
 │   └── index.html          # the cute project page (GitHub Pages)
 ├── sources/
@@ -153,7 +158,7 @@ peer-reviewed results as *results*.
 ## 中文
 
 **我们距离翻译小狗说的话还有多远？而且，这件事究竟可行吗？** 本仓库是一篇
-开放、证据有界的**综述**（29 页，引用 222 篇文献，含 11 张大型对照表与 3 幅图），以
+开放、证据有界的**综述**（31 页，引用 253 篇文献，含 11 张大型对照表与 6 幅图），以
 **计算机 / AI 视角**为主、生物・语言・伦理为辅。核心工具是一架"翻译阶梯"：
 把"翻译狗语"拆成五层能力。结论是——**今天的产品停在第 2 层（情绪分类），
 少数研究摸到第 3 层（意图）**；再往上要么尚待证实，要么在严格意义上**是个

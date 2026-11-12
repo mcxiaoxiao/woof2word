@@ -1,54 +1,91 @@
-% Figure 1 — The Translation Ladder (hero figure).
+% Figure 1 - The Translation Ladder (hero figure): an ascending staircase with
+% the semantic gap as a waterline. Icons: Font Awesome Free (CC BY 4.0).
 % Compiled standalone via fig1_standalone.tex; also \input by sections/03_ladder.tex.
 \begin{tikzpicture}[
   font=\sffamily,
-  >={Latex[length=2.6mm,width=2mm]},
-  block/.style={rounded corners=3pt,draw=ink!70,line width=0.7pt,
-    minimum height=0.9cm,align=left,inner sep=5pt,text width=2.8cm,
-    font=\sffamily\small},
-  num/.style={font=\sffamily\bfseries\large},
-  note/.style={font=\sffamily\scriptsize\itshape,text=ink!70},
-  pill/.style={rounded corners=6pt,fill=cream,draw=rosedeep,line width=0.7pt,
-    inner sep=4pt,font=\sffamily\scriptsize\bfseries,text=rosedeep,align=center},
+  >={Latex[length=2.2mm,width=1.6mm]},
+  col/.style={draw=ink!20, line width=0.5pt, rounded corners=1.5pt},
+  badge/.style={circle, draw=white, line width=0.7pt, minimum size=7mm, inner sep=0,
+    text=white, font=\sffamily\bfseries\large},
+  sname/.style={font=\sffamily\bfseries\small, text=ink, align=center},
+  ssub/.style={font=\sffamily\scriptsize, text=ink!70, align=center},
+  pill/.style={rounded corners=5pt, fill=cream, draw=rosedeep, line width=0.7pt,
+    inner sep=4pt, font=\sffamily\scriptsize\bfseries, text=rosedeep, align=center},
+  tag/.style={rounded corners=4pt, fill=white, draw=sagedeep, line width=0.7pt,
+    inner sep=3pt, font=\sffamily\scriptsize\bfseries, text=sagedeep, align=center},
+  snd/.style={font=\sffamily\tiny\itshape, text=ink!58, align=center},
 ]
-  \node[block,fill=sky!45] (r1) at (0,0)
-    {\num{1}\;\;\textbf{Signal}\\[1pt]\scriptsize detection \& segmentation};
-  \node[block,fill=sage!55] (r2) at (3.2,1.5)
-    {\num{2}\;\;\textbf{Affect}\\[1pt]\scriptsize emotion / arousal class};
-  \node[block,fill=gold!55] (r3) at (6.4,3.0)
-    {\num{3}\;\;\textbf{Intent}\\[1pt]\scriptsize goal + context inference};
-  \node[block,fill=paw!60] (r4) at (9.6,4.5)
-    {\num{4}\;\;\textbf{Reference}\\[1pt]\scriptsize symbol $\rightarrow$ object};
-  \node[block,fill=rose!55] (r5) at (12.8,6.0)
-    {\num{5}\;\;\textbf{Dialogue}\\[1pt]\scriptsize open-ended exchange};
+  \def\sw{2.8}
+  \def\hA{2.1}\def\hB{3.15}\def\hC{4.2}\def\hD{5.25}\def\hE{6.3}
+  \def\gy{3.22}
 
-  \node[note,rotate=25] at (3.4,4.9) {increasing capability $\cdot$ increasing difficulty};
+  % --- ground band ---
+  \fill[ink!7, rounded corners=1.5pt] (-1.45,-0.34) rectangle (5*\sw+0.30,0);
 
-  \draw[dashed,rosedeep,line width=1pt] (-0.55,2.25) -- (14.4,2.25);
-  \node[pill] at (2.2,2.6)
-    {THE SEMANTIC GAP\\[1pt]\mdseries no generative grammar to translate};
+  % --- staircase columns (solid, grounded, softly shaded) ---
+  \draw[col, top color=sky!62,  bottom color=sky!14]  (0,0)     rectangle (\sw,\hA);
+  \draw[col, top color=sage!64, bottom color=sage!14] (\sw,0)   rectangle (2*\sw,\hB);
+  \draw[col, top color=gold!62, bottom color=gold!16] (2*\sw,0) rectangle (3*\sw,\hC);
+  \draw[col, top color=paw!62,  bottom color=paw!14]  (3*\sw,0) rectangle (4*\sw,\hD);
+  \draw[col, top color=rose!64, bottom color=rose!14] (4*\sw,0) rectangle (5*\sw,\hE);
+  % coloured top edges (treads)
+  \draw[skydeep,  line width=1.5pt] (0,\hA)     -- (\sw,\hA);
+  \draw[sagedeep, line width=1.5pt] (\sw,\hB)   -- (2*\sw,\hB);
+  \draw[gold!60!black, line width=1.5pt] (2*\sw,\hC) -- (3*\sw,\hC);
+  \draw[pawdeep,  line width=1.5pt] (3*\sw,\hD) -- (4*\sw,\hD);
+  \draw[rosedeep, line width=1.5pt] (4*\sw,\hE) -- (5*\sw,\hE);
+  % ground line
+  \draw[ink!45, line width=0.9pt] (-1.45,0) -- (5*\sw+0.30,0);
 
-  \node[rounded corners=5pt,fill=sagedeep,text=white,inner sep=4pt,
-    font=\sffamily\scriptsize\bfseries,align=center] (here) at (4.7,0.35)
-    {YOU ARE HERE\\[1pt]\mdseries consumer products + most ML};
-  \draw[->,sagedeep,line width=1pt] (here.north) -- (r2.south);
-  \begin{scope}[shift={(2.78,1.74)},scale=0.5]
-    \fill[sagedeep] (0,0) ellipse (0.16 and 0.13);
-    \fill[sagedeep] (-0.16,0.18) circle (0.06);
-    \fill[sagedeep] (0,0.23) circle (0.06);
-    \fill[sagedeep] (0.16,0.18) circle (0.06);
-  \end{scope}
+  % --- the semantic gap: waterline, drawn beneath every label ---
+  \draw[rose, line width=3.4pt, opacity=0.45] (-0.30,\gy) -- (5*\sw+0.30,\gy);
+  \draw[dashed, rosedeep, line width=1pt]     (-0.30,\gy) -- (5*\sw+0.30,\gy);
 
-  \node[note,align=center,anchor=west] at (8.1,2.55)
-    {soundboards reach here\\(with human symbols)};
-  \draw[->,ink!45,line width=0.7pt] (8.05,2.6) -- (r3.south east);
+  % --- in-step labels: badge, icon + name, gloss ---
+  \node[badge, fill=skydeep]       at (0.5*\sw, \hA-0.55) {1};
+  \node[sname] at (0.5*\sw, \hA-1.20) {{\color{skydeep}\faWaveSquare}\;Signal};
+  \node[ssub]  at (0.5*\sw, \hA-1.60) {detection \&\\ segmentation};
 
-  \draw[decorate,decoration={brace,amplitude=5pt,mirror},sagedeep,line width=0.8pt]
-    ($(r1.south west)+(0,-0.7)$) -- ($(r2.south east)+(0,-0.7)$)
-    node[midway,below=7pt,note,text=sagedeep,align=center]
-      {data-rich, falsifiable\\[1pt]\bfseries achievable now};
-  \draw[decorate,decoration={brace,amplitude=5pt},rosedeep,line width=0.8pt]
-    ($(r4.north west)+(0,0.55)$) -- ($(r5.north east)+(0,0.55)$)
-    node[midway,above=7pt,note,text=rosedeep,align=center]
-      {data-poor, partly ill-posed\\[1pt]\bfseries aspirational};
+  \node[badge, fill=sagedeep]      at (1.5*\sw, \hB-0.55) {2};
+  \node[sname] at (1.5*\sw, \hB-1.20) {{\color{sagedeep}\faHeart}\;Affect};
+  \node[ssub]  at (1.5*\sw, \hB-1.60) {emotion /\\ arousal class};
+
+  \node[badge, fill=gold!60!black] at (2.5*\sw, \hC-0.55) {3};
+  \node[sname] at (2.5*\sw, \hC-1.20) {{\color{gold!60!black}\faBullseye}\;Intent};
+  \node[ssub]  at (2.5*\sw, \hC-1.60) {goal +\\ context inference};
+
+  \node[badge, fill=pawdeep]       at (3.5*\sw, \hD-0.55) {4};
+  \node[sname] at (3.5*\sw, \hD-1.20) {{\color{pawdeep}\faTag}\;Reference};
+  \node[ssub]  at (3.5*\sw, \hD-1.52) {symbol $\rightarrow$ object};
+
+  \node[badge, fill=rosedeep]      at (4.5*\sw, \hE-0.55) {5};
+  \node[sname] at (4.5*\sw, \hE-1.20) {{\color{rosedeep}\faComments}\;Dialogue};
+  \node[ssub]  at (4.5*\sw, \hE-1.60) {open-ended\\ exchange};
+
+  % --- in-step foothold tags ---
+  \node[tag] (youare) at (1.5*\sw, 0.72)
+    {{\footnotesize\faPaw}\;YOU ARE HERE\\[1pt]{\normalfont\tiny products + most ML}};
+  \node[snd] at (2.5*\sw, 1.20)
+    {soundboards reach here\\ (with trained symbols)};
+
+  % --- the observer, on the ground, looking up ---
+  \node[text=pawdeep, font=\fontsize{14}{14}\selectfont] at (-1.00,0.21) {\faDog};
+  \node[font=\sffamily\tiny, text=ink!62, align=center, anchor=south]
+    at (-1.00,0.72) {15{,}000 years\\ of cohabitation};
+
+  % --- semantic gap label (left margin) ---
+  \node[pill] at (-1.55, \gy)
+    {THE SEMANTIC GAP\\[1pt]\mdseries no generative grammar\\ to translate};
+
+  % --- increasing capability arrow along the treads ---
+  \draw[->, ink!50, line width=0.9pt] (0.5*\sw, \hA+0.30)
+    -- (4.5*\sw, \hE+0.30)
+    node[sloped, above, font=\sffamily\scriptsize\itshape, text=ink!55, pos=0.62]
+    {increasing capability $\cdot$ difficulty};
+
+  % --- region captions ---
+  \node[font=\sffamily\scriptsize\bfseries, text=sagedeep, anchor=north]
+    at (1.0*\sw, -0.50) {\faCheckCircle\ data-rich $\cdot$ falsifiable $\cdot$ achievable now};
+  \node[font=\sffamily\scriptsize\bfseries, text=rosedeep, anchor=south west]
+    at (3.35*\sw, \hE+0.48) {\faQuestionCircle\ data-poor $\cdot$ partly ill-posed $\cdot$ aspirational};
 \end{tikzpicture}

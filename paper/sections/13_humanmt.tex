@@ -22,14 +22,16 @@ has already been pointed at animals.}
 
 Statistical MT treated translation as noisy-channel decoding over phrase
 tables learned from parallel corpora such as Europarl~\cite{koehn2004europarl}
-and OPUS~\cite{tiedemann2012opus}, toolkitted by Moses~\cite{koehn2005moses}.
+and OPUS~\cite{tiedemann2012opus}, toolkitted by Moses and, later, by
+fairseq and the Transformers library~\cite{koehn2005moses,ott2019fairseq,wolf2020transformers}.
 The neural turn replaced hand-built phrases with end-to-end encoder--decoder
 learning~\cite{sutskever2014seq2seq,cho2014rnn}, and the decisive ingredient
 was attention, a soft learned alignment between source and target
 positions~\cite{bahdanau2015attention,luong2015effective}. Convolutional
 variants competed briefly~\cite{gehring2017conv}, and production systems
 showed that deep recurrent attention models could be deployed at
-scale~\cite{wu2016gnmt,ott2018scaling}. Two data-side inventions proved as
+scale~\cite{wu2016gnmt,ott2018scaling}; systematic architecture exploration
+later confirmed which design choices actually matter~\cite{britz2017massive}. Two data-side inventions proved as
 important as the architecture: subword segmentation (BPE), which composes
 rare words from frequent pieces~\cite{sennrich2016bpe}, and back-translation,
 which manufactures parallel signal from monolingual
@@ -88,11 +90,13 @@ judgment~\cite{freitag2021experts} and adjudicated annually at
 WMT~\cite{bojar2018wmt,barrault2019wmt,kocmi2022wmt}. Every one of these
 presupposes a ground-truth target sentence.
 
-Open and proprietary LLMs (LLaMA, Llama~2, GPT-4, Gemini, Claude,
-Gemma)~\cite{touvron2023llama,touvron2023llama2,openai2023gpt4,gemini2024,anthropic2024claude,gemma2024},
+Open and proprietary LLMs (LLaMA, Llama~2, PaLM, GPT-4, Gemini, Claude,
+Gemma)~\cite{touvron2023llama,touvron2023llama2,chowdhery2023palm,openai2023gpt4,gemini2024,anthropic2024claude,gemma2024},
 instruction tuning~\cite{ouyang2022instruct}, and chain-of-thought
 reasoning~\cite{wei2022chain} supply the semantic and interactive layer;
-vision-language models (CLIP, Flamingo, LLaVA,
+whether these capabilities are genuinely emergent or an artifact of the
+metrics we choose is itself contested~\cite{wei2022emergent,schaeffer2023mirage}.
+Vision-language models (CLIP, Flamingo, LLaVA,
 BLIP-2)~\cite{radford2021clip,alayrac2022flamingo,liu2023llava,li2023blip2}
 show how to bind a non-linguistic modality to language, the exact operation
 a dog translator attempts when grounding a bark to a context.
@@ -132,7 +136,9 @@ VQ-VAE~\cite{vandenoord2017vqvae}, Jukebox~\cite{dhariwal2020jukebox},
 SoundStream and EnCodec~\cite{zeghidour2021soundstream,defossez2022encodec},
 AudioLM~\cite{borsos2023audiolm} and its music and sound
 successors~\cite{agostinelli2023musiclm,copet2023musicgen,kreuk2023audiogen},
-VALL-E~\cite{wang2023valle}, UniAudio~\cite{yang2024uniaudio}, and audio-LLMs
+VALL-E~\cite{wang2023valle}, UniAudio~\cite{yang2024uniaudio}, neural
+text-to-speech (FastSpeech, HiFi-GAN)~\cite{ren2019fastspeech,kong2020hifigan},
+and audio-LLMs
 (AudioPaLM, SALMONN, Qwen-Audio)~\cite{rubenstein2023audiopalm,tang2024salmonn,chu2024qwenaudio}.
 This is the discretization step a ``bark alphabet'' would require, the
 strategy Project CETI applied to whale codas~\cite{sharma2024whale}.

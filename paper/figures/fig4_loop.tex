@@ -1,0 +1,26 @@
+% Figure 4 - The developmental three-way closed loop: algorithm, dog, human.
+% \input by sections/08_distance.tex.
+\begin{tikzpicture}[
+  font=\sffamily,
+  >={Latex[length=2.6mm,width=2mm]},
+  actor/.style={rounded corners=5pt,draw=ink!70,line width=0.8pt,
+    minimum width=2.9cm,minimum height=1.15cm,align=center,inner sep=5pt,
+    font=\sffamily\small\bfseries},
+  fl/.style={font=\sffamily\scriptsize\bfseries,text=ink!80,align=center},
+  arw/.style={line width=1.2pt},
+]
+  \node[actor,fill=paw!55]   (ALG) at (210:2.6) {ALGORITHM\\[1pt]\mdseries\scriptsize interpret \& emit};
+  \node[actor,fill=sage!55]  (DOG) at (330:2.6) {DOG\\[1pt]\mdseries\scriptsize respond};
+  \node[actor,fill=sky!45]   (HUM) at (90:2.6)  {HUMAN\\[1pt]\mdseries\scriptsize scaffold \& reward};
+
+  \draw[arw,pawdeep,->]  (ALG) to[bend left=26] node[fl,midway,sloped,above] {prompt}  (DOG);
+  \draw[arw,sagedeep,->] (DOG) to[bend left=26] node[fl,midway,sloped,above] {behavior} (HUM);
+  \draw[arw,skydeep,->]  (HUM) to[bend left=26] node[fl,midway,sloped,above] {reward}  (ALG);
+
+  \node[fill=cream,draw=rosedeep,line width=0.7pt,rounded corners=4pt,
+    inner sep=5pt,font=\sffamily\scriptsize,text=ink,align=center] at (0,0.05)
+    {co-adaptive loop\\[1pt]\bfseries behavior $=$ ground truth};
+
+  \node[font=\sffamily\scriptsize\itshape,text=ink!70,align=center] at (0,-3.35)
+    {begin in the puppy socialization window $\rightarrow$ a negotiated, grounded pidgin};
+\end{tikzpicture}

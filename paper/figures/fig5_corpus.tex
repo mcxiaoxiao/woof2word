@@ -1,0 +1,91 @@
+% Figure - The corpus behind this survey: annual flow + thematic mix.
+% Data: the 253 \bibitem entries of sections/12_bibliography.tex. Year = the
+% latest year recorded in the entry (23 entries fall before 2001). The seven
+% thematic groups are defined in the caption; counts sum to 253.
+\begin{tikzpicture}[font=\sffamily]
+  % --------------- panel (a): per-year bars + cumulative line -------------
+  \begin{axis}[
+      name=flow,
+      width=8.6cm, height=5.5cm,
+      ymin=0, ymax=32, xmin=2000.2, xmax=2026.8,
+      xtick={2002,2006,2010,2014,2018,2022,2026},
+      xticklabels={2002,2006,2010,2014,2018,2022,2026},
+      ytick={0,10,20,30},
+      tick label style={font=\scriptsize, text=ink!70},
+      axis lines*=left, line width=0.6pt, draw=ink!45,
+      ylabel near ticks,
+      ylabel style={font=\sffamily\scriptsize, text=ink!70},
+      ylabel={entries per year},
+      grid=major, grid style={ink!8},
+    ]
+    \addplot[ybar, bar width=0.40, fill=sky!75, draw=skydeep, line width=0.3pt]
+      coordinates {
+        (2001,1) (2002,4) (2003,3) (2004,1) (2005,3) (2006,3) (2007,2) (2008,2)
+        (2009,5) (2010,2) (2011,2) (2012,4) (2013,5) (2014,9) (2015,7) (2016,17)
+        (2017,12) (2018,13) (2019,15) (2020,24) (2021,20) (2022,15) (2023,30)
+        (2024,14) (2025,10) (2026,7)
+      };
+    \node[font=\sffamily\scriptsize, text=ink!62, align=left, anchor=south west]
+      at (axis cs:2000.9,26.2) {{\bfseries 23} entries pre-2001\\
+        {\tiny Shannon, Chomsky, early ML (1949--1999)}};
+    \node[font=\sffamily\scriptsize, text=pawdeep, align=left, anchor=south west]
+      at (axis cs:2011.4,21.2) {cumulative\\[-1pt]{\tiny (right axis)}};
+  \end{axis}
+
+  \begin{axis}[
+      at={(flow.south west)}, anchor=south west,
+      width=8.6cm, height=5.5cm,
+      xmin=2000.2, xmax=2026.8, ymin=0, ymax=282,
+      ytick={100,200,253},
+      tick label style={font=\scriptsize, text=pawdeep},
+      axis lines*=right, line width=0.6pt, draw=ink!30,
+      xtick=\empty, grid=none,
+    ]
+    \addplot[no marks, pawdeep, densely dashed, line width=1.1pt]
+      coordinates {
+        (2001,24) (2002,28) (2003,31) (2004,32) (2005,35) (2006,38) (2007,40)
+        (2008,42) (2009,47) (2010,49) (2011,51) (2012,55) (2013,60) (2014,69)
+        (2015,76) (2016,93) (2017,105) (2018,118) (2019,133) (2020,157)
+        (2021,177) (2022,192) (2023,222) (2024,236) (2025,246) (2026,253)
+      };
+  \end{axis}
+
+  \node[font=\sffamily\bfseries\scriptsize, text=ink!75, anchor=south west]
+    at ($(flow.north west)+(0pt,4pt)$) {(a) when the citations appear};
+
+  % ------------------------ panel (b): thematic donut ---------------------
+  \begin{scope}[shift={($(flow.south east)+(3.6cm,2.75cm)$)}]
+    \node[font=\sffamily\bfseries\scriptsize, text=ink!75, anchor=south]
+      at (0,2.86) {(b) what they are about};
+    \def\R{1.60}\def\ri{0.98}\def\angl{90}
+    \foreach \n/\col/\lab in {
+      50/skydeep/{cross-species\\\& bioacoustics},
+      39/pawdeep/{speech, audio\\\& codecs},
+      39/sagedeep/{transfer,\\ eval \& ML},
+      36/rosedeep/{machine\\ translation},
+      32/sky!80!black/{LLMs \&\\\ multimodal},
+      30/gold!80!black/{canine \&\\ products},
+      27/paw!90!black/{ethics \&\\ statistics}}
+    {
+      \pgfmathsetmacro{\delta}{\n/253*360}
+      \pgfmathsetmacro{\next}{\angl-\delta}
+      \pgfmathsetmacro{\mid}{\angl-\delta/2}
+      \draw[fill=\col, draw=cream, line width=1pt]
+        (\angl:\R) arc[start angle=\angl, end angle=\next, radius=\R]
+        -- (\next:\ri) arc[start angle=\next, end angle=\angl, radius=\ri] -- cycle;
+      \node[font=\sffamily\bfseries\scriptsize, text=white, align=center]
+        at (\mid:1.29) {\n};
+      \pgfmathsetmacro{\cx}{cos(\mid)}
+      \ifdim\cx pt>0pt
+        \node[font=\sffamily\tiny, text=ink!80, align=left, anchor=west]
+          at (\mid:{\R+0.13}) {\lab};
+      \else
+        \node[font=\sffamily\tiny, text=ink!80, align=right, anchor=east]
+          at (\mid:{\R+0.13}) {\lab};
+      \fi
+      \xdef\angl{\next}
+    }
+    \node[font=\sffamily\bfseries\LARGE, text=ink, anchor=south] at (0,-0.10) {253};
+    \node[font=\sffamily\tiny, text=ink!65, anchor=north] at (0,-0.14) {references};
+  \end{scope}
+\end{tikzpicture}

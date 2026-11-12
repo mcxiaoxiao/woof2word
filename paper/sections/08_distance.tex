@@ -70,6 +70,84 @@ would itself sharpen the semantic-gap claim. Fifth, engineered rather than
 extracted dialogue: expand the soundboard into a richer negotiated symbol
 system, with the dog as partner and the behavior as check.
 
+\subsection{The developmental closed loop: learning to talk together}
+The soundboard is an existence proof, and it points at a route the ladder
+alone does not name. A dog pressed a button and a human read the intent;
+the loop closed because a person supplied the meaning and the
+reward~\cite{bastos2024plos,bastos2024scirep}. What if the loop were tightened,
+automated, and begun early---algorithm, dog, and human each adapting to the
+others, a puppy learning a negotiated symbol system the way a child learns
+its first words? This is not decoding the bark. It is building, in real
+time, a shared code the bark never contained (Figure~\ref{fig:loop}).
+
+\begin{figure}[t]
+\centering
+\resizebox{0.82\textwidth}{!}{\input{figures/fig4_loop.tex}}
+\caption{\textbf{The developmental three-way closed loop.} The algorithm
+emits a candidate signal or prompt; the dog responds with behavior
+(approach, look, press, refuse); the human supplies reward and blind
+validation. Each turn refreshes an animal-generated error signal, so a
+negotiated, grounded code can be built up over development---beginning in
+the puppy socialization window---rather than extracted from spontaneous
+vocalization.}
+\label{fig:loop}
+\end{figure}
+
+Three literatures converge on the design. The oldest is learning theory:
+behavior is shaped by its consequences, and a timely, consistent,
+unambiguous reinforcer---the clicker is the canonical human--dog
+implementation---turns spontaneous action into intentional
+communication~\cite{skinner1953science,pryor1999dont}. The second is
+development. Dogs pass through a primary socialization window in which human
+social signals are absorbed with unusual
+ease~\cite{scott1965genetics,freedman1961critical,serpell1995early}, and they
+are born ready for it: eight-week-old puppies follow human pointing and gaze
+with little training, a sensitivity that is largely
+heritable~\cite{topal2009differential,bray2021early} and that domestication,
+not learning alone, appears to have tuned~\cite{hare2002domestication,miklosi2003lookback,udell2010what}.
+The third is machine learning that treats feedback as a first-class signal:
+shaping an agent with a teacher's evaluative reward---TAMER, and the
+preference-based reinforcement underlying modern
+alignment---is exactly a closed loop in which reward stands in for a missing
+objective~\cite{knox2009tamer,christiano2017preferences}. An
+animal--computer interface delivering the clicker's consistency at machine
+rate and calibration is the obvious canine transposition~\cite{mancini2011aci}.
+
+Formally, the loop is a signaling game with a real animal as one
+player~\cite{lewis1969convention}: symbols are not mined from the dog's
+vocabulary but negotiated until they are grounded in shared
+consequences~\cite{steels2003evolving,kirby2008cumulative,smith2003iterated},
+and multi-agent learning shows a communicative code emerging between partners
+who must cooperate to be rewarded~\cite{lazaridou2017emergence,foerster2016communicate}.
+The precedent is the great-ape rearing programs, begun in infancy and
+sustained by a closed loop of model, cue, and
+reward~\cite{gardner1969teaching,savage1994kanzi}; their sober ending---symbol
+use without generative syntax~\cite{terrace1979ape}---is the caution that
+travels with the promise, and it is the same ceiling the ladder predicts.
+
+Why the route matters to this survey's argument is one word: \emph{error
+signal}. The field's central deficit is that a translation has no ground
+truth to be scored against (Section~\ref{sec:eval}). A developmental closed
+loop does not find that ground truth in the bark; it manufactures one. The
+dog's consequent behavior is a genuine, animal-generated check on the
+system's hypothesis, refreshed every trial, and the human's reward
+calibrates it. This is the strongest available version of engineered, not
+extracted, dialogue, and the most concrete candidate for the field's
+attention-moment: not a new architecture, but a protocol that finally lets
+the dog correct us.
+
+The limits travel with it. What is built is a pidgin---a small,
+human-scaffolded, referential code---not the transcription of spontaneous
+vocalization; the semantic gap is bypassed by construction, not
+crossed~\cite{hauser2002faculty,chomsky1957syntactic}. Rearing a puppy into
+an instrumented training regime is a welfare question before it is a
+technical one, and the animal's consent is the constraint the ethics
+framework refuses to trade away~\cite{mancini2011aci,birch2024edge}. A dog
+raised inside a well-designed closed loop could become the most legible
+partner we have ever built---fluent in a language two species invented for
+one. That is worth doing, and it is, precisely, not the fantasy in the app
+store.
+
 \subsection{Could there be an ``Attention Is All You Need'' moment?}
 The Transformer arrived as a machine-translation paper and became a
 general-purpose engine of the field~\cite{vaswani2017attention}, so it is
